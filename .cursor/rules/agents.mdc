@@ -1,0 +1,43 @@
+---
+description: Always-on constraints for Envelope Copilot
+alwaysApply: true
+---
+
+# Agent rules
+
+## Before writing code
+Read `docs/architecture.md` and the relevant file in `docs/decisions/`. Decision docs are **product law** — if a decision doc and your instinct disagree, the doc wins. To change behavior it defines, edit the doc first and say so.
+
+## Non-negotiable
+- **Bun only.** Never npm/yarn/pnpm.
+- `turbo run check-types` after every change.
+- Deps used by 2+ workspaces → root `catalog:`. Bump versions in one place.
+- No `console.log` — use `core/observability`.
+- Never commit `.env*`. Secrets via t3-env in each package's `public/keys.ts`.
+
+## Frameworks
+- UI apps are **Next.js 15 App Router**. Server Components by default; add `'use client'` only for event handlers, refs, or animation frames.
+- The API app is **NestJS 11**, organized by **feature module**, never by technical layer.
+- **`core` never imports NestJS or React.** It is plain TypeScript. Nest providers and React components are thin wrappers that call into it. If deleting `web/` and `api/` would break `core/`, the boundary has leaked.
+- Swappable dependencies (`BmsAdapter`, weather source) are bound by **symbol injection token**, never by an `if` or a bare interface.
+- Validate every controller boundary through the global `ZodValidationPipe`. Do not add class-validator DTOs; `core/contracts` is the single source of schemas.
+- Fonts come from `next/font/google`. Never a CDN `<link>`.
+- `api` runs on **Node**, not the Bun runtime. Bun stays the package manager and the `core` test runner.
+
+## Architecture
+
+Structure is not law. `docs/architecture.md` describes what exists; reshape it when the work calls for it. The `docs/decisions/` files are law, because they encode product behaviour.
+- Name by **capability**, not vendor. FortyGuard lives in `core/weather/fortyguard/` and nothing outside that folder knows it exists.
+- Imports go **down layers only** (`docs/architecture.md`). No cycles. `core` never imports `web` or `api`.
+- Transport is thin: parse input → call `core` → render or return. No domain logic in routes, controllers, or components.
+- `policies` are **pure**: `(state) => Proposal[]`. No I/O, no actuation, no conflict resolution.
+
+## Product invariants
+- **Never inline a threshold.** All values come from `docs/decisions/product/thresholds.md` via `core`.
+- **Every threshold uses hysteresis.** A single-threshold comparison in `policies` is a bug.
+- **Every command carries a populated rationale.** An empty rationale fails the test suite.
+- **No live API calls outside fixture capture.** Demo runs offline from committed fixtures.
+- Both strategies consume the identical fixture. Degrade the *signal* for baseline, never the loop.
+
+## Claims
+Read `docs/decisions/product/what-we-can-claim.md` before any pitch copy or metric. Air quality is **metro scale**, PM2.5 is **daily**; only temperature is hyperlocal. Never write UI copy or docs saying "we control the building", "we saved X% energy", or "we integrate with BMS". See `docs/decisions/product/honesty-rails.md` for the replacements. Modeled numbers render their assumptions on screen.
