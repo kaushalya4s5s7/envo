@@ -1,0 +1,38 @@
+{
+  "name": "core",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./contracts": "./src/contracts/index.ts",
+    "./utils": "./src/utils/index.ts",
+    "./observability": "./src/observability/index.ts",
+    "./building": "./src/building/index.ts",
+    "./twin": "./src/twin/index.ts",
+    "./bms": "./src/bms/index.ts",
+    "./policies": "./src/policies/index.ts",
+    "./copilot": "./src/copilot/index.ts",
+    "./weather/solar": "./src/weather/solar.ts",
+    "./bms/boptest": "./src/bms/boptest/index.ts",
+    "./agent": "./src/agent/index.ts",
+    "./agent/gemini": "./src/agent/gemini.ts",
+    "./weather/normalize": "./src/weather/normalize.ts",
+    "./weather/fortyguard": "./src/weather/fortyguard/index.ts",
+    "./copilot/artifact": "./src/copilot/artifact.ts",
+    "./sandbox": "./src/sandbox/index.ts",
+    "./connect": "./src/connect/index.ts",
+    "./autonomy": "./src/autonomy/index.ts"
+  },
+  "scripts": {
+    "check-types": "tsc --noEmit",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "@google/genai": "^2.19.0",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "catalog:"
+  }
+}

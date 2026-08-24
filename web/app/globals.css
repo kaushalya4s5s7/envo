@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/* Design tokens. Every value here traces to .agents/skills/design-skills.md.
+   Spacing is deliberately NOT redefined: Tailwind's default steps already contain
+   the approved set (0.5=2 1=4 2=8 3=12 4=16 6=24 8=32 10=40 12=48 16=64 20=80 24=96).
+   Using any other step is a design system violation, not a Tailwind one. */
+@theme {
+  /* B4 — the only permitted dark backgrounds */
+  --color-ink:       #000000;
+  --color-surface:   #131209;
+  --color-surface-2: #181818;
+  --color-surface-3: #1F1F1F;
+  --color-line:      #272727;
+  --color-line-2:    #313131;
+
+  --color-fg:        #FFFFFF;
+  --color-fg-2:      #9B9B9B;
+  --color-fg-3:      #6B6B6B;
+
+  /* data palette — foreground only, never a background */
+  --color-heat:      #E8843C;
+  --color-smoke:     #9A8FA6;
+  --color-safe:      #57C99A;
+  --color-alert:     #E05A4E;
+
+  /* B7 — the one easing curve */
+  --ease-fluid: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background-color: var(--color-ink);
+    /* flat colour dots, not a gradient — B4 holds */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='1' height='1' fill='%23181818'/%3E%3C/svg%3E");
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-safe);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@utility tabular { font-variant-numeric: tabular-nums; }
+
+/* B5 — the one place a gradient is allowed, and only on text */
+@utility heading-gradient {
+  background-image: linear-gradient(90deg, #FFFFFF 0%, #9B9B9B 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; }
+}
