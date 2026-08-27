@@ -1,0 +1,191 @@
+{
+  "_note": "Live from multizone_office_simple_air, peak_cool_day, 28 Aug 2026. Trimmed. Control step 3600 s.",
+  "control_step_s": 3600,
+  "inputs_count": 58,
+  "measurements_count": 66,
+  "inputs_we_drive": {
+    "hvac_oveAhu_yOA_activate": {
+      "Unit": null,
+      "Description": "Activation for Outside air damper position setpoint for AHU",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "hvac_oveAhu_yOA_u": {
+      "Unit": "1",
+      "Description": "Outside air damper position setpoint for AHU",
+      "Minimum": 0,
+      "Maximum": 1
+    },
+    "hvac_oveZonSupCor_TZonCooSet_activate": {
+      "Unit": null,
+      "Description": "Activation for Zone air temperature cooling setpoint for zone cor",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "hvac_oveZonSupCor_TZonCooSet_u": {
+      "Unit": "K",
+      "Description": "Zone air temperature cooling setpoint for zone cor",
+      "Minimum": 285.15,
+      "Maximum": 313.15
+    },
+    "hvac_oveZonSupCor_TZonHeaSet_activate": {
+      "Unit": null,
+      "Description": "Activation for Zone air temperature heating setpoint for zone cor",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "hvac_oveZonSupCor_TZonHeaSet_u": {
+      "Unit": "K",
+      "Description": "Zone air temperature heating setpoint for zone cor",
+      "Minimum": 285.15,
+      "Maximum": 313.15
+    },
+    "hvac_oveZonSupEas_TZonCooSet_activate": {
+      "Unit": null,
+      "Description": "Activation for Zone air temperature cooling setpoint for zone eas",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "hvac_oveZonSupEas_TZonCooSet_u": {
+      "Unit": "K",
+      "Description": "Zone air temperature cooling setpoint for zone eas",
+      "Minimum": 285.15,
+      "Maximum": 313.15
+    },
+    "hvac_oveZonSupEas_TZonHeaSet_activate": {
+      "Unit": null,
+      "Description": "Activation for Zone air temperature heating setpoint for zone eas",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "hvac_oveZonSupEas_TZonHeaSet_u": {
+      "Unit": "K",
+      "Description": "Zone air temperature heating setpoint for zone eas",
+      "Minimum": 285.15,
+      "Maximum": 313.15
+    },
+    "hvac_oveZonSupNor_TZonCooSet_activate": {
+      "Unit": null,
+      "Description": "Activation for Zone air temperature cooling setpoint for zone nor",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "hvac_oveZonSupNor_TZonCooSet_u": {
+      "Unit": "K",
+      "Description": "Zone air temperature cooling setpoint for zone nor",
+      "Minimum": 285.15,
+      "Maximum": 313.15
+    },
+    "hvac_oveZonSupNor_TZonHeaSet_activate": {
+      "Unit": null,
+      "Description": "Activation for Zone air temperature heating setpoint for zone nor",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "hvac_oveZonSupNor_TZonHeaSet_u": {
+      "Unit": "K",
+      "Description": "Zone air temperature heating setpoint for zone nor",
+      "Minimum": 285.15,
+      "Maximum": 313.15
+    }
+  },
+  "measurements_we_read": {
+    "chi_reaPChi_y": {
+      "Unit": "W",
+      "Description": "Electric power consumed by chiller",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "heaPum_reaPHeaPum_y": {
+      "Unit": "W",
+      "Description": "Electric power consumed by heat pump",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "hvac_reaZonCor_CO2Zon_y": {
+      "Unit": "ppm",
+      "Description": "Zone air CO2 measurement for zone cor",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "hvac_reaZonCor_TZon_y": {
+      "Unit": "K",
+      "Description": "Zone air temperature measurement for zone cor",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "hvac_reaZonEas_CO2Zon_y": {
+      "Unit": "ppm",
+      "Description": "Zone air CO2 measurement for zone eas",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "hvac_reaZonEas_TZon_y": {
+      "Unit": "K",
+      "Description": "Zone air temperature measurement for zone eas",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "hvac_reaZonNor_CO2Zon_y": {
+      "Unit": "ppm",
+      "Description": "Zone air CO2 measurement for zone nor",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "hvac_reaZonNor_TZon_y": {
+      "Unit": "K",
+      "Description": "Zone air temperature measurement for zone nor",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "hvac_reaZonSou_CO2Zon_y": {
+      "Unit": "ppm",
+      "Description": "Zone air CO2 measurement for zone sou",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "hvac_reaZonSou_TZon_y": {
+      "Unit": "K",
+      "Description": "Zone air temperature measurement for zone sou",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "hvac_reaZonWes_CO2Zon_y": {
+      "Unit": "ppm",
+      "Description": "Zone air CO2 measurement for zone wes",
+      "Minimum": null,
+      "Maximum": null
+    },
+    "hvac_reaZonWes_TZon_y": {
+      "Unit": "K",
+      "Description": "Zone air temperature measurement for zone wes",
+      "Minimum": null,
+      "Maximum": null
+    }
+  },
+  "advance_response_excerpt": {
+    "time": 16592400,
+    "chi_reaPChi_y": 0.10185504793580977,
+    "chi_reaTSup_y": 279.15,
+    "heaPum_reaTSup_y": 318.15,
+    "hvac_reaAhu_TSup_y": 285.01052309485146,
+    "hvac_reaZonCor_CO2Zon_y": 755.1542890317701,
+    "hvac_reaZonCor_TSup_y": 285.0101418522125,
+    "hvac_reaZonCor_TZon_y": 298.24390311782554,
+    "hvac_reaZonEas_CO2Zon_y": 753.0731027392338,
+    "hvac_reaZonEas_TSup_y": 285.0079714626821,
+    "hvac_reaZonEas_TZon_y": 298.4257511590733,
+    "hvac_reaZonNor_CO2Zon_y": 761.3906842787699
+  },
+  "kpi_keys": [
+    "tdis_tot",
+    "idis_tot",
+    "ener_tot",
+    "cost_tot",
+    "emis_tot",
+    "pele_tot",
+    "pgas_tot",
+    "pdih_tot",
+    "time_rat"
+  ]
+}

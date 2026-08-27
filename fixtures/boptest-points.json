@@ -1,0 +1,767 @@
+{
+  "capturedAt": "2026-08-29T08:37:10.320Z",
+  "testcase": "multizone_office_simple_air",
+  "source": "live BOPTEST discovery via GET /inputs and /measurements",
+  "points": [
+    {
+      "name": "hvac_oveAhu_TSupSet_u",
+      "description": "Supply air temperature setpoint for AHU",
+      "unit": "K",
+      "min": 285.15,
+      "max": 313.15,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveAhu_dpSet_u",
+      "description": "Supply duct pressure setpoint for AHU",
+      "unit": "Pa",
+      "min": 50,
+      "max": 410,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveAhu_yCoo_u",
+      "description": "Cooling coil valve control signal for AHU",
+      "unit": "1",
+      "min": 0,
+      "max": 1,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveAhu_yFan_u",
+      "description": "Supply fan speed setpoint for AHU",
+      "unit": "1",
+      "min": 0,
+      "max": 1,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveAhu_yHea_u",
+      "description": "Heating coil valve control signal for AHU",
+      "unit": "1",
+      "min": 0,
+      "max": 1,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveAhu_yOA_u",
+      "description": "Outside air damper position setpoint for AHU",
+      "unit": "1",
+      "min": 0,
+      "max": 1,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveAhu_yPumCoo_u",
+      "description": "Cooling coil pump control signal for AHU",
+      "unit": "1",
+      "min": 0,
+      "max": 1,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveAhu_yPumHea_u",
+      "description": "Heating coil pump control signal for AHU",
+      "unit": "1",
+      "min": 0,
+      "max": 1,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveAhu_yRet_u",
+      "description": "Return air damper position setpoint for AHU",
+      "unit": "1",
+      "min": 0,
+      "max": 1,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonActCor_yDam_u",
+      "description": "Damper position setpoint for zone cor",
+      "unit": "1",
+      "min": 0,
+      "max": 1,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonActCor_yReaHea_u",
+      "description": "Reheat control signal for zone cor",
+      "unit": "1",
+      "min": 0,
+      "max": 1,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonActEas_yDam_u",
+      "description": "Damper position setpoint for zone eas",
+      "unit": "1",
+      "min": 0,
+      "max": 1,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonActEas_yReaHea_u",
+      "description": "Reheat control signal for zone eas",
+      "unit": "1",
+      "min": 0,
+      "max": 1,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonActNor_yDam_u",
+      "description": "Damper position setpoint for zone nor",
+      "unit": "1",
+      "min": 0,
+      "max": 1,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonActNor_yReaHea_u",
+      "description": "Reheat control signal for zone nor",
+      "unit": "1",
+      "min": 0,
+      "max": 1,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonActSou_yDam_u",
+      "description": "Damper position setpoint for zone sou",
+      "unit": "1",
+      "min": 0,
+      "max": 1,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonActSou_yReaHea_u",
+      "description": "Reheat control signal for zone sou",
+      "unit": "1",
+      "min": 0,
+      "max": 1,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonActWes_yDam_u",
+      "description": "Damper position setpoint for zone wes",
+      "unit": "1",
+      "min": 0,
+      "max": 1,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonActWes_yReaHea_u",
+      "description": "Reheat control signal for zone wes",
+      "unit": "1",
+      "min": 0,
+      "max": 1,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonSupCor_TZonCooSet_u",
+      "description": "Zone air temperature cooling setpoint for zone cor",
+      "unit": "K",
+      "min": 285.15,
+      "max": 313.15,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonSupCor_TZonHeaSet_u",
+      "description": "Zone air temperature heating setpoint for zone cor",
+      "unit": "K",
+      "min": 285.15,
+      "max": 313.15,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonSupEas_TZonCooSet_u",
+      "description": "Zone air temperature cooling setpoint for zone eas",
+      "unit": "K",
+      "min": 285.15,
+      "max": 313.15,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonSupEas_TZonHeaSet_u",
+      "description": "Zone air temperature heating setpoint for zone eas",
+      "unit": "K",
+      "min": 285.15,
+      "max": 313.15,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonSupNor_TZonCooSet_u",
+      "description": "Zone air temperature cooling setpoint for zone nor",
+      "unit": "K",
+      "min": 285.15,
+      "max": 313.15,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonSupNor_TZonHeaSet_u",
+      "description": "Zone air temperature heating setpoint for zone nor",
+      "unit": "K",
+      "min": 285.15,
+      "max": 313.15,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonSupSou_TZonCooSet_u",
+      "description": "Zone air temperature cooling setpoint for zone sou",
+      "unit": "K",
+      "min": 285.15,
+      "max": 313.15,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonSupSou_TZonHeaSet_u",
+      "description": "Zone air temperature heating setpoint for zone sou",
+      "unit": "K",
+      "min": 285.15,
+      "max": 313.15,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonSupWes_TZonCooSet_u",
+      "description": "Zone air temperature cooling setpoint for zone wes",
+      "unit": "K",
+      "min": 285.15,
+      "max": 313.15,
+      "kind": "input"
+    },
+    {
+      "name": "hvac_oveZonSupWes_TZonHeaSet_u",
+      "description": "Zone air temperature heating setpoint for zone wes",
+      "unit": "K",
+      "min": 285.15,
+      "max": 313.15,
+      "kind": "input"
+    },
+    {
+      "name": "chi_reaFloSup_y",
+      "description": "Supply water flow rate of chiller",
+      "unit": "m3/s",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "chi_reaPChi_y",
+      "description": "Electric power consumed by chiller",
+      "unit": "W",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "chi_reaPPumDis_y",
+      "description": "Electric power consumed by chilled water distribution pump",
+      "unit": "W",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "chi_reaTRet_y",
+      "description": "Return water temperature of chiller",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "chi_reaTSup_y",
+      "description": "Supply water temperature of chiller",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "heaPum_reaFloSup_y",
+      "description": "Supply water flow rate of heat pump",
+      "unit": "m3/s",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "heaPum_reaPHeaPum_y",
+      "description": "Electric power consumed by heat pump",
+      "unit": "W",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "heaPum_reaPPumDis_y",
+      "description": "Electric power consumed by hot water distribution pump",
+      "unit": "W",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "heaPum_reaTRet_y",
+      "description": "Return water temperature of heat pump",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "heaPum_reaTSup_y",
+      "description": "Supply water temperature of heat pump",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaAhu_PFanSup_y",
+      "description": "Electrical power measurement of supply fan for AHU",
+      "unit": "W",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaAhu_PPumCoo_y",
+      "description": "Electrical power measurement of cooling coil pump for AHU",
+      "unit": "W",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaAhu_PPumHea_y",
+      "description": "Electrical power measurement of heating coil pump for AHU",
+      "unit": "W",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaAhu_TCooCoiRet_y",
+      "description": "Cooling coil return water temperature measurement for AHU",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaAhu_TCooCoiSup_y",
+      "description": "Cooling coil supply water temperature measurement for AHU",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaAhu_THeaCoiRet_y",
+      "description": "Heating coil return water temperature measurement for AHU",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaAhu_THeaCoiSup_y",
+      "description": "Heating coil supply water temperature measurement for AHU",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaAhu_TMix_y",
+      "description": "Mixed air temperature measurement for AHU",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaAhu_TRet_y",
+      "description": "Return air temperature measurement for AHU",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaAhu_TSup_y",
+      "description": "Supply air temperature measurement for AHU",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaAhu_V_flow_ret_y",
+      "description": "Return air flowrate measurement for AHU",
+      "unit": "m3/s",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaAhu_V_flow_sup_y",
+      "description": "Supply air flowrate measurement for AHU",
+      "unit": "m3/s",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaAhu_dp_sup_y",
+      "description": "Discharge pressure of supply fan for AHU",
+      "unit": "Pa",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonCor_CO2Zon_y",
+      "description": "Zone air CO2 measurement for zone cor",
+      "unit": "ppm",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonCor_TSup_y",
+      "description": "Discharge air temperature to zone measurement for zone cor",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonCor_TZon_y",
+      "description": "Zone air temperature measurement for zone cor",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonCor_V_flow_y",
+      "description": "Discharge air flowrate to zone measurement for zone cor",
+      "unit": "m3/s",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonEas_CO2Zon_y",
+      "description": "Zone air CO2 measurement for zone eas",
+      "unit": "ppm",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonEas_TSup_y",
+      "description": "Discharge air temperature to zone measurement for zone eas",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonEas_TZon_y",
+      "description": "Zone air temperature measurement for zone eas",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonEas_V_flow_y",
+      "description": "Discharge air flowrate to zone measurement for zone eas",
+      "unit": "m3/s",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonNor_CO2Zon_y",
+      "description": "Zone air CO2 measurement for zone nor",
+      "unit": "ppm",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonNor_TSup_y",
+      "description": "Discharge air temperature to zone measurement for zone nor",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonNor_TZon_y",
+      "description": "Zone air temperature measurement for zone nor",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonNor_V_flow_y",
+      "description": "Discharge air flowrate to zone measurement for zone nor",
+      "unit": "m3/s",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonSou_CO2Zon_y",
+      "description": "Zone air CO2 measurement for zone sou",
+      "unit": "ppm",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonSou_TSup_y",
+      "description": "Discharge air temperature to zone measurement for zone sou",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonSou_TZon_y",
+      "description": "Zone air temperature measurement for zone sou",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonSou_V_flow_y",
+      "description": "Discharge air flowrate to zone measurement for zone sou",
+      "unit": "m3/s",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonWes_CO2Zon_y",
+      "description": "Zone air CO2 measurement for zone wes",
+      "unit": "ppm",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonWes_TSup_y",
+      "description": "Discharge air temperature to zone measurement for zone wes",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonWes_TZon_y",
+      "description": "Zone air temperature measurement for zone wes",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "hvac_reaZonWes_V_flow_y",
+      "description": "Discharge air flowrate to zone measurement for zone wes",
+      "unit": "m3/s",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaCeiHei_y",
+      "description": "Cloud cover ceiling height measurement",
+      "unit": "m",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaCloTim_y",
+      "description": "Day number with units of seconds",
+      "unit": "s",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaHDifHor_y",
+      "description": "Horizontal diffuse solar radiation measurement",
+      "unit": "W/m2",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaHDirNor_y",
+      "description": "Direct normal radiation measurement",
+      "unit": "W/m2",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaHGloHor_y",
+      "description": "Global horizontal solar irradiation measurement",
+      "unit": "W/m2",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaHHorIR_y",
+      "description": "Horizontal infrared irradiation measurement",
+      "unit": "W/m2",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaLat_y",
+      "description": "Latitude of the location",
+      "unit": "rad",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaLon_y",
+      "description": "Longitude of the location",
+      "unit": "rad",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaNOpa_y",
+      "description": "Opaque sky cover measurement",
+      "unit": "1",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaNTot_y",
+      "description": "Sky cover measurement",
+      "unit": "1",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaPAtm_y",
+      "description": "Atmospheric pressure measurement",
+      "unit": "Pa",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaRelHum_y",
+      "description": "Outside relative humidity measurement",
+      "unit": "1",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaSolAlt_y",
+      "description": "Solar altitude angle measurement",
+      "unit": "rad",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaSolDec_y",
+      "description": "Solar declination angle measurement",
+      "unit": "rad",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaSolHouAng_y",
+      "description": "Solar hour angle measurement",
+      "unit": "rad",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaSolTim_y",
+      "description": "Solar time",
+      "unit": "s",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaSolZen_y",
+      "description": "Solar zenith angle measurement",
+      "unit": "rad",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaTBlaSky_y",
+      "description": "Black-body sky temperature measurement",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaTDewPoi_y",
+      "description": "Dew point temperature measurement",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaTDryBul_y",
+      "description": "Outside drybulb temperature measurement",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaTWetBul_y",
+      "description": "Wet bulb temperature measurement",
+      "unit": "K",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaWinDir_y",
+      "description": "Wind direction measurement",
+      "unit": "rad",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    },
+    {
+      "name": "weaSta_reaWeaWinSpe_y",
+      "description": "Wind speed measurement",
+      "unit": "m/s",
+      "min": null,
+      "max": null,
+      "kind": "measurement"
+    }
+  ]
+}
