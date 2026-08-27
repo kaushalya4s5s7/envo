@@ -1,0 +1,131 @@
+{
+  "_note": "Trimmed live heatmap, 2026-08-26, 60m granularity, tcm. 3 of 276 tiles.",
+  "map_data": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "id": "0",
+        "type": "Feature",
+        "properties": {
+          "tile_id": 0,
+          "average_temperature": 25.1072,
+          "min_temperature": 18.1747,
+          "max_temperature": 30.2329
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -73.98802293315237,
+                40.7518496534556
+              ],
+              [
+                -73.98730615774265,
+                40.751843365864396
+              ],
+              [
+                -73.9872979971214,
+                40.75238117847589
+              ],
+              [
+                -73.98801477830473,
+                40.75238746618567
+              ],
+              [
+                -73.98802293315237,
+                40.7518496534556
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "1",
+        "type": "Feature",
+        "properties": {
+          "tile_id": 1,
+          "average_temperature": 25.1135,
+          "min_temperature": 18.1799,
+          "max_temperature": 30.2424
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -73.98730615774265,
+                40.751843365864396
+              ],
+              [
+                -73.98658938255933,
+                40.75183707382256
+              ],
+              [
+                -73.98658121616448,
+                40.75237488631542
+              ],
+              [
+                -73.9872979971214,
+                40.75238117847589
+              ],
+              [
+                -73.98730615774265,
+                40.751843365864396
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "2",
+        "type": "Feature",
+        "properties": {
+          "tile_id": 2,
+          "average_temperature": 25.12,
+          "min_temperature": 18.1852,
+          "max_temperature": 30.2521
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -73.98658938255933,
+                40.75183707382256
+              ],
+              [
+                -73.98587260760257,
+                40.75183077733013
+              ],
+              [
+                -73.98586443543412,
+                40.75236858970424
+              ],
+              [
+                -73.98658121616448,
+                40.75237488631542
+              ],
+              [
+                -73.98658938255933,
+                40.75183707382256
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "stats_data_keys": [
+    "temperature_stats",
+    "overall_temperature_distribution",
+    "normal_temperature_distribution",
+    "temperature_frequency"
+  ],
+  "temperature_stats": {
+    "minimum": 24.299,
+    "maximum": 25.6405,
+    "mean": 24.730746014492755,
+    "standard_deviation": 0.3346484229788626
+  }
+}

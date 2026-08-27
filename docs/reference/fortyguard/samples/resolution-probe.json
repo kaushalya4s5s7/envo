@@ -1,0 +1,65 @@
+{
+  "_note": "Evidence for the resolution limits recorded in api.md. Live probes, 27 Aug 2026, Premium key.",
+  "spatial_temperature": {
+    "date": "2026-07-18",
+    "time": "15:00",
+    "area_mi2": 23,
+    "granularity_m": 100,
+    "tiles": 4265,
+    "min_c": 25.7478,
+    "mean_c": 26.831495685814755,
+    "max_c": 27.3296,
+    "spread_c": 1.58,
+    "spread_f": 2.85,
+    "hottest_tile": {
+      "lat": 40.7259,
+      "lon": -73.9955,
+      "c": 27.33
+    },
+    "coolest_tile": {
+      "lat": 40.775,
+      "lon": -74.021,
+      "c": 25.75,
+      "note": "over the Hudson"
+    },
+    "single_hour_tile_min_equals_max": true
+  },
+  "air_quality_same_hour_2023_06_07_15_00": [
+    {
+      "place": "midtown Manhattan",
+      "lat": 40.758,
+      "lon": -73.9855,
+      "pm25_aqi": 156,
+      "o3_aqi": 49.6,
+      "apparent_c": 20.3
+    },
+    {
+      "place": "Newark NJ ~15 km",
+      "lat": 40.7357,
+      "lon": -74.1724,
+      "pm25_aqi": 156,
+      "o3_aqi": 49.6,
+      "apparent_c": 21.4
+    },
+    {
+      "place": "Philadelphia ~130 km",
+      "lat": 39.9526,
+      "lon": -75.1652,
+      "pm25_aqi": 144.9,
+      "o3_aqi": 67.3,
+      "apparent_c": 22.4
+    }
+  ],
+  "pm25_intraday_2023_06_07": {
+    "08:00": 156.2,
+    "20:00": 156.1,
+    "note": "single-hour calls; NYC actually went ~50 to 400+ that day"
+  },
+  "o3_intraday_2023_06_07": {
+    "range": [
+      36.4,
+      79.8
+    ],
+    "note": "ozone does vary hourly"
+  }
+}

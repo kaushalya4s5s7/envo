@@ -1,0 +1,143 @@
+{
+  "_note": "Trimmed live response, 2026-08-26, 40.758/-73.9855, filter_type 2, 06:00-22:00. First 5 of each array.",
+  "metadata": {
+    "timezone": "GMT-5",
+    "timezone_offset_hours": -5,
+    "time_range": {
+      "start": "2026-08-26T06:00:00-05:00",
+      "end": "2026-08-26T22:00:00-05:00",
+      "interval": "1h",
+      "count": 17
+    },
+    "timestamps": [
+      "2026-08-26T06:00:00-05:00",
+      "2026-08-26T07:00:00-05:00",
+      "2026-08-26T08:00:00-05:00",
+      "2026-08-26T09:00:00-05:00",
+      "2026-08-26T10:00:00-05:00"
+    ]
+  },
+  "locations": [
+    {
+      "lat": 40.758,
+      "lon": -73.9855,
+      "elevation": 135,
+      "temperature": 24.67,
+      "parameters": {
+        "heat_index_celsius": [
+          25,
+          25.1,
+          25.3,
+          25.5,
+          25.6
+        ],
+        "apparent_temperature_celsius": [
+          17.1,
+          18.3,
+          20.4,
+          22.3,
+          24.7
+        ],
+        "relative_humidity_percent": [
+          86.8,
+          84.7,
+          78.3,
+          70.3,
+          64.9
+        ],
+        "precipitation_mm": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cloud_cover_octas": [
+          70,
+          0,
+          17,
+          48,
+          29
+        ],
+        "wet_bulb_temperature_celsius": [
+          15,
+          15.6,
+          16.5,
+          17.1,
+          17.6
+        ],
+        "air_quality:idx": [
+          54.3,
+          53.8,
+          53.6,
+          53.7,
+          53.9
+        ],
+        "air_quality_pm2p5:idx": [
+          54.3,
+          53.8,
+          53.6,
+          53.7,
+          53.9
+        ],
+        "air_quality_pm10:idx": [
+          10.3,
+          10,
+          9.9,
+          10,
+          10.1
+        ],
+        "air_quality_no2:idx": [
+          10.9,
+          8.3,
+          7.1,
+          5.5,
+          4
+        ],
+        "aqi_us_co": [
+          2.1,
+          1.9,
+          1.9,
+          1.8,
+          1.8
+        ],
+        "air_quality_o3:idx": [
+          14.8,
+          15.2,
+          16.1,
+          17.6,
+          19.8
+        ],
+        "air_quality_so2:idx": [
+          0.5,
+          0.5,
+          0.7,
+          0.8,
+          0.8
+        ],
+        "methane_ppb": [
+          2287.4,
+          2285.9,
+          2252,
+          2201.9,
+          2162.1
+        ],
+        "co2_ppm": [
+          443,
+          445,
+          445,
+          443,
+          441
+        ]
+      },
+      "solar_irradiance": {
+        "clear_sky": {
+          "ghi": 382.75,
+          "dni": 483.98,
+          "dhi": 72.28
+        },
+        "description": "The above values provide insights into the average solar energy available at the specific location over a total of 17 hours from 2026-08-26 06:00 to 2026-08-26 22:00. GHI represents the total solar energy, DNI focuses on direct sunlight, and DHI accounts for scattered and diffuse radiation."
+      }
+    }
+  ]
+}

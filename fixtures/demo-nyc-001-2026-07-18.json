@@ -1,0 +1,1362 @@
+{
+  "fixture": {
+    "id": "demo-nyc-001-2026-07-18",
+    "synthetic": false,
+    "capturedAt": "2026-08-27T17:49:20.915Z",
+    "building": "demo-nyc-001",
+    "date": "2026-07-18",
+    "window": "06:00-22:00",
+    "granularity": 60,
+    "tileTemperatureC": 25.3901,
+    "droppedReadings": 0
+  },
+  "snapshots": [
+    {
+      "segmentId": "seg_40.7580_-73.9855",
+      "timezone": "America/New_York",
+      "intervalMin": 60,
+      "now": {
+        "at": "2026-07-18T11:00:00.000Z",
+        "apparentTempF": 73.75999999999999,
+        "wetBulbF": 65.84,
+        "pm25Aqi": 109.6,
+        "ozoneAqi": 27.5,
+        "cloudCoverPercent": 98
+      },
+      "forecast": [
+        {
+          "at": "2026-07-18T12:00:00.000Z",
+          "apparentTempF": 75.56,
+          "wetBulbF": 66.2,
+          "pm25Aqi": 109.4,
+          "ozoneAqi": 30,
+          "cloudCoverPercent": 98
+        },
+        {
+          "at": "2026-07-18T13:00:00.000Z",
+          "apparentTempF": 78.44,
+          "wetBulbF": 67.28,
+          "pm25Aqi": 109.5,
+          "ozoneAqi": 33.1,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T14:00:00.000Z",
+          "apparentTempF": 77.36,
+          "wetBulbF": 66.92,
+          "pm25Aqi": 110.7,
+          "ozoneAqi": 35.8,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T15:00:00.000Z",
+          "apparentTempF": 79.16,
+          "wetBulbF": 67.82,
+          "pm25Aqi": 113.2,
+          "ozoneAqi": 38.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T16:00:00.000Z",
+          "apparentTempF": 76.64,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 117.1,
+          "ozoneAqi": 40.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T17:00:00.000Z",
+          "apparentTempF": 76.28,
+          "wetBulbF": 70.7,
+          "pm25Aqi": 122.1,
+          "ozoneAqi": 42.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T18:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 127.4,
+          "ozoneAqi": 44.3,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T19:00:00.000Z",
+          "apparentTempF": 75.92,
+          "wetBulbF": 69.62,
+          "pm25Aqi": 132.7,
+          "ozoneAqi": 45.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T20:00:00.000Z",
+          "apparentTempF": 77.54,
+          "wetBulbF": 70.7,
+          "pm25Aqi": 137.9,
+          "ozoneAqi": 46.6,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T21:00:00.000Z",
+          "apparentTempF": 81.32,
+          "wetBulbF": 72.86,
+          "pm25Aqi": 143.1,
+          "ozoneAqi": 47.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T22:00:00.000Z",
+          "apparentTempF": 80.6,
+          "wetBulbF": 73.04,
+          "pm25Aqi": 148.3,
+          "ozoneAqi": 48.2,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T23:00:00.000Z",
+          "apparentTempF": 79.7,
+          "wetBulbF": 72.68,
+          "pm25Aqi": 150.8,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 95
+        }
+      ],
+      "clearSky": {
+        "ghiWm2": 454.02,
+        "dniWm2": 530.39,
+        "dhiWm2": 83.63
+      }
+    },
+    {
+      "segmentId": "seg_40.7580_-73.9855",
+      "timezone": "America/New_York",
+      "intervalMin": 60,
+      "now": {
+        "at": "2026-07-18T12:00:00.000Z",
+        "apparentTempF": 75.56,
+        "wetBulbF": 66.2,
+        "pm25Aqi": 109.4,
+        "ozoneAqi": 30,
+        "cloudCoverPercent": 98
+      },
+      "forecast": [
+        {
+          "at": "2026-07-18T13:00:00.000Z",
+          "apparentTempF": 78.44,
+          "wetBulbF": 67.28,
+          "pm25Aqi": 109.5,
+          "ozoneAqi": 33.1,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T14:00:00.000Z",
+          "apparentTempF": 77.36,
+          "wetBulbF": 66.92,
+          "pm25Aqi": 110.7,
+          "ozoneAqi": 35.8,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T15:00:00.000Z",
+          "apparentTempF": 79.16,
+          "wetBulbF": 67.82,
+          "pm25Aqi": 113.2,
+          "ozoneAqi": 38.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T16:00:00.000Z",
+          "apparentTempF": 76.64,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 117.1,
+          "ozoneAqi": 40.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T17:00:00.000Z",
+          "apparentTempF": 76.28,
+          "wetBulbF": 70.7,
+          "pm25Aqi": 122.1,
+          "ozoneAqi": 42.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T18:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 127.4,
+          "ozoneAqi": 44.3,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T19:00:00.000Z",
+          "apparentTempF": 75.92,
+          "wetBulbF": 69.62,
+          "pm25Aqi": 132.7,
+          "ozoneAqi": 45.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T20:00:00.000Z",
+          "apparentTempF": 77.54,
+          "wetBulbF": 70.7,
+          "pm25Aqi": 137.9,
+          "ozoneAqi": 46.6,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T21:00:00.000Z",
+          "apparentTempF": 81.32,
+          "wetBulbF": 72.86,
+          "pm25Aqi": 143.1,
+          "ozoneAqi": 47.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T22:00:00.000Z",
+          "apparentTempF": 80.6,
+          "wetBulbF": 73.04,
+          "pm25Aqi": 148.3,
+          "ozoneAqi": 48.2,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T23:00:00.000Z",
+          "apparentTempF": 79.7,
+          "wetBulbF": 72.68,
+          "pm25Aqi": 150.8,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 95
+        },
+        {
+          "at": "2026-07-19T00:00:00.000Z",
+          "apparentTempF": 78.8,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.4,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 90
+        }
+      ],
+      "clearSky": {
+        "ghiWm2": 454.02,
+        "dniWm2": 530.39,
+        "dhiWm2": 83.63
+      }
+    },
+    {
+      "segmentId": "seg_40.7580_-73.9855",
+      "timezone": "America/New_York",
+      "intervalMin": 60,
+      "now": {
+        "at": "2026-07-18T13:00:00.000Z",
+        "apparentTempF": 78.44,
+        "wetBulbF": 67.28,
+        "pm25Aqi": 109.5,
+        "ozoneAqi": 33.1,
+        "cloudCoverPercent": 100
+      },
+      "forecast": [
+        {
+          "at": "2026-07-18T14:00:00.000Z",
+          "apparentTempF": 77.36,
+          "wetBulbF": 66.92,
+          "pm25Aqi": 110.7,
+          "ozoneAqi": 35.8,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T15:00:00.000Z",
+          "apparentTempF": 79.16,
+          "wetBulbF": 67.82,
+          "pm25Aqi": 113.2,
+          "ozoneAqi": 38.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T16:00:00.000Z",
+          "apparentTempF": 76.64,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 117.1,
+          "ozoneAqi": 40.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T17:00:00.000Z",
+          "apparentTempF": 76.28,
+          "wetBulbF": 70.7,
+          "pm25Aqi": 122.1,
+          "ozoneAqi": 42.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T18:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 127.4,
+          "ozoneAqi": 44.3,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T19:00:00.000Z",
+          "apparentTempF": 75.92,
+          "wetBulbF": 69.62,
+          "pm25Aqi": 132.7,
+          "ozoneAqi": 45.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T20:00:00.000Z",
+          "apparentTempF": 77.54,
+          "wetBulbF": 70.7,
+          "pm25Aqi": 137.9,
+          "ozoneAqi": 46.6,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T21:00:00.000Z",
+          "apparentTempF": 81.32,
+          "wetBulbF": 72.86,
+          "pm25Aqi": 143.1,
+          "ozoneAqi": 47.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T22:00:00.000Z",
+          "apparentTempF": 80.6,
+          "wetBulbF": 73.04,
+          "pm25Aqi": 148.3,
+          "ozoneAqi": 48.2,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T23:00:00.000Z",
+          "apparentTempF": 79.7,
+          "wetBulbF": 72.68,
+          "pm25Aqi": 150.8,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 95
+        },
+        {
+          "at": "2026-07-19T00:00:00.000Z",
+          "apparentTempF": 78.8,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.4,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 90
+        },
+        {
+          "at": "2026-07-19T01:00:00.000Z",
+          "apparentTempF": 78.98,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.8,
+          "cloudCoverPercent": 98
+        }
+      ],
+      "clearSky": {
+        "ghiWm2": 454.02,
+        "dniWm2": 530.39,
+        "dhiWm2": 83.63
+      }
+    },
+    {
+      "segmentId": "seg_40.7580_-73.9855",
+      "timezone": "America/New_York",
+      "intervalMin": 60,
+      "now": {
+        "at": "2026-07-18T14:00:00.000Z",
+        "apparentTempF": 77.36,
+        "wetBulbF": 66.92,
+        "pm25Aqi": 110.7,
+        "ozoneAqi": 35.8,
+        "cloudCoverPercent": 100
+      },
+      "forecast": [
+        {
+          "at": "2026-07-18T15:00:00.000Z",
+          "apparentTempF": 79.16,
+          "wetBulbF": 67.82,
+          "pm25Aqi": 113.2,
+          "ozoneAqi": 38.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T16:00:00.000Z",
+          "apparentTempF": 76.64,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 117.1,
+          "ozoneAqi": 40.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T17:00:00.000Z",
+          "apparentTempF": 76.28,
+          "wetBulbF": 70.7,
+          "pm25Aqi": 122.1,
+          "ozoneAqi": 42.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T18:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 127.4,
+          "ozoneAqi": 44.3,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T19:00:00.000Z",
+          "apparentTempF": 75.92,
+          "wetBulbF": 69.62,
+          "pm25Aqi": 132.7,
+          "ozoneAqi": 45.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T20:00:00.000Z",
+          "apparentTempF": 77.54,
+          "wetBulbF": 70.7,
+          "pm25Aqi": 137.9,
+          "ozoneAqi": 46.6,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T21:00:00.000Z",
+          "apparentTempF": 81.32,
+          "wetBulbF": 72.86,
+          "pm25Aqi": 143.1,
+          "ozoneAqi": 47.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T22:00:00.000Z",
+          "apparentTempF": 80.6,
+          "wetBulbF": 73.04,
+          "pm25Aqi": 148.3,
+          "ozoneAqi": 48.2,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T23:00:00.000Z",
+          "apparentTempF": 79.7,
+          "wetBulbF": 72.68,
+          "pm25Aqi": 150.8,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 95
+        },
+        {
+          "at": "2026-07-19T00:00:00.000Z",
+          "apparentTempF": 78.8,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.4,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 90
+        },
+        {
+          "at": "2026-07-19T01:00:00.000Z",
+          "apparentTempF": 78.98,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.8,
+          "cloudCoverPercent": 98
+        },
+        {
+          "at": "2026-07-19T02:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.9,
+          "cloudCoverPercent": 100
+        }
+      ],
+      "clearSky": {
+        "ghiWm2": 454.02,
+        "dniWm2": 530.39,
+        "dhiWm2": 83.63
+      }
+    },
+    {
+      "segmentId": "seg_40.7580_-73.9855",
+      "timezone": "America/New_York",
+      "intervalMin": 60,
+      "now": {
+        "at": "2026-07-18T15:00:00.000Z",
+        "apparentTempF": 79.16,
+        "wetBulbF": 67.82,
+        "pm25Aqi": 113.2,
+        "ozoneAqi": 38.4,
+        "cloudCoverPercent": 100
+      },
+      "forecast": [
+        {
+          "at": "2026-07-18T16:00:00.000Z",
+          "apparentTempF": 76.64,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 117.1,
+          "ozoneAqi": 40.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T17:00:00.000Z",
+          "apparentTempF": 76.28,
+          "wetBulbF": 70.7,
+          "pm25Aqi": 122.1,
+          "ozoneAqi": 42.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T18:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 127.4,
+          "ozoneAqi": 44.3,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T19:00:00.000Z",
+          "apparentTempF": 75.92,
+          "wetBulbF": 69.62,
+          "pm25Aqi": 132.7,
+          "ozoneAqi": 45.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T20:00:00.000Z",
+          "apparentTempF": 77.54,
+          "wetBulbF": 70.7,
+          "pm25Aqi": 137.9,
+          "ozoneAqi": 46.6,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T21:00:00.000Z",
+          "apparentTempF": 81.32,
+          "wetBulbF": 72.86,
+          "pm25Aqi": 143.1,
+          "ozoneAqi": 47.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T22:00:00.000Z",
+          "apparentTempF": 80.6,
+          "wetBulbF": 73.04,
+          "pm25Aqi": 148.3,
+          "ozoneAqi": 48.2,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T23:00:00.000Z",
+          "apparentTempF": 79.7,
+          "wetBulbF": 72.68,
+          "pm25Aqi": 150.8,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 95
+        },
+        {
+          "at": "2026-07-19T00:00:00.000Z",
+          "apparentTempF": 78.8,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.4,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 90
+        },
+        {
+          "at": "2026-07-19T01:00:00.000Z",
+          "apparentTempF": 78.98,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.8,
+          "cloudCoverPercent": 98
+        },
+        {
+          "at": "2026-07-19T02:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-19T03:00:00.000Z",
+          "apparentTempF": 75.56,
+          "wetBulbF": 70.16,
+          "pm25Aqi": 151.5,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 100
+        }
+      ],
+      "clearSky": {
+        "ghiWm2": 454.02,
+        "dniWm2": 530.39,
+        "dhiWm2": 83.63
+      }
+    },
+    {
+      "segmentId": "seg_40.7580_-73.9855",
+      "timezone": "America/New_York",
+      "intervalMin": 60,
+      "now": {
+        "at": "2026-07-18T16:00:00.000Z",
+        "apparentTempF": 76.64,
+        "wetBulbF": 69.98,
+        "pm25Aqi": 117.1,
+        "ozoneAqi": 40.9,
+        "cloudCoverPercent": 100
+      },
+      "forecast": [
+        {
+          "at": "2026-07-18T17:00:00.000Z",
+          "apparentTempF": 76.28,
+          "wetBulbF": 70.7,
+          "pm25Aqi": 122.1,
+          "ozoneAqi": 42.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T18:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 127.4,
+          "ozoneAqi": 44.3,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T19:00:00.000Z",
+          "apparentTempF": 75.92,
+          "wetBulbF": 69.62,
+          "pm25Aqi": 132.7,
+          "ozoneAqi": 45.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T20:00:00.000Z",
+          "apparentTempF": 77.54,
+          "wetBulbF": 70.7,
+          "pm25Aqi": 137.9,
+          "ozoneAqi": 46.6,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T21:00:00.000Z",
+          "apparentTempF": 81.32,
+          "wetBulbF": 72.86,
+          "pm25Aqi": 143.1,
+          "ozoneAqi": 47.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T22:00:00.000Z",
+          "apparentTempF": 80.6,
+          "wetBulbF": 73.04,
+          "pm25Aqi": 148.3,
+          "ozoneAqi": 48.2,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T23:00:00.000Z",
+          "apparentTempF": 79.7,
+          "wetBulbF": 72.68,
+          "pm25Aqi": 150.8,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 95
+        },
+        {
+          "at": "2026-07-19T00:00:00.000Z",
+          "apparentTempF": 78.8,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.4,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 90
+        },
+        {
+          "at": "2026-07-19T01:00:00.000Z",
+          "apparentTempF": 78.98,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.8,
+          "cloudCoverPercent": 98
+        },
+        {
+          "at": "2026-07-19T02:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-19T03:00:00.000Z",
+          "apparentTempF": 75.56,
+          "wetBulbF": 70.16,
+          "pm25Aqi": 151.5,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 100
+        }
+      ],
+      "clearSky": {
+        "ghiWm2": 454.02,
+        "dniWm2": 530.39,
+        "dhiWm2": 83.63
+      }
+    },
+    {
+      "segmentId": "seg_40.7580_-73.9855",
+      "timezone": "America/New_York",
+      "intervalMin": 60,
+      "now": {
+        "at": "2026-07-18T17:00:00.000Z",
+        "apparentTempF": 76.28,
+        "wetBulbF": 70.7,
+        "pm25Aqi": 122.1,
+        "ozoneAqi": 42.9,
+        "cloudCoverPercent": 100
+      },
+      "forecast": [
+        {
+          "at": "2026-07-18T18:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 127.4,
+          "ozoneAqi": 44.3,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T19:00:00.000Z",
+          "apparentTempF": 75.92,
+          "wetBulbF": 69.62,
+          "pm25Aqi": 132.7,
+          "ozoneAqi": 45.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T20:00:00.000Z",
+          "apparentTempF": 77.54,
+          "wetBulbF": 70.7,
+          "pm25Aqi": 137.9,
+          "ozoneAqi": 46.6,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T21:00:00.000Z",
+          "apparentTempF": 81.32,
+          "wetBulbF": 72.86,
+          "pm25Aqi": 143.1,
+          "ozoneAqi": 47.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T22:00:00.000Z",
+          "apparentTempF": 80.6,
+          "wetBulbF": 73.04,
+          "pm25Aqi": 148.3,
+          "ozoneAqi": 48.2,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T23:00:00.000Z",
+          "apparentTempF": 79.7,
+          "wetBulbF": 72.68,
+          "pm25Aqi": 150.8,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 95
+        },
+        {
+          "at": "2026-07-19T00:00:00.000Z",
+          "apparentTempF": 78.8,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.4,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 90
+        },
+        {
+          "at": "2026-07-19T01:00:00.000Z",
+          "apparentTempF": 78.98,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.8,
+          "cloudCoverPercent": 98
+        },
+        {
+          "at": "2026-07-19T02:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-19T03:00:00.000Z",
+          "apparentTempF": 75.56,
+          "wetBulbF": 70.16,
+          "pm25Aqi": 151.5,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 100
+        }
+      ],
+      "clearSky": {
+        "ghiWm2": 454.02,
+        "dniWm2": 530.39,
+        "dhiWm2": 83.63
+      }
+    },
+    {
+      "segmentId": "seg_40.7580_-73.9855",
+      "timezone": "America/New_York",
+      "intervalMin": 60,
+      "now": {
+        "at": "2026-07-18T18:00:00.000Z",
+        "apparentTempF": 75.74000000000001,
+        "wetBulbF": 69.98,
+        "pm25Aqi": 127.4,
+        "ozoneAqi": 44.3,
+        "cloudCoverPercent": 100
+      },
+      "forecast": [
+        {
+          "at": "2026-07-18T19:00:00.000Z",
+          "apparentTempF": 75.92,
+          "wetBulbF": 69.62,
+          "pm25Aqi": 132.7,
+          "ozoneAqi": 45.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T20:00:00.000Z",
+          "apparentTempF": 77.54,
+          "wetBulbF": 70.7,
+          "pm25Aqi": 137.9,
+          "ozoneAqi": 46.6,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T21:00:00.000Z",
+          "apparentTempF": 81.32,
+          "wetBulbF": 72.86,
+          "pm25Aqi": 143.1,
+          "ozoneAqi": 47.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T22:00:00.000Z",
+          "apparentTempF": 80.6,
+          "wetBulbF": 73.04,
+          "pm25Aqi": 148.3,
+          "ozoneAqi": 48.2,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T23:00:00.000Z",
+          "apparentTempF": 79.7,
+          "wetBulbF": 72.68,
+          "pm25Aqi": 150.8,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 95
+        },
+        {
+          "at": "2026-07-19T00:00:00.000Z",
+          "apparentTempF": 78.8,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.4,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 90
+        },
+        {
+          "at": "2026-07-19T01:00:00.000Z",
+          "apparentTempF": 78.98,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.8,
+          "cloudCoverPercent": 98
+        },
+        {
+          "at": "2026-07-19T02:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-19T03:00:00.000Z",
+          "apparentTempF": 75.56,
+          "wetBulbF": 70.16,
+          "pm25Aqi": 151.5,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 100
+        }
+      ],
+      "clearSky": {
+        "ghiWm2": 454.02,
+        "dniWm2": 530.39,
+        "dhiWm2": 83.63
+      }
+    },
+    {
+      "segmentId": "seg_40.7580_-73.9855",
+      "timezone": "America/New_York",
+      "intervalMin": 60,
+      "now": {
+        "at": "2026-07-18T19:00:00.000Z",
+        "apparentTempF": 75.92,
+        "wetBulbF": 69.62,
+        "pm25Aqi": 132.7,
+        "ozoneAqi": 45.4,
+        "cloudCoverPercent": 100
+      },
+      "forecast": [
+        {
+          "at": "2026-07-18T20:00:00.000Z",
+          "apparentTempF": 77.54,
+          "wetBulbF": 70.7,
+          "pm25Aqi": 137.9,
+          "ozoneAqi": 46.6,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T21:00:00.000Z",
+          "apparentTempF": 81.32,
+          "wetBulbF": 72.86,
+          "pm25Aqi": 143.1,
+          "ozoneAqi": 47.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T22:00:00.000Z",
+          "apparentTempF": 80.6,
+          "wetBulbF": 73.04,
+          "pm25Aqi": 148.3,
+          "ozoneAqi": 48.2,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T23:00:00.000Z",
+          "apparentTempF": 79.7,
+          "wetBulbF": 72.68,
+          "pm25Aqi": 150.8,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 95
+        },
+        {
+          "at": "2026-07-19T00:00:00.000Z",
+          "apparentTempF": 78.8,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.4,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 90
+        },
+        {
+          "at": "2026-07-19T01:00:00.000Z",
+          "apparentTempF": 78.98,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.8,
+          "cloudCoverPercent": 98
+        },
+        {
+          "at": "2026-07-19T02:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-19T03:00:00.000Z",
+          "apparentTempF": 75.56,
+          "wetBulbF": 70.16,
+          "pm25Aqi": 151.5,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 100
+        }
+      ],
+      "clearSky": {
+        "ghiWm2": 454.02,
+        "dniWm2": 530.39,
+        "dhiWm2": 83.63
+      }
+    },
+    {
+      "segmentId": "seg_40.7580_-73.9855",
+      "timezone": "America/New_York",
+      "intervalMin": 60,
+      "now": {
+        "at": "2026-07-18T20:00:00.000Z",
+        "apparentTempF": 77.54,
+        "wetBulbF": 70.7,
+        "pm25Aqi": 137.9,
+        "ozoneAqi": 46.6,
+        "cloudCoverPercent": 99
+      },
+      "forecast": [
+        {
+          "at": "2026-07-18T21:00:00.000Z",
+          "apparentTempF": 81.32,
+          "wetBulbF": 72.86,
+          "pm25Aqi": 143.1,
+          "ozoneAqi": 47.4,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-18T22:00:00.000Z",
+          "apparentTempF": 80.6,
+          "wetBulbF": 73.04,
+          "pm25Aqi": 148.3,
+          "ozoneAqi": 48.2,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T23:00:00.000Z",
+          "apparentTempF": 79.7,
+          "wetBulbF": 72.68,
+          "pm25Aqi": 150.8,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 95
+        },
+        {
+          "at": "2026-07-19T00:00:00.000Z",
+          "apparentTempF": 78.8,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.4,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 90
+        },
+        {
+          "at": "2026-07-19T01:00:00.000Z",
+          "apparentTempF": 78.98,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.8,
+          "cloudCoverPercent": 98
+        },
+        {
+          "at": "2026-07-19T02:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-19T03:00:00.000Z",
+          "apparentTempF": 75.56,
+          "wetBulbF": 70.16,
+          "pm25Aqi": 151.5,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 100
+        }
+      ],
+      "clearSky": {
+        "ghiWm2": 454.02,
+        "dniWm2": 530.39,
+        "dhiWm2": 83.63
+      }
+    },
+    {
+      "segmentId": "seg_40.7580_-73.9855",
+      "timezone": "America/New_York",
+      "intervalMin": 60,
+      "now": {
+        "at": "2026-07-18T21:00:00.000Z",
+        "apparentTempF": 81.32,
+        "wetBulbF": 72.86,
+        "pm25Aqi": 143.1,
+        "ozoneAqi": 47.4,
+        "cloudCoverPercent": 100
+      },
+      "forecast": [
+        {
+          "at": "2026-07-18T22:00:00.000Z",
+          "apparentTempF": 80.6,
+          "wetBulbF": 73.04,
+          "pm25Aqi": 148.3,
+          "ozoneAqi": 48.2,
+          "cloudCoverPercent": 99
+        },
+        {
+          "at": "2026-07-18T23:00:00.000Z",
+          "apparentTempF": 79.7,
+          "wetBulbF": 72.68,
+          "pm25Aqi": 150.8,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 95
+        },
+        {
+          "at": "2026-07-19T00:00:00.000Z",
+          "apparentTempF": 78.8,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.4,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 90
+        },
+        {
+          "at": "2026-07-19T01:00:00.000Z",
+          "apparentTempF": 78.98,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.8,
+          "cloudCoverPercent": 98
+        },
+        {
+          "at": "2026-07-19T02:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-19T03:00:00.000Z",
+          "apparentTempF": 75.56,
+          "wetBulbF": 70.16,
+          "pm25Aqi": 151.5,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 100
+        }
+      ],
+      "clearSky": {
+        "ghiWm2": 454.02,
+        "dniWm2": 530.39,
+        "dhiWm2": 83.63
+      }
+    },
+    {
+      "segmentId": "seg_40.7580_-73.9855",
+      "timezone": "America/New_York",
+      "intervalMin": 60,
+      "now": {
+        "at": "2026-07-18T22:00:00.000Z",
+        "apparentTempF": 80.6,
+        "wetBulbF": 73.04,
+        "pm25Aqi": 148.3,
+        "ozoneAqi": 48.2,
+        "cloudCoverPercent": 99
+      },
+      "forecast": [
+        {
+          "at": "2026-07-18T23:00:00.000Z",
+          "apparentTempF": 79.7,
+          "wetBulbF": 72.68,
+          "pm25Aqi": 150.8,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 95
+        },
+        {
+          "at": "2026-07-19T00:00:00.000Z",
+          "apparentTempF": 78.8,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.4,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 90
+        },
+        {
+          "at": "2026-07-19T01:00:00.000Z",
+          "apparentTempF": 78.98,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.8,
+          "cloudCoverPercent": 98
+        },
+        {
+          "at": "2026-07-19T02:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-19T03:00:00.000Z",
+          "apparentTempF": 75.56,
+          "wetBulbF": 70.16,
+          "pm25Aqi": 151.5,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 100
+        }
+      ],
+      "clearSky": {
+        "ghiWm2": 454.02,
+        "dniWm2": 530.39,
+        "dhiWm2": 83.63
+      }
+    },
+    {
+      "segmentId": "seg_40.7580_-73.9855",
+      "timezone": "America/New_York",
+      "intervalMin": 60,
+      "now": {
+        "at": "2026-07-18T23:00:00.000Z",
+        "apparentTempF": 79.7,
+        "wetBulbF": 72.68,
+        "pm25Aqi": 150.8,
+        "ozoneAqi": 48.7,
+        "cloudCoverPercent": 95
+      },
+      "forecast": [
+        {
+          "at": "2026-07-19T00:00:00.000Z",
+          "apparentTempF": 78.8,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.4,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 90
+        },
+        {
+          "at": "2026-07-19T01:00:00.000Z",
+          "apparentTempF": 78.98,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.8,
+          "cloudCoverPercent": 98
+        },
+        {
+          "at": "2026-07-19T02:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-19T03:00:00.000Z",
+          "apparentTempF": 75.56,
+          "wetBulbF": 70.16,
+          "pm25Aqi": 151.5,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 100
+        }
+      ],
+      "clearSky": {
+        "ghiWm2": 454.02,
+        "dniWm2": 530.39,
+        "dhiWm2": 83.63
+      }
+    },
+    {
+      "segmentId": "seg_40.7580_-73.9855",
+      "timezone": "America/New_York",
+      "intervalMin": 60,
+      "now": {
+        "at": "2026-07-19T00:00:00.000Z",
+        "apparentTempF": 78.8,
+        "wetBulbF": 71.24000000000001,
+        "pm25Aqi": 151.4,
+        "ozoneAqi": 48.7,
+        "cloudCoverPercent": 90
+      },
+      "forecast": [
+        {
+          "at": "2026-07-19T01:00:00.000Z",
+          "apparentTempF": 78.98,
+          "wetBulbF": 71.24000000000001,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.8,
+          "cloudCoverPercent": 98
+        },
+        {
+          "at": "2026-07-19T02:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-19T03:00:00.000Z",
+          "apparentTempF": 75.56,
+          "wetBulbF": 70.16,
+          "pm25Aqi": 151.5,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 100
+        }
+      ],
+      "clearSky": {
+        "ghiWm2": 454.02,
+        "dniWm2": 530.39,
+        "dhiWm2": 83.63
+      }
+    },
+    {
+      "segmentId": "seg_40.7580_-73.9855",
+      "timezone": "America/New_York",
+      "intervalMin": 60,
+      "now": {
+        "at": "2026-07-19T01:00:00.000Z",
+        "apparentTempF": 78.98,
+        "wetBulbF": 71.24000000000001,
+        "pm25Aqi": 151.8,
+        "ozoneAqi": 48.8,
+        "cloudCoverPercent": 98
+      },
+      "forecast": [
+        {
+          "at": "2026-07-19T02:00:00.000Z",
+          "apparentTempF": 75.74000000000001,
+          "wetBulbF": 69.98,
+          "pm25Aqi": 151.8,
+          "ozoneAqi": 48.9,
+          "cloudCoverPercent": 100
+        },
+        {
+          "at": "2026-07-19T03:00:00.000Z",
+          "apparentTempF": 75.56,
+          "wetBulbF": 70.16,
+          "pm25Aqi": 151.5,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 100
+        }
+      ],
+      "clearSky": {
+        "ghiWm2": 454.02,
+        "dniWm2": 530.39,
+        "dhiWm2": 83.63
+      }
+    },
+    {
+      "segmentId": "seg_40.7580_-73.9855",
+      "timezone": "America/New_York",
+      "intervalMin": 60,
+      "now": {
+        "at": "2026-07-19T02:00:00.000Z",
+        "apparentTempF": 75.74000000000001,
+        "wetBulbF": 69.98,
+        "pm25Aqi": 151.8,
+        "ozoneAqi": 48.9,
+        "cloudCoverPercent": 100
+      },
+      "forecast": [
+        {
+          "at": "2026-07-19T03:00:00.000Z",
+          "apparentTempF": 75.56,
+          "wetBulbF": 70.16,
+          "pm25Aqi": 151.5,
+          "ozoneAqi": 48.7,
+          "cloudCoverPercent": 100
+        }
+      ],
+      "clearSky": {
+        "ghiWm2": 454.02,
+        "dniWm2": 530.39,
+        "dhiWm2": 83.63
+      }
+    },
+    {
+      "segmentId": "seg_40.7580_-73.9855",
+      "timezone": "America/New_York",
+      "intervalMin": 60,
+      "now": {
+        "at": "2026-07-19T03:00:00.000Z",
+        "apparentTempF": 75.56,
+        "wetBulbF": 70.16,
+        "pm25Aqi": 151.5,
+        "ozoneAqi": 48.7,
+        "cloudCoverPercent": 100
+      },
+      "forecast": [],
+      "clearSky": {
+        "ghiWm2": 454.02,
+        "dniWm2": 530.39,
+        "dhiWm2": 83.63
+      }
+    }
+  ]
+}
