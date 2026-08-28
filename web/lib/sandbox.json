@@ -1,0 +1,1727 @@
+{
+  "ranAt": "2026-08-29T09:54:00.846Z",
+  "fixtureId": "demo-nyc-001-2026-08-07",
+  "hours": 17,
+  "testcase": "multizone_office_simple_air",
+  "scenario": {
+    "electricityPrice": "dynamic",
+    "timePeriod": "peak_cool_day",
+    "tempUncertainty": null,
+    "solarUncertainty": null,
+    "seed": 42
+  },
+  "arms": {
+    "builtin": {
+      "arm": "builtin",
+      "metrics": {
+        "energyKwh": 0.0997985724898504,
+        "costTotal": 0.010301747144804188,
+        "emissions": 0.034031313219039,
+        "thermalDiscomfort": 0.3779464347075243,
+        "airQualityDiscomfort": 7.194278269010745,
+        "peakElectricW": 0.01394586591124034
+      },
+      "reducedIntakeHours": 0,
+      "hours": [
+        {
+          "hour": 0,
+          "at": "2026-08-07T11:00:00.000Z",
+          "zoneTempF": 77.2,
+          "co2Ppm": 755,
+          "zones": {
+            "Cor": {
+              "tempF": 77.2,
+              "co2Ppm": 755
+            },
+            "Eas": {
+              "tempF": 77.5,
+              "co2Ppm": 753
+            },
+            "Nor": {
+              "tempF": 77.6,
+              "co2Ppm": 761
+            },
+            "Sou": {
+              "tempF": 77.4,
+              "co2Ppm": 690
+            },
+            "Wes": {
+              "tempF": 78,
+              "co2Ppm": 747
+            }
+          },
+          "setpointF": null,
+          "outsideAirFraction": null,
+          "decisions": []
+        },
+        {
+          "hour": 1,
+          "at": "2026-08-07T12:00:00.000Z",
+          "zoneTempF": 77.1,
+          "co2Ppm": 757,
+          "zones": {
+            "Cor": {
+              "tempF": 77.1,
+              "co2Ppm": 757
+            },
+            "Eas": {
+              "tempF": 77.4,
+              "co2Ppm": 756
+            },
+            "Nor": {
+              "tempF": 77.5,
+              "co2Ppm": 762
+            },
+            "Sou": {
+              "tempF": 77.2,
+              "co2Ppm": 693
+            },
+            "Wes": {
+              "tempF": 77.9,
+              "co2Ppm": 746
+            }
+          },
+          "setpointF": null,
+          "outsideAirFraction": null,
+          "decisions": []
+        },
+        {
+          "hour": 2,
+          "at": "2026-08-07T13:00:00.000Z",
+          "zoneTempF": 77.1,
+          "co2Ppm": 761,
+          "zones": {
+            "Cor": {
+              "tempF": 77.1,
+              "co2Ppm": 761
+            },
+            "Eas": {
+              "tempF": 77.3,
+              "co2Ppm": 761
+            },
+            "Nor": {
+              "tempF": 77.4,
+              "co2Ppm": 767
+            },
+            "Sou": {
+              "tempF": 77.2,
+              "co2Ppm": 687
+            },
+            "Wes": {
+              "tempF": 77.7,
+              "co2Ppm": 742
+            }
+          },
+          "setpointF": null,
+          "outsideAirFraction": null,
+          "decisions": []
+        },
+        {
+          "hour": 3,
+          "at": "2026-08-07T14:00:00.000Z",
+          "zoneTempF": 77.1,
+          "co2Ppm": 760,
+          "zones": {
+            "Cor": {
+              "tempF": 77.1,
+              "co2Ppm": 760
+            },
+            "Eas": {
+              "tempF": 77.1,
+              "co2Ppm": 758
+            },
+            "Nor": {
+              "tempF": 77.2,
+              "co2Ppm": 770
+            },
+            "Sou": {
+              "tempF": 76.9,
+              "co2Ppm": 682
+            },
+            "Wes": {
+              "tempF": 77.6,
+              "co2Ppm": 742
+            }
+          },
+          "setpointF": null,
+          "outsideAirFraction": null,
+          "decisions": []
+        },
+        {
+          "hour": 4,
+          "at": "2026-08-07T15:00:00.000Z",
+          "zoneTempF": 77.1,
+          "co2Ppm": 755,
+          "zones": {
+            "Cor": {
+              "tempF": 77.1,
+              "co2Ppm": 755
+            },
+            "Eas": {
+              "tempF": 77.1,
+              "co2Ppm": 751
+            },
+            "Nor": {
+              "tempF": 77.2,
+              "co2Ppm": 772
+            },
+            "Sou": {
+              "tempF": 76.8,
+              "co2Ppm": 696
+            },
+            "Wes": {
+              "tempF": 77.7,
+              "co2Ppm": 752
+            }
+          },
+          "setpointF": null,
+          "outsideAirFraction": null,
+          "decisions": []
+        },
+        {
+          "hour": 5,
+          "at": "2026-08-07T16:00:00.000Z",
+          "zoneTempF": 77.2,
+          "co2Ppm": 758,
+          "zones": {
+            "Cor": {
+              "tempF": 77.2,
+              "co2Ppm": 758
+            },
+            "Eas": {
+              "tempF": 77.5,
+              "co2Ppm": 756
+            },
+            "Nor": {
+              "tempF": 77.4,
+              "co2Ppm": 770
+            },
+            "Sou": {
+              "tempF": 77,
+              "co2Ppm": 696
+            },
+            "Wes": {
+              "tempF": 77.7,
+              "co2Ppm": 748
+            }
+          },
+          "setpointF": null,
+          "outsideAirFraction": null,
+          "decisions": []
+        },
+        {
+          "hour": 6,
+          "at": "2026-08-07T17:00:00.000Z",
+          "zoneTempF": 74,
+          "co2Ppm": 442,
+          "zones": {
+            "Cor": {
+              "tempF": 74,
+              "co2Ppm": 442
+            },
+            "Eas": {
+              "tempF": 74.3,
+              "co2Ppm": 431
+            },
+            "Nor": {
+              "tempF": 74.6,
+              "co2Ppm": 441
+            },
+            "Sou": {
+              "tempF": 74.5,
+              "co2Ppm": 440
+            },
+            "Wes": {
+              "tempF": 74.9,
+              "co2Ppm": 440
+            }
+          },
+          "setpointF": null,
+          "outsideAirFraction": null,
+          "decisions": []
+        },
+        {
+          "hour": 7,
+          "at": "2026-08-07T18:00:00.000Z",
+          "zoneTempF": 74,
+          "co2Ppm": 421,
+          "zones": {
+            "Cor": {
+              "tempF": 74,
+              "co2Ppm": 421
+            },
+            "Eas": {
+              "tempF": 74.5,
+              "co2Ppm": 419
+            },
+            "Nor": {
+              "tempF": 74.8,
+              "co2Ppm": 421
+            },
+            "Sou": {
+              "tempF": 74.7,
+              "co2Ppm": 421
+            },
+            "Wes": {
+              "tempF": 75,
+              "co2Ppm": 421
+            }
+          },
+          "setpointF": null,
+          "outsideAirFraction": null,
+          "decisions": []
+        },
+        {
+          "hour": 8,
+          "at": "2026-08-07T19:00:00.000Z",
+          "zoneTempF": 74.9,
+          "co2Ppm": 507,
+          "zones": {
+            "Cor": {
+              "tempF": 74.9,
+              "co2Ppm": 507
+            },
+            "Eas": {
+              "tempF": 75.3,
+              "co2Ppm": 500
+            },
+            "Nor": {
+              "tempF": 75.4,
+              "co2Ppm": 503
+            },
+            "Sou": {
+              "tempF": 75.4,
+              "co2Ppm": 504
+            },
+            "Wes": {
+              "tempF": 75.3,
+              "co2Ppm": 493
+            }
+          },
+          "setpointF": null,
+          "outsideAirFraction": null,
+          "decisions": []
+        },
+        {
+          "hour": 9,
+          "at": "2026-08-07T20:00:00.000Z",
+          "zoneTempF": 75.1,
+          "co2Ppm": 590,
+          "zones": {
+            "Cor": {
+              "tempF": 75.1,
+              "co2Ppm": 590
+            },
+            "Eas": {
+              "tempF": 75.2,
+              "co2Ppm": 538
+            },
+            "Nor": {
+              "tempF": 75.2,
+              "co2Ppm": 546
+            },
+            "Sou": {
+              "tempF": 75.2,
+              "co2Ppm": 548
+            },
+            "Wes": {
+              "tempF": 75.2,
+              "co2Ppm": 531
+            }
+          },
+          "setpointF": null,
+          "outsideAirFraction": null,
+          "decisions": []
+        },
+        {
+          "hour": 10,
+          "at": "2026-08-07T21:00:00.000Z",
+          "zoneTempF": 75.2,
+          "co2Ppm": 725,
+          "zones": {
+            "Cor": {
+              "tempF": 75.2,
+              "co2Ppm": 725
+            },
+            "Eas": {
+              "tempF": 75.2,
+              "co2Ppm": 670
+            },
+            "Nor": {
+              "tempF": 75.2,
+              "co2Ppm": 677
+            },
+            "Sou": {
+              "tempF": 75.2,
+              "co2Ppm": 678
+            },
+            "Wes": {
+              "tempF": 75.2,
+              "co2Ppm": 667
+            }
+          },
+          "setpointF": null,
+          "outsideAirFraction": null,
+          "decisions": []
+        },
+        {
+          "hour": 11,
+          "at": "2026-08-07T22:00:00.000Z",
+          "zoneTempF": 75.2,
+          "co2Ppm": 817,
+          "zones": {
+            "Cor": {
+              "tempF": 75.2,
+              "co2Ppm": 817
+            },
+            "Eas": {
+              "tempF": 75.2,
+              "co2Ppm": 736
+            },
+            "Nor": {
+              "tempF": 75.2,
+              "co2Ppm": 745
+            },
+            "Sou": {
+              "tempF": 75.3,
+              "co2Ppm": 745
+            },
+            "Wes": {
+              "tempF": 75.2,
+              "co2Ppm": 733
+            }
+          },
+          "setpointF": null,
+          "outsideAirFraction": null,
+          "decisions": []
+        },
+        {
+          "hour": 12,
+          "at": "2026-08-07T23:00:00.000Z",
+          "zoneTempF": 75.1,
+          "co2Ppm": 836,
+          "zones": {
+            "Cor": {
+              "tempF": 75.1,
+              "co2Ppm": 836
+            },
+            "Eas": {
+              "tempF": 75.2,
+              "co2Ppm": 760
+            },
+            "Nor": {
+              "tempF": 75.2,
+              "co2Ppm": 765
+            },
+            "Sou": {
+              "tempF": 75.2,
+              "co2Ppm": 755
+            },
+            "Wes": {
+              "tempF": 75.2,
+              "co2Ppm": 757
+            }
+          },
+          "setpointF": null,
+          "outsideAirFraction": null,
+          "decisions": []
+        },
+        {
+          "hour": 13,
+          "at": "2026-08-08T00:00:00.000Z",
+          "zoneTempF": 75.2,
+          "co2Ppm": 883,
+          "zones": {
+            "Cor": {
+              "tempF": 75.2,
+              "co2Ppm": 883
+            },
+            "Eas": {
+              "tempF": 75.2,
+              "co2Ppm": 780
+            },
+            "Nor": {
+              "tempF": 75.2,
+              "co2Ppm": 787
+            },
+            "Sou": {
+              "tempF": 75.2,
+              "co2Ppm": 771
+            },
+            "Wes": {
+              "tempF": 75.3,
+              "co2Ppm": 772
+            }
+          },
+          "setpointF": null,
+          "outsideAirFraction": null,
+          "decisions": []
+        },
+        {
+          "hour": 14,
+          "at": "2026-08-08T01:00:00.000Z",
+          "zoneTempF": 75.2,
+          "co2Ppm": 904,
+          "zones": {
+            "Cor": {
+              "tempF": 75.2,
+              "co2Ppm": 904
+            },
+            "Eas": {
+              "tempF": 75.2,
+              "co2Ppm": 794
+            },
+            "Nor": {
+              "tempF": 75.2,
+              "co2Ppm": 799
+            },
+            "Sou": {
+              "tempF": 75.2,
+              "co2Ppm": 784
+            },
+            "Wes": {
+              "tempF": 75.2,
+              "co2Ppm": 773
+            }
+          },
+          "setpointF": null,
+          "outsideAirFraction": null,
+          "decisions": []
+        },
+        {
+          "hour": 15,
+          "at": "2026-08-08T02:00:00.000Z",
+          "zoneTempF": 75.2,
+          "co2Ppm": 911,
+          "zones": {
+            "Cor": {
+              "tempF": 75.2,
+              "co2Ppm": 911
+            },
+            "Eas": {
+              "tempF": 75.2,
+              "co2Ppm": 807
+            },
+            "Nor": {
+              "tempF": 75.2,
+              "co2Ppm": 812
+            },
+            "Sou": {
+              "tempF": 75.2,
+              "co2Ppm": 800
+            },
+            "Wes": {
+              "tempF": 75.2,
+              "co2Ppm": 785
+            }
+          },
+          "setpointF": null,
+          "outsideAirFraction": null,
+          "decisions": []
+        },
+        {
+          "hour": 16,
+          "at": "2026-08-08T03:00:00.000Z",
+          "zoneTempF": 75.2,
+          "co2Ppm": 918,
+          "zones": {
+            "Cor": {
+              "tempF": 75.2,
+              "co2Ppm": 918
+            },
+            "Eas": {
+              "tempF": 75.2,
+              "co2Ppm": 813
+            },
+            "Nor": {
+              "tempF": 75.2,
+              "co2Ppm": 817
+            },
+            "Sou": {
+              "tempF": 75.2,
+              "co2Ppm": 807
+            },
+            "Wes": {
+              "tempF": 75.2,
+              "co2Ppm": 781
+            }
+          },
+          "setpointF": null,
+          "outsideAirFraction": null,
+          "decisions": []
+        }
+      ],
+      "maxZoneF": 77.2,
+      "meanZoneF": 75.7
+    },
+    "citywide": {
+      "arm": "citywide",
+      "metrics": {
+        "energyKwh": 0.19649778210644173,
+        "costTotal": 0.016468363029749664,
+        "emissions": 0.06700574369829664,
+        "thermalDiscomfort": 0,
+        "airQualityDiscomfort": 1613.6949686442329,
+        "peakElectricW": 0.016499393600340636
+      },
+      "reducedIntakeHours": 0,
+      "hours": [
+        {
+          "hour": 0,
+          "at": "2026-08-07T11:00:00.000Z",
+          "zoneTempF": 73.3,
+          "co2Ppm": 484,
+          "zones": {
+            "Cor": {
+              "tempF": 73.3,
+              "co2Ppm": 484
+            },
+            "Eas": {
+              "tempF": 73.1,
+              "co2Ppm": 454
+            },
+            "Nor": {
+              "tempF": 74.1,
+              "co2Ppm": 485
+            },
+            "Sou": {
+              "tempF": 74,
+              "co2Ppm": 486
+            },
+            "Wes": {
+              "tempF": 74.4,
+              "co2Ppm": 481
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": [
+            {
+              "policy": "tint",
+              "actuator": "facade_tint",
+              "rationale": "Direct beam on the east facade is 482 W/m² after de rating 502 W/m² clear sky DNI for 0% cloud cover. Tinting to medium to cut solar heat gain before it becomes cooling load."
+            }
+          ]
+        },
+        {
+          "hour": 1,
+          "at": "2026-08-07T12:00:00.000Z",
+          "zoneTempF": 72.8,
+          "co2Ppm": 420,
+          "zones": {
+            "Cor": {
+              "tempF": 72.8,
+              "co2Ppm": 420
+            },
+            "Eas": {
+              "tempF": 72.5,
+              "co2Ppm": 415
+            },
+            "Nor": {
+              "tempF": 73.5,
+              "co2Ppm": 420
+            },
+            "Sou": {
+              "tempF": 73.5,
+              "co2Ppm": 420
+            },
+            "Wes": {
+              "tempF": 73.8,
+              "co2Ppm": 419
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": [
+            {
+              "policy": "tint",
+              "actuator": "facade_tint",
+              "rationale": "Direct beam on the east facade is 466 W/m² after de rating 502 W/m² clear sky DNI for 0% cloud cover. Tinting to medium to cut solar heat gain before it becomes cooling load."
+            }
+          ]
+        },
+        {
+          "hour": 2,
+          "at": "2026-08-07T13:00:00.000Z",
+          "zoneTempF": 72.5,
+          "co2Ppm": 410,
+          "zones": {
+            "Cor": {
+              "tempF": 72.5,
+              "co2Ppm": 410
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 408
+            },
+            "Nor": {
+              "tempF": 73.1,
+              "co2Ppm": 410
+            },
+            "Sou": {
+              "tempF": 73.1,
+              "co2Ppm": 410
+            },
+            "Wes": {
+              "tempF": 73.4,
+              "co2Ppm": 410
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": [
+            {
+              "policy": "tint",
+              "actuator": "facade_tint",
+              "rationale": "Direct beam on the east facade is 419 W/m² after de rating 502 W/m² clear sky DNI for 0% cloud cover. Tinting to medium to cut solar heat gain before it becomes cooling load."
+            }
+          ]
+        },
+        {
+          "hour": 3,
+          "at": "2026-08-07T14:00:00.000Z",
+          "zoneTempF": 72.3,
+          "co2Ppm": 408,
+          "zones": {
+            "Cor": {
+              "tempF": 72.3,
+              "co2Ppm": 408
+            },
+            "Eas": {
+              "tempF": 71.7,
+              "co2Ppm": 407
+            },
+            "Nor": {
+              "tempF": 72.8,
+              "co2Ppm": 409
+            },
+            "Sou": {
+              "tempF": 72.8,
+              "co2Ppm": 409
+            },
+            "Wes": {
+              "tempF": 73,
+              "co2Ppm": 408
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": [
+            {
+              "policy": "tint",
+              "actuator": "facade_tint",
+              "rationale": "Direct beam on the east facade is 336 W/m² after de rating 502 W/m² clear sky DNI for 7% cloud cover. Tinting to medium to cut solar heat gain before it becomes cooling load."
+            }
+          ]
+        },
+        {
+          "hour": 4,
+          "at": "2026-08-07T15:00:00.000Z",
+          "zoneTempF": 72,
+          "co2Ppm": 408,
+          "zones": {
+            "Cor": {
+              "tempF": 72,
+              "co2Ppm": 408
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 407
+            },
+            "Nor": {
+              "tempF": 72.5,
+              "co2Ppm": 408
+            },
+            "Sou": {
+              "tempF": 72.5,
+              "co2Ppm": 408
+            },
+            "Wes": {
+              "tempF": 72.7,
+              "co2Ppm": 408
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        },
+        {
+          "hour": 5,
+          "at": "2026-08-07T16:00:00.000Z",
+          "zoneTempF": 71.7,
+          "co2Ppm": 408,
+          "zones": {
+            "Cor": {
+              "tempF": 71.7,
+              "co2Ppm": 408
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 408
+            },
+            "Nor": {
+              "tempF": 72.4,
+              "co2Ppm": 408
+            },
+            "Sou": {
+              "tempF": 72.3,
+              "co2Ppm": 408
+            },
+            "Wes": {
+              "tempF": 72.4,
+              "co2Ppm": 408
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        },
+        {
+          "hour": 6,
+          "at": "2026-08-07T17:00:00.000Z",
+          "zoneTempF": 71.6,
+          "co2Ppm": 408,
+          "zones": {
+            "Cor": {
+              "tempF": 71.6,
+              "co2Ppm": 408
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 408
+            },
+            "Nor": {
+              "tempF": 72,
+              "co2Ppm": 408
+            },
+            "Sou": {
+              "tempF": 71.9,
+              "co2Ppm": 408
+            },
+            "Wes": {
+              "tempF": 72,
+              "co2Ppm": 408
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        },
+        {
+          "hour": 7,
+          "at": "2026-08-07T18:00:00.000Z",
+          "zoneTempF": 71.1,
+          "co2Ppm": 410,
+          "zones": {
+            "Cor": {
+              "tempF": 71.1,
+              "co2Ppm": 410
+            },
+            "Eas": {
+              "tempF": 71.2,
+              "co2Ppm": 409
+            },
+            "Nor": {
+              "tempF": 71.2,
+              "co2Ppm": 408
+            },
+            "Sou": {
+              "tempF": 71.3,
+              "co2Ppm": 409
+            },
+            "Wes": {
+              "tempF": 71.2,
+              "co2Ppm": 408
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        },
+        {
+          "hour": 8,
+          "at": "2026-08-07T19:00:00.000Z",
+          "zoneTempF": 72.1,
+          "co2Ppm": 541,
+          "zones": {
+            "Cor": {
+              "tempF": 72.1,
+              "co2Ppm": 541
+            },
+            "Eas": {
+              "tempF": 72.1,
+              "co2Ppm": 536
+            },
+            "Nor": {
+              "tempF": 72.1,
+              "co2Ppm": 536
+            },
+            "Sou": {
+              "tempF": 72.1,
+              "co2Ppm": 537
+            },
+            "Wes": {
+              "tempF": 72.1,
+              "co2Ppm": 531
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        },
+        {
+          "hour": 9,
+          "at": "2026-08-07T20:00:00.000Z",
+          "zoneTempF": 72,
+          "co2Ppm": 750,
+          "zones": {
+            "Cor": {
+              "tempF": 72,
+              "co2Ppm": 750
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 736
+            },
+            "Nor": {
+              "tempF": 72,
+              "co2Ppm": 736
+            },
+            "Sou": {
+              "tempF": 72,
+              "co2Ppm": 738
+            },
+            "Wes": {
+              "tempF": 72,
+              "co2Ppm": 733
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        },
+        {
+          "hour": 10,
+          "at": "2026-08-07T21:00:00.000Z",
+          "zoneTempF": 72,
+          "co2Ppm": 914,
+          "zones": {
+            "Cor": {
+              "tempF": 72,
+              "co2Ppm": 914
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 888
+            },
+            "Nor": {
+              "tempF": 72,
+              "co2Ppm": 890
+            },
+            "Sou": {
+              "tempF": 72,
+              "co2Ppm": 890
+            },
+            "Wes": {
+              "tempF": 72,
+              "co2Ppm": 886
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        },
+        {
+          "hour": 11,
+          "at": "2026-08-07T22:00:00.000Z",
+          "zoneTempF": 72,
+          "co2Ppm": 1041,
+          "zones": {
+            "Cor": {
+              "tempF": 72,
+              "co2Ppm": 1041
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 1007
+            },
+            "Nor": {
+              "tempF": 72,
+              "co2Ppm": 1009
+            },
+            "Sou": {
+              "tempF": 72.1,
+              "co2Ppm": 1009
+            },
+            "Wes": {
+              "tempF": 72,
+              "co2Ppm": 1005
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        },
+        {
+          "hour": 12,
+          "at": "2026-08-07T23:00:00.000Z",
+          "zoneTempF": 72,
+          "co2Ppm": 1117,
+          "zones": {
+            "Cor": {
+              "tempF": 72,
+              "co2Ppm": 1117
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 1076
+            },
+            "Nor": {
+              "tempF": 72,
+              "co2Ppm": 1078
+            },
+            "Sou": {
+              "tempF": 72,
+              "co2Ppm": 1073
+            },
+            "Wes": {
+              "tempF": 72,
+              "co2Ppm": 1074
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        },
+        {
+          "hour": 13,
+          "at": "2026-08-08T00:00:00.000Z",
+          "zoneTempF": 72,
+          "co2Ppm": 1220,
+          "zones": {
+            "Cor": {
+              "tempF": 72,
+              "co2Ppm": 1220
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 1173
+            },
+            "Nor": {
+              "tempF": 72,
+              "co2Ppm": 1174
+            },
+            "Sou": {
+              "tempF": 72,
+              "co2Ppm": 1166
+            },
+            "Wes": {
+              "tempF": 72.1,
+              "co2Ppm": 1168
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        },
+        {
+          "hour": 14,
+          "at": "2026-08-08T01:00:00.000Z",
+          "zoneTempF": 72,
+          "co2Ppm": 1297,
+          "zones": {
+            "Cor": {
+              "tempF": 72,
+              "co2Ppm": 1297
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 1243
+            },
+            "Nor": {
+              "tempF": 72,
+              "co2Ppm": 1245
+            },
+            "Sou": {
+              "tempF": 72,
+              "co2Ppm": 1236
+            },
+            "Wes": {
+              "tempF": 72,
+              "co2Ppm": 1231
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        },
+        {
+          "hour": 15,
+          "at": "2026-08-08T02:00:00.000Z",
+          "zoneTempF": 72,
+          "co2Ppm": 1357,
+          "zones": {
+            "Cor": {
+              "tempF": 72,
+              "co2Ppm": 1357
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 1304
+            },
+            "Nor": {
+              "tempF": 72,
+              "co2Ppm": 1306
+            },
+            "Sou": {
+              "tempF": 72,
+              "co2Ppm": 1299
+            },
+            "Wes": {
+              "tempF": 72,
+              "co2Ppm": 1291
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        },
+        {
+          "hour": 16,
+          "at": "2026-08-08T03:00:00.000Z",
+          "zoneTempF": 72,
+          "co2Ppm": 1408,
+          "zones": {
+            "Cor": {
+              "tempF": 72,
+              "co2Ppm": 1408
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 1351
+            },
+            "Nor": {
+              "tempF": 72,
+              "co2Ppm": 1352
+            },
+            "Sou": {
+              "tempF": 72,
+              "co2Ppm": 1347
+            },
+            "Wes": {
+              "tempF": 72,
+              "co2Ppm": 1331
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        }
+      ],
+      "maxZoneF": 73.3,
+      "meanZoneF": 72.1
+    },
+    "copilot": {
+      "arm": "copilot",
+      "metrics": {
+        "energyKwh": 0.18652297334234877,
+        "costTotal": 0.016854063306424617,
+        "emissions": 0.06360433390974093,
+        "thermalDiscomfort": 0,
+        "airQualityDiscomfort": 1326.267974589054,
+        "peakElectricW": 0.01819958680683155
+      },
+      "reducedIntakeHours": 3,
+      "hours": [
+        {
+          "hour": 0,
+          "at": "2026-08-07T11:00:00.000Z",
+          "zoneTempF": 73.3,
+          "co2Ppm": 484,
+          "zones": {
+            "Cor": {
+              "tempF": 73.3,
+              "co2Ppm": 484
+            },
+            "Eas": {
+              "tempF": 73.1,
+              "co2Ppm": 454
+            },
+            "Nor": {
+              "tempF": 74.1,
+              "co2Ppm": 485
+            },
+            "Sou": {
+              "tempF": 74,
+              "co2Ppm": 485
+            },
+            "Wes": {
+              "tempF": 74.4,
+              "co2Ppm": 481
+            }
+          },
+          "setpointF": 70,
+          "outsideAirFraction": 0.2,
+          "decisions": [
+            {
+              "policy": "precool",
+              "actuator": "hvac_setpoint",
+              "rationale": "Apparent temperature at this segment is forecast to reach 103 °F around 18:00 UTC, against a trigger of 95. Dropping the setpoint 2 °F over 90 minutes to charge thermal mass now and coast later. (phase: charge)"
+            },
+            {
+              "policy": "tint",
+              "actuator": "facade_tint",
+              "rationale": "Direct beam on the east facade is 482 W/m² after de rating 502 W/m² clear sky DNI for 0% cloud cover. Tinting to medium to cut solar heat gain before it becomes cooling load."
+            }
+          ]
+        },
+        {
+          "hour": 1,
+          "at": "2026-08-07T12:00:00.000Z",
+          "zoneTempF": 72.8,
+          "co2Ppm": 420,
+          "zones": {
+            "Cor": {
+              "tempF": 72.8,
+              "co2Ppm": 420
+            },
+            "Eas": {
+              "tempF": 72.5,
+              "co2Ppm": 415
+            },
+            "Nor": {
+              "tempF": 73.5,
+              "co2Ppm": 420
+            },
+            "Sou": {
+              "tempF": 73.5,
+              "co2Ppm": 420
+            },
+            "Wes": {
+              "tempF": 73.8,
+              "co2Ppm": 419
+            }
+          },
+          "setpointF": 70,
+          "outsideAirFraction": 0.2,
+          "decisions": [
+            {
+              "policy": "tint",
+              "actuator": "facade_tint",
+              "rationale": "Direct beam on the east facade is 466 W/m² after de rating 502 W/m² clear sky DNI for 0% cloud cover. Tinting to medium to cut solar heat gain before it becomes cooling load."
+            }
+          ]
+        },
+        {
+          "hour": 2,
+          "at": "2026-08-07T13:00:00.000Z",
+          "zoneTempF": 72.5,
+          "co2Ppm": 410,
+          "zones": {
+            "Cor": {
+              "tempF": 72.5,
+              "co2Ppm": 410
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 408
+            },
+            "Nor": {
+              "tempF": 73.1,
+              "co2Ppm": 410
+            },
+            "Sou": {
+              "tempF": 73.1,
+              "co2Ppm": 410
+            },
+            "Wes": {
+              "tempF": 73.4,
+              "co2Ppm": 410
+            }
+          },
+          "setpointF": 70,
+          "outsideAirFraction": 0.2,
+          "decisions": [
+            {
+              "policy": "tint",
+              "actuator": "facade_tint",
+              "rationale": "Direct beam on the east facade is 419 W/m² after de rating 502 W/m² clear sky DNI for 0% cloud cover. Tinting to medium to cut solar heat gain before it becomes cooling load."
+            }
+          ]
+        },
+        {
+          "hour": 3,
+          "at": "2026-08-07T14:00:00.000Z",
+          "zoneTempF": 72.3,
+          "co2Ppm": 408,
+          "zones": {
+            "Cor": {
+              "tempF": 72.3,
+              "co2Ppm": 408
+            },
+            "Eas": {
+              "tempF": 71.7,
+              "co2Ppm": 407
+            },
+            "Nor": {
+              "tempF": 72.8,
+              "co2Ppm": 409
+            },
+            "Sou": {
+              "tempF": 72.8,
+              "co2Ppm": 409
+            },
+            "Wes": {
+              "tempF": 73,
+              "co2Ppm": 408
+            }
+          },
+          "setpointF": 70,
+          "outsideAirFraction": 0.2,
+          "decisions": [
+            {
+              "policy": "tint",
+              "actuator": "facade_tint",
+              "rationale": "Direct beam on the east facade is 336 W/m² after de rating 502 W/m² clear sky DNI for 7% cloud cover. Tinting to medium to cut solar heat gain before it becomes cooling load."
+            }
+          ]
+        },
+        {
+          "hour": 4,
+          "at": "2026-08-07T15:00:00.000Z",
+          "zoneTempF": 73.1,
+          "co2Ppm": 411,
+          "zones": {
+            "Cor": {
+              "tempF": 73.1,
+              "co2Ppm": 411
+            },
+            "Eas": {
+              "tempF": 72.9,
+              "co2Ppm": 410
+            },
+            "Nor": {
+              "tempF": 73.6,
+              "co2Ppm": 411
+            },
+            "Sou": {
+              "tempF": 73.5,
+              "co2Ppm": 411
+            },
+            "Wes": {
+              "tempF": 74,
+              "co2Ppm": 411
+            }
+          },
+          "setpointF": 74,
+          "outsideAirFraction": 0.2,
+          "decisions": [
+            {
+              "policy": "precool",
+              "actuator": "hvac_setpoint",
+              "rationale": "Apparent temperature at this segment has reached 98 °F and the structure was pre cooled to 70 °F. Letting the zone float to 74 °F and coasting on stored mass, which cuts plant load during the most expensive hours of the day. (phase: coast)"
+            }
+          ]
+        },
+        {
+          "hour": 5,
+          "at": "2026-08-07T16:00:00.000Z",
+          "zoneTempF": 73.1,
+          "co2Ppm": 413,
+          "zones": {
+            "Cor": {
+              "tempF": 73.1,
+              "co2Ppm": 413
+            },
+            "Eas": {
+              "tempF": 73.1,
+              "co2Ppm": 411
+            },
+            "Nor": {
+              "tempF": 73.6,
+              "co2Ppm": 413
+            },
+            "Sou": {
+              "tempF": 73.6,
+              "co2Ppm": 413
+            },
+            "Wes": {
+              "tempF": 74,
+              "co2Ppm": 413
+            }
+          },
+          "setpointF": 74,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        },
+        {
+          "hour": 6,
+          "at": "2026-08-07T17:00:00.000Z",
+          "zoneTempF": 73,
+          "co2Ppm": 414,
+          "zones": {
+            "Cor": {
+              "tempF": 73,
+              "co2Ppm": 414
+            },
+            "Eas": {
+              "tempF": 73.1,
+              "co2Ppm": 412
+            },
+            "Nor": {
+              "tempF": 73.6,
+              "co2Ppm": 414
+            },
+            "Sou": {
+              "tempF": 73.5,
+              "co2Ppm": 414
+            },
+            "Wes": {
+              "tempF": 73.9,
+              "co2Ppm": 414
+            }
+          },
+          "setpointF": 74,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        },
+        {
+          "hour": 7,
+          "at": "2026-08-07T18:00:00.000Z",
+          "zoneTempF": 72.9,
+          "co2Ppm": 414,
+          "zones": {
+            "Cor": {
+              "tempF": 72.9,
+              "co2Ppm": 414
+            },
+            "Eas": {
+              "tempF": 73.3,
+              "co2Ppm": 413
+            },
+            "Nor": {
+              "tempF": 73.7,
+              "co2Ppm": 415
+            },
+            "Sou": {
+              "tempF": 73.6,
+              "co2Ppm": 415
+            },
+            "Wes": {
+              "tempF": 73.9,
+              "co2Ppm": 414
+            }
+          },
+          "setpointF": 74,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        },
+        {
+          "hour": 8,
+          "at": "2026-08-07T19:00:00.000Z",
+          "zoneTempF": 73.9,
+          "co2Ppm": 508,
+          "zones": {
+            "Cor": {
+              "tempF": 73.9,
+              "co2Ppm": 508
+            },
+            "Eas": {
+              "tempF": 74.1,
+              "co2Ppm": 501
+            },
+            "Nor": {
+              "tempF": 74.2,
+              "co2Ppm": 501
+            },
+            "Sou": {
+              "tempF": 74.2,
+              "co2Ppm": 502
+            },
+            "Wes": {
+              "tempF": 74.1,
+              "co2Ppm": 496
+            }
+          },
+          "setpointF": 74,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        },
+        {
+          "hour": 9,
+          "at": "2026-08-07T20:00:00.000Z",
+          "zoneTempF": 73.7,
+          "co2Ppm": 634,
+          "zones": {
+            "Cor": {
+              "tempF": 73.7,
+              "co2Ppm": 634
+            },
+            "Eas": {
+              "tempF": 74.2,
+              "co2Ppm": 617
+            },
+            "Nor": {
+              "tempF": 74.1,
+              "co2Ppm": 612
+            },
+            "Sou": {
+              "tempF": 74.2,
+              "co2Ppm": 615
+            },
+            "Wes": {
+              "tempF": 74.1,
+              "co2Ppm": 609
+            }
+          },
+          "setpointF": 74,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        },
+        {
+          "hour": 10,
+          "at": "2026-08-07T21:00:00.000Z",
+          "zoneTempF": 72,
+          "co2Ppm": 810,
+          "zones": {
+            "Cor": {
+              "tempF": 72,
+              "co2Ppm": 810
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 791
+            },
+            "Nor": {
+              "tempF": 72,
+              "co2Ppm": 793
+            },
+            "Sou": {
+              "tempF": 72,
+              "co2Ppm": 793
+            },
+            "Wes": {
+              "tempF": 72,
+              "co2Ppm": 790
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": [
+            {
+              "policy": "precool",
+              "actuator": "hvac_setpoint",
+              "rationale": "The forecast peak has passed and apparent temperature is 88 °F, below the 95 °F trigger. Returning the zone to its nominal setpoint. (phase: idle)"
+            }
+          ]
+        },
+        {
+          "hour": 11,
+          "at": "2026-08-07T22:00:00.000Z",
+          "zoneTempF": 72,
+          "co2Ppm": 951,
+          "zones": {
+            "Cor": {
+              "tempF": 72,
+              "co2Ppm": 951
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 924
+            },
+            "Nor": {
+              "tempF": 72,
+              "co2Ppm": 925
+            },
+            "Sou": {
+              "tempF": 72,
+              "co2Ppm": 925
+            },
+            "Wes": {
+              "tempF": 72,
+              "co2Ppm": 921
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.2,
+          "decisions": []
+        },
+        {
+          "hour": 12,
+          "at": "2026-08-07T23:00:00.000Z",
+          "zoneTempF": 72,
+          "co2Ppm": 1134,
+          "zones": {
+            "Cor": {
+              "tempF": 72,
+              "co2Ppm": 1134
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 1121
+            },
+            "Nor": {
+              "tempF": 72,
+              "co2Ppm": 1121
+            },
+            "Sou": {
+              "tempF": 72,
+              "co2Ppm": 1104
+            },
+            "Wes": {
+              "tempF": 72,
+              "co2Ppm": 1077
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.1,
+          "decisions": [
+            {
+              "policy": "air_quality",
+              "actuator": "outside_air_damper",
+              "rationale": "ozoneAqi reached AQI 151 at this segment and held above 151 for 1 intervals. Closing the outside air intake and cutting outside air to 10% and recirculating through denser filtration. Ventilation is reduced rather than stopped: shutting the intake entirely would trade this hazard for CO₂ buildup. The cooling energy cost is accepted to keep the pollutant load off the occupants."
+            }
+          ]
+        },
+        {
+          "hour": 13,
+          "at": "2026-08-08T00:00:00.000Z",
+          "zoneTempF": 72,
+          "co2Ppm": 1355,
+          "zones": {
+            "Cor": {
+              "tempF": 72,
+              "co2Ppm": 1355
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 1338
+            },
+            "Nor": {
+              "tempF": 72,
+              "co2Ppm": 1338
+            },
+            "Sou": {
+              "tempF": 72,
+              "co2Ppm": 1319
+            },
+            "Wes": {
+              "tempF": 72.1,
+              "co2Ppm": 1277
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.1,
+          "decisions": []
+        },
+        {
+          "hour": 14,
+          "at": "2026-08-08T01:00:00.000Z",
+          "zoneTempF": 72,
+          "co2Ppm": 1563,
+          "zones": {
+            "Cor": {
+              "tempF": 72,
+              "co2Ppm": 1563
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 1542
+            },
+            "Nor": {
+              "tempF": 72,
+              "co2Ppm": 1542
+            },
+            "Sou": {
+              "tempF": 71.9,
+              "co2Ppm": 1539
+            },
+            "Wes": {
+              "tempF": 72,
+              "co2Ppm": 1486
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.1,
+          "decisions": []
+        },
+        {
+          "hour": 15,
+          "at": "2026-08-08T02:00:00.000Z",
+          "zoneTempF": 72,
+          "co2Ppm": 1090,
+          "zones": {
+            "Cor": {
+              "tempF": 72,
+              "co2Ppm": 1090
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 969
+            },
+            "Nor": {
+              "tempF": 72,
+              "co2Ppm": 975
+            },
+            "Sou": {
+              "tempF": 72,
+              "co2Ppm": 958
+            },
+            "Wes": {
+              "tempF": 72,
+              "co2Ppm": 940
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.5,
+          "decisions": [
+            {
+              "policy": "air_quality",
+              "actuator": "outside_air_damper",
+              "rationale": "Indoor CO₂ reached 1563 ppm, at or past the hard limit of 1500. Flushing now regardless of outdoor conditions: waiting for cleaner air is no longer defensible at this concentration."
+            }
+          ]
+        },
+        {
+          "hour": 16,
+          "at": "2026-08-08T03:00:00.000Z",
+          "zoneTempF": 72,
+          "co2Ppm": 887,
+          "zones": {
+            "Cor": {
+              "tempF": 72,
+              "co2Ppm": 887
+            },
+            "Eas": {
+              "tempF": 72,
+              "co2Ppm": 798
+            },
+            "Nor": {
+              "tempF": 72,
+              "co2Ppm": 799
+            },
+            "Sou": {
+              "tempF": 72,
+              "co2Ppm": 790
+            },
+            "Wes": {
+              "tempF": 72,
+              "co2Ppm": 767
+            }
+          },
+          "setpointF": 72,
+          "outsideAirFraction": 0.5,
+          "decisions": [
+            {
+              "policy": "air_quality",
+              "actuator": "outside_air_damper",
+              "rationale": "Indoor CO₂ reached 1090 ppm against a ceiling of 1100. Outdoor air is not clean, but this interval is the least bad in the forecast window across every pollutant, so the unavoidable flush happens now."
+            }
+          ]
+        }
+      ],
+      "maxZoneF": 73.9,
+      "meanZoneF": 72.6
+    }
+  }
+}
