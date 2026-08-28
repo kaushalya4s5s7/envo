@@ -1,0 +1,153 @@
+{
+  "_note": "Produced at build time by bun enrich.ts. The replay never calls a model.",
+  "model": "gemini-3.6-flash",
+  "fixtureId": "demo-nyc-001-2026-08-07",
+  "generatedAt": "2026-08-28T17:57:52.927Z",
+  "guardrails": {
+    "comfortBand": [
+      68,
+      78
+    ],
+    "maxChangesPerHour": 4
+  },
+  "turns": [
+    {
+      "at": "2026-08-07T11:00:00.000Z",
+      "proposalsSeen": 2,
+      "model": "gemini-3.6-flash",
+      "llmCommand": {
+        "actuator": "hvac_setpoint",
+        "setpointF": 70,
+        "rampMin": 90
+      },
+      "llmRationale": "We select the precooling proposal driven by the forecasted outdoor apparent temperature of 103.5 °F, which significantly exceeds the 95 °F trigger threshold. Lowering the zone setpoint from 72 °F to 70 °F over a 90-minute ramp charges the building's thermal mass while remaining safely within the 68 to 78 °F comfort range. This decision incurs a moderate immediate energy cost in chiller operation to avoid severe peak demand charges and cooling overload later today.",
+      "llmConfidence": "high",
+      "accepted": true,
+      "deterministicFallback": {
+        "actuator": "hvac_setpoint",
+        "setpointF": 70,
+        "rampMin": 90
+      },
+      "latencyMs": 35221
+    },
+    {
+      "at": "2026-08-07T12:00:00.000Z",
+      "proposalsSeen": 1,
+      "model": "gemini-3.6-flash",
+      "llmCommand": {
+        "actuator": "outside_air_damper",
+        "outsideAirFraction": 0.15,
+        "mode": "recirculate",
+        "highMerv": true
+      },
+      "llmRationale": "With the outdoor apparent temperature reaching 88.7 °F and PM2.5 AQI at 71, the system prioritizes health and cooling efficiency by setting the outside air damper to recirculation mode with high MERV filtration. This decision is driven by the elevated outdoor apparent temperature of 88.7 °F, which makes outside air intake inefficient for cooling while CO2 is low at 631 ppm. The cost of this decision is a slight increase in fan energy due to higher MERV filter resistance and minimal fresh air intake.",
+      "llmConfidence": "high",
+      "accepted": true,
+      "deterministicFallback": {
+        "actuator": "facade_tint",
+        "facadeId": "east",
+        "level": "medium"
+      },
+      "latencyMs": 44104
+    },
+    {
+      "at": "2026-08-07T13:00:00.000Z",
+      "proposalsSeen": 1,
+      "model": "gemini-3.6-flash",
+      "llmCommand": {
+        "actuator": "hvac_setpoint",
+        "setpointF": 73,
+        "rampMin": 15
+      },
+      "llmRationale": "Driven by the high outdoor apparent temperature of 92.5 °F and strong solar irradiance on the east facade, we increase the HVAC zone setpoint to 73 °F to mitigate peak cooling load while keeping indoor conditions comfortably within the 68 to 78 °F constraint. This decision costs a minor increase in indoor temperature from 70.6 °F, but significantly reduces chiller power demand during peak outdoor heat.",
+      "llmConfidence": "high",
+      "accepted": true,
+      "deterministicFallback": {
+        "actuator": "facade_tint",
+        "facadeId": "east",
+        "level": "medium"
+      },
+      "latencyMs": 21979
+    },
+    {
+      "at": "2026-08-07T14:00:00.000Z",
+      "proposalsSeen": 1,
+      "model": "gemini-3.6-flash",
+      "llmCommand": {
+        "actuator": "outside_air_damper",
+        "outsideAirFraction": 0.15,
+        "mode": "recirculate",
+        "highMerv": true
+      },
+      "llmRationale": "With outdoor apparent temperature reaching 94.6 °F and PM2.5 AQI at 71, the HVAC system must operate in recirculate mode with minimal outside air intake and high MERV filtration to prevent bringing excessive thermal load and particulate pollution indoors. This decision is driven primarily by the high outdoor apparent temperature and moderate PM2.5 levels, costing a modest increase in fan power to pull air through denser filtration while preserving zone cooling efficiency.",
+      "llmConfidence": "high",
+      "accepted": true,
+      "deterministicFallback": {
+        "actuator": "facade_tint",
+        "facadeId": "east",
+        "level": "medium"
+      },
+      "latencyMs": 46696
+    },
+    {
+      "at": "2026-08-07T15:00:00.000Z",
+      "proposalsSeen": 1,
+      "model": "gemini-3.6-flash",
+      "llmCommand": {
+        "actuator": "hvac_setpoint",
+        "setpointF": 74,
+        "rampMin": 15
+      },
+      "llmRationale": "The outdoor apparent temperature of 97.9 °F drove the decision to transition to the coasting phase and raise the zone setpoint to 74 °F. This decision costs a minor 3.8 °F drift in indoor zone temperature, but leverages the pre-cooled thermal mass to reduce peak electrical demand while keeping temperature well within the 68–78 °F comfort range. Indoor air quality is stable with CO2 at 768 ppm, so health considerations do not override this energy optimization.",
+      "llmConfidence": "high",
+      "accepted": true,
+      "deterministicFallback": {
+        "actuator": "hvac_setpoint",
+        "setpointF": 74,
+        "rampMin": 90
+      },
+      "latencyMs": 11423
+    },
+    {
+      "at": "2026-08-07T21:00:00.000Z",
+      "proposalsSeen": 1,
+      "model": "gemini-3.6-flash",
+      "llmCommand": {
+        "actuator": "hvac_setpoint",
+        "setpointF": 74,
+        "rampMin": 0
+      },
+      "llmRationale": "With the outdoor apparent temperature recorded at 88.3 °F, which is below the 95 °F precool trigger threshold, the system can safely end the precooling phase and restore the zone to its nominal 74 °F setpoint. This decision is driven by outdoor apparent temperature and avoids unnecessary energy consumption during off-peak conditions. The trade-off is a minor increase in indoor zone temperature from 73.9 °F up to the standard nominal setpoint.",
+      "llmConfidence": "high",
+      "accepted": true,
+      "deterministicFallback": {
+        "actuator": "hvac_setpoint",
+        "setpointF": 72,
+        "rampMin": 90
+      },
+      "latencyMs": 44350
+    },
+    {
+      "at": "2026-08-07T23:00:00.000Z",
+      "proposalsSeen": 1,
+      "model": "gemini-3.6-flash",
+      "llmCommand": {
+        "actuator": "outside_air_damper",
+        "outsideAirFraction": 0.1,
+        "mode": "recirculate",
+        "highMerv": true
+      },
+      "llmRationale": "We accept the health proposal to restrict the outside air damper to 10% intake and enable dense MERV filtration, driven by the ozone AQI reaching 151. This decision prioritizes occupant safety during an active outdoor pollution event, incurring increased fan and cooling energy costs while keeping ventilation restricted since indoor CO2 (809 ppm) remains below the 1100 ppm purge threshold.",
+      "llmConfidence": "high",
+      "accepted": true,
+      "deterministicFallback": {
+        "actuator": "outside_air_damper",
+        "outsideAirFraction": 0.1,
+        "mode": "recirculate",
+        "highMerv": true
+      },
+      "latencyMs": 10241
+    }
+  ],
+  "summary": "On August 7, 2026, automated control decisions actively managed intense solar heat gain, extreme outdoor temperatures, and late-night ambient pollution to maintain indoor stability and HVAC efficiency. Façade tinting was repeatedly triggered from 11:00 through 14:00 as `beamOnFacade:east` logged values of 481.7, 466.5, 419.4, and 336.3 against the 250 threshold. HVAC setpoint precooling actions were executed and re-evaluated at 11:00, 15:00, and 21:00 driven by simulated `apparentTempF` values of 103.5, 97.9, and 88.3 relative to the 95 threshold. To protect indoor conditions at the end of the day, outside air damper positions were adjusted at 23:00 when `ozoneAqi` rose to 151.1, crossing its 151 threshold."
+}
