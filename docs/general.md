@@ -1,10 +1,10 @@
 # General
 
-**Product:** Envelope Copilot — the outdoor brain for buildings that already have the controls but not the signal.
+**Product:** Envo — the outdoor brain for buildings that already have the controls but not the signal.
 
 Per-building agent that fuses hyperlocal forecast environmental data (wet bulb, apparent temp, ozone, PM2.5, DNI/DHI, cloud cover) at 60 to 100 m into HVAC setpoint, shade tint, outside air damper, and demand response commands. Emits commands into a **simulated** BMS (digital twin). Full concept: [`../idea.md`](../idea.md).
 
-**Deliverable:** a replay run plus a split screen console proving Envelope Copilot beats a citywide weather baseline controller on one hot, smoky afternoon.
+**Deliverable:** a replay run plus a split screen console proving Envo beats a citywide weather baseline controller on one hot, smoky afternoon.
 
 ## Stack
 

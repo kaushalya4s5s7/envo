@@ -5,7 +5,7 @@ import { DeploymentSteps } from '@/components/deployment-steps';
 import { Connect } from '@/components/connect';
 
 export const metadata: Metadata = {
-  title: 'Connect — Envelope Copilot',
+  title: 'Connect — Envo',
   description: 'Point discovery and mapping, the step that costs the industry months.',
 };
 

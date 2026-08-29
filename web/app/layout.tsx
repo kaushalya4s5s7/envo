@@ -6,11 +6,11 @@ const geist = Geist({ subsets: ['latin'], variable: '--font-geist', display: 'sw
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono', display: 'swap' });
 
 export const metadata: Metadata = {
-  title: 'Envelope Copilot — the outdoor brain for building automation',
+  title: 'Envo — the outdoor brain for building automation',
   description:
-    'Envelope Copilot reads heat, smoke, and sun for every block at 60 to 100 m, twelve hours ahead, and turns it into the setpoint, shade, and damper commands your automation system already accepts.',
+    'Envo reads heat, smoke, and sun for every block at 60 to 100 m, twelve hours ahead, and turns it into the setpoint, shade, and damper commands your automation system already accepts.',
   openGraph: {
-    title: 'Envelope Copilot',
+    title: 'Envo',
     description: 'Your building knows the weather. Not your block.',
     type: 'website',
   },

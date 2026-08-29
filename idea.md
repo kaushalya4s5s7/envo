@@ -1,4 +1,4 @@
-# Envelope Copilot
+# Envo
 
 > **The outdoor brain for buildings that already have the controls but not the signal.**
 
@@ -70,7 +70,7 @@ buildings already own the outdoor foresight they currently lack.
 
 **For** commercial building operators and portfolio managers
 **who** already run smart HVAC, automated shades, economizer dampers, and demand-response clients,
-**Envelope Copilot** is a decision-and-command layer
+**Envo** is a decision-and-command layer
 **that** replaces their single coarse citywide weather feed with per-building, forecast,
 multi-parameter outdoor intelligence — so their existing actuators finally know what is
 actually happening on their block, before it arrives.
@@ -171,9 +171,9 @@ candidate ideas satisfy two and fail the third.
 |---|---|---|
 | **Bus-stop heat shelters** | Maxes the parameter usage; strong human story | Actuator is a **physical awning** — no digital loop, no 3-day demo |
 | **SolarSense** | Automates cleanly, clean digital actuator | Genuinely only needs **irradiance + temperature** — the rest of the stack is decoration |
-| **Envelope Copilot** | ✅ ✅ ✅ | *(see §13 for the honest limitations)* |
+| **Envo** | ✅ ✅ ✅ | *(see §13 for the honest limitations)* |
 
-**Envelope Copilot is the only candidate where using the full stack is required rather than padded** —
+**Envo is the only candidate where using the full stack is required rather than padded** —
 because each of the four actuators is driven by a *different* slice of it.
 
 ---

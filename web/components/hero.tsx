@@ -26,7 +26,7 @@ export function Hero() {
 
       <Reveal delay={340}>
         <p className="mt-6 max-w-[680px] text-center text-base text-pretty text-fg-2 md:text-lg">
-          Envelope Copilot reads the next twelve hours of heat and sun for this building&rsquo;s own
+          Envo reads the next twelve hours of heat and sun for this building&rsquo;s own
           block, fuses it with metro air quality, and turns both into the setpoint, shade, and damper
           commands your automation system already accepts.
         </p>

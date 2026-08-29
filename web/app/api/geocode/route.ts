@@ -49,7 +49,7 @@ export async function GET(request: Request) {
 
   try {
     const r = await fetch(url, {
-      headers: { 'User-Agent': 'envelope-copilot/0.1' },
+      headers: { 'User-Agent': 'envo/0.1' },
       signal: AbortSignal.timeout(8000),
     });
     if (!r.ok) return NextResponse.json({ candidates: [], error: 'Address search is unavailable.' });

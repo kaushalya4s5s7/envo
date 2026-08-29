@@ -21,7 +21,7 @@ import { cn } from '@/lib/cn';
 const ARM_LABEL: Record<Arm, string> = {
   builtin: 'Building’s own controller',
   citywide: 'Citywide signal',
-  copilot: 'Envelope Copilot',
+  copilot: 'Envo',
 };
 
 /** Physical layout: perimeter zones by orientation, core in the middle. */

@@ -22,7 +22,7 @@ const ARMS: Arm[] = ['builtin', 'citywide', 'copilot'];
 const ARM_LABEL: Record<Arm, string> = {
   builtin: 'BOPTEST baseline',
   citywide: 'Citywide signal',
-  copilot: 'Envelope Copilot',
+  copilot: 'Envo',
 };
 const ARM_NOTE: Record<Arm, string> = {
   builtin: 'The emulator’s own published controller. The only arm we did not write.',

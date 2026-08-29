@@ -6,9 +6,9 @@ import { AgentPanel } from '@/components/agent-panel';
 import { run } from '@/lib/data';
 
 export const metadata: Metadata = {
-  title: 'The replay — Envelope Copilot',
+  title: 'The replay — Envo',
   description:
-    'A real captured FortyGuard day, run through Envelope Copilot and through a citywide weather baseline. Same loop, same building, different signal.',
+    'A real captured FortyGuard day, run through Envo and through a citywide weather baseline. Same loop, same building, different signal.',
 };
 
 export default function ReplayPage() {

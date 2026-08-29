@@ -34,7 +34,7 @@ export function IslandNav() {
         >
           <Link href="/" aria-current="page" className="flex items-center gap-2 text-sm font-semibold tracking-tight">
             <PixelMark />
-            Envelope Copilot
+            Envo
           </Link>
 
           <div className="flex items-center gap-6 max-md:hidden">

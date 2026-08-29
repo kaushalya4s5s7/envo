@@ -140,7 +140,7 @@ export function AppSidebar({ user, orgName }: { user?: string; orgName?: string 
       <aside className="fixed inset-y-0 left-0 z-40 hidden w-64 flex-col border-r border-line bg-surface-2/60 p-4 backdrop-blur-xl md:flex">
         <Link href="/" className="flex items-center gap-2 px-2 text-sm font-semibold tracking-tight">
           <PixelMark />
-          Envelope Copilot
+          Envo
         </Link>
         <NavLinks />
         <Identity />
@@ -150,7 +150,7 @@ export function AppSidebar({ user, orgName }: { user?: string; orgName?: string 
       <div className="fixed inset-x-0 top-0 z-50 flex items-center justify-between border-b border-line bg-surface-2/60 px-4 py-3 backdrop-blur-xl md:hidden">
         <Link href="/" className="flex items-center gap-2 text-sm font-semibold tracking-tight">
           <PixelMark />
-          Envelope Copilot
+          Envo
         </Link>
         <button
           type="button"

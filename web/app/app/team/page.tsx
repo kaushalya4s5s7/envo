@@ -6,7 +6,7 @@ import { getCurrentAccount } from '@/lib/session';
 import { listMembers, listPendingInvitations } from '@/lib/accounts-store';
 
 export const metadata: Metadata = {
-  title: 'Team — Envelope Copilot',
+  title: 'Team — Envo',
   description: 'Who has access to this org, and what they can do.',
 };
 

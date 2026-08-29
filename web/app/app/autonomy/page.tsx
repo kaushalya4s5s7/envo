@@ -5,7 +5,7 @@ import { DeploymentSteps } from '@/components/deployment-steps';
 import { Autonomy } from '@/components/autonomy';
 
 export const metadata: Metadata = {
-  title: 'Autonomy — Envelope Copilot',
+  title: 'Autonomy — Envo',
   description: 'Autonomy granted one actuator at a time, applied to a real captured day.',
 };
 

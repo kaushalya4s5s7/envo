@@ -5,7 +5,7 @@ import { DeploymentSteps } from '@/components/deployment-steps';
 import { Sandbox } from '@/components/sandbox';
 
 export const metadata: Metadata = {
-  title: 'Sandbox — Envelope Copilot',
+  title: 'Sandbox — Envo',
   description:
     'The agent drives an IBPSA and US Department of Energy building emulator, and the emulator does the scoring.',
 };

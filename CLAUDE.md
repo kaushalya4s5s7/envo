@@ -1,4 +1,4 @@
-# Envelope Copilot
+# Envo
 
 Per building agent that fuses hyperlocal forecast environmental data into HVAC setpoint, shade tint, outside air damper, and demand response commands, and emits them into a **simulated** BMS. Hackathon build, 3 days. Concept: [`idea.md`](idea.md).
 

@@ -605,7 +605,7 @@ import { Today } from '@/components/today';
 import { getLatestBuildingForUser } from '@/lib/buildings-store';
 
 export const metadata: Metadata = {
-  title: 'Today — Envelope Copilot',
+  title: 'Today — Envo',
   description: 'What the next twelve hours will do to your building, and what to do about it.',
 };
 
@@ -675,7 +675,7 @@ import { Reveal } from '@/components/reveal';
 import { listBuildingsForUser } from '@/lib/buildings-store';
 
 export const metadata: Metadata = {
-  title: 'Your buildings — Envelope Copilot',
+  title: 'Your buildings — Envo',
   description: 'Every building you have captured, and when.',
 };
 

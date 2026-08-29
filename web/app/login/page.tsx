@@ -7,7 +7,7 @@ import { LoginForm } from '@/components/login-form';
 import { PixelMark } from '@/components/pixel-mark';
 
 export const metadata: Metadata = {
-  title: 'Sign in — Envelope Copilot',
+  title: 'Sign in — Envo',
   description: 'Sign in to your buildings.',
 };
 
@@ -18,12 +18,12 @@ export default function LoginPage() {
         <Reveal delay={80}>
           <Link href="/" className="flex items-center gap-2 text-sm font-semibold tracking-tight text-fg">
             <PixelMark />
-            Envelope Copilot
+            Envo
           </Link>
         </Reveal>
         <Reveal delay={160} className="mt-10">
           <h1 className="text-left text-4xl font-semibold tracking-tight text-fg text-balance">
-            Sign in to Envelope Copilot.
+            Sign in to Envo.
           </h1>
         </Reveal>
         <Reveal delay={230}>

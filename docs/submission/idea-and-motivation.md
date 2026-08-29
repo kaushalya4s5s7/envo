@@ -17,7 +17,7 @@ read identically in midtown and in Newark, 15 km apart. So we claim hyperlocal *
 plainly that air quality is metro scale. That correction cost us our original pitch and we made it
 anyway.
 
-**What we built.** Envelope Copilot chains FortyGuard's heatmap into environmental parameters for
+**What we built.** Envo chains FortyGuard's heatmap into environmental parameters for
 one building's own block, then drives four actuators from four different slices of that feed:
 pre-cool setpoints from forecast apparent temperature, façade tint from direct beam de-rated by
 cloud cover, demand response from segment-level load, and the one nobody automates — reducing the

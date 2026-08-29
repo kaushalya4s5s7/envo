@@ -31,7 +31,7 @@ async function geocode(address: string) {
   url.searchParams.set('format', 'json');
   url.searchParams.set('limit', '1');
   url.searchParams.set('countrycodes', 'us');   // FortyGuard coverage is US only
-  const r = await fetch(url, { headers: { 'User-Agent': 'envelope-copilot/0.1' } });
+  const r = await fetch(url, { headers: { 'User-Agent': 'envo/0.1' } });
   if (!r.ok) throw new Error('The address lookup service did not respond.');
   const hit = ((await r.json()) as GeocodeHit[])[0];
   if (!hit) throw new Error('That address could not be found in the United States.');

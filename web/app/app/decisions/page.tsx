@@ -4,7 +4,7 @@ import { run } from '@/lib/data';
 import { describeTrigger, plain } from '@/lib/plain';
 
 export const metadata: Metadata = {
-  title: 'Decisions — Envelope Copilot',
+  title: 'Decisions — Envo',
   description: 'Every decision, its trigger, its rationale, and the condition that reverses it.',
 };
 

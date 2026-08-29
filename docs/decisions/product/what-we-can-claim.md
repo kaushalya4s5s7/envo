@@ -26,7 +26,7 @@ Live probing on 27 Aug 2026 disproved part of the original thesis. Evidence and 
 ## The reframed thesis
 
 > Buildings already have the controls. What they lack is **foresight**, and a **thermal picture of
-> their own block**. Envelope Copilot supplies both, and arbitrates the conflict they create.
+> their own block**. Envo supplies both, and arbitrates the conflict they create.
 
 Hyperlocality now supports the **heat** story (pre cool, tint). The air quality override survives
 intact and stays the hero, because its value was never that the plume was hyperlocal — it was that

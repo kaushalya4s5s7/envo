@@ -6,7 +6,7 @@ import { getCurrentAccount } from '@/lib/session';
 import { listBuildingsForOrg } from '@/lib/buildings-store';
 
 export const metadata: Metadata = {
-  title: 'Your buildings — Envelope Copilot',
+  title: 'Your buildings — Envo',
   description: 'Every building your org has captured, and when.',
 };
 

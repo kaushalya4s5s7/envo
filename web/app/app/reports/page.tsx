@@ -6,7 +6,7 @@ import { getCurrentAccount } from '@/lib/session';
 import { buildOrgReport } from '@/lib/reports';
 
 export const metadata: Metadata = {
-  title: 'Reports — Envelope Copilot',
+  title: 'Reports — Envo',
   description: 'Modeled savings and decisions across every building this org has captured.',
 };
 

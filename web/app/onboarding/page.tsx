@@ -5,7 +5,7 @@ import { ProductionNote } from '@/components/production-note';
 import { Onboarding } from '@/components/onboarding';
 
 export const metadata: Metadata = {
-  title: 'Get started — Envelope Copilot',
+  title: 'Get started — Envo',
   description:
     'Type an address, confirm your block on a real heatmap, and see your building’s day. No hardware, no BMS credentials, no site survey.',
 };

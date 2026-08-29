@@ -13,7 +13,7 @@ export function Replay() {
   const maxKwh = Math.max(...run.intervals.map((i) => Math.max(i.copilot.coolingKwh, i.baseline.coolingKwh)));
 
   const decisions = selected === null ? [] : [
-    ...run.intervals[selected]!.copilot.decisions.map((d) => ({ ...d, side: 'Envelope Copilot' })),
+    ...run.intervals[selected]!.copilot.decisions.map((d) => ({ ...d, side: 'Envo' })),
     ...run.intervals[selected]!.baseline.decisions.map((d) => ({ ...d, side: 'Citywide baseline' })),
   ];
 
@@ -133,7 +133,7 @@ function Record({ decision }: { decision: Decision & { side: string } }) {
   return (
     <article className="rounded-lg border border-line bg-surface-2 p-3">
       <header className="flex flex-wrap items-center gap-2 font-mono text-xs">
-        <span className={decision.side === 'Envelope Copilot' ? 'text-safe' : 'text-fg-3'}>{decision.side}</span>
+        <span className={decision.side === 'Envo' ? 'text-safe' : 'text-fg-3'}>{decision.side}</span>
         <span className="text-fg-3">·</span>
         <span className="text-fg-2">{POLICY_LABEL[decision.policy] ?? decision.policy}</span>
         <span className="text-fg-3">→ {decision.actuator}</span>

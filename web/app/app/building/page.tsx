@@ -5,7 +5,7 @@ import { DeploymentSteps } from '@/components/deployment-steps';
 import { Building } from '@/components/building';
 
 export const metadata: Metadata = {
-  title: 'The building — Envelope Copilot',
+  title: 'The building — Envo',
   description: 'Live zone conditions, equipment state, and the commands the agent is issuing.',
 };
 
