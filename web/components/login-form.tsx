@@ -4,6 +4,18 @@ import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 
+/** Google's own four color mark — standard practice for a sign in button, not a fabricated logo. */
+function GoogleIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" className="flex-none">
+      <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.874 2.684-6.615z" />
+      <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z" />
+      <path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.68 9c0-.593.102-1.17.284-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" />
+      <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" />
+    </svg>
+  );
+}
+
 /**
  * Sign in.
  *
@@ -18,26 +30,23 @@ export function LoginForm({ googleEnabled }: { googleEnabled: boolean }) {
   const target = useSearchParams().get('callbackUrl') ?? '/dashboard';
 
   return (
-    <div className="w-full max-w-[420px] rounded-2xl border border-line bg-surface p-2">
-      <div className="rounded-lg border border-line bg-ink p-4">
-        {googleEnabled ? (
-          <>
-            <button
-              type="button"
-              onClick={() => void signIn('google', { redirectTo: target })}
-              className="ease-fluid w-full rounded-full bg-fg px-3 py-2 text-base font-semibold text-ink transition-all duration-500 hover:bg-fg-2 active:scale-[0.98]"
-            >
-              Continue with Google
-            </button>
-            <p className="mt-4 text-xs text-pretty text-fg-3">
-              Real Google OAuth. There is no email fallback while this is configured — a second door
-              that accepts any address would make the first one decorative.
-            </p>
-          </>
-        ) : null}
-
-        {/* Rendered only without OAuth, so what is on screen matches what the server accepts. */}
-        {googleEnabled ? null : (
+    <div>
+      {googleEnabled ? (
+        <>
+          <button
+            type="button"
+            onClick={() => void signIn('google', { redirectTo: target })}
+            className="ease-fluid flex w-full items-center justify-center gap-3 rounded-lg border border-line-2 bg-surface-2 px-3 py-3 text-base font-semibold text-fg transition-all duration-500 hover:bg-surface-3 active:scale-[0.99]"
+          >
+            <GoogleIcon />
+            Sign in with Google
+          </button>
+          <p className="mt-4 text-xs text-pretty text-fg-3">
+            Real Google OAuth. There is no email fallback while this is configured — a second door
+            that accepts any address would make the first one decorative.
+          </p>
+        </>
+      ) : (
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -46,31 +55,27 @@ export function LoginForm({ googleEnabled }: { googleEnabled: boolean }) {
           }}
         >
           <label className="block">
-            <span className="font-mono text-xs tracking-wider text-fg-3">WORK EMAIL</span>
+            <span className="text-sm font-semibold text-fg">Email</span>
             <input
               type="email" value={email} onChange={(e) => setEmail(e.target.value)}
               required placeholder="you@company.com"
-              className="ease-fluid mt-2 w-full rounded-lg border border-line bg-surface-2 px-3 py-2 text-base text-fg transition-colors duration-500 outline-none placeholder:text-fg-3 focus-visible:border-safe"
+              className="ease-fluid mt-2 w-full rounded-lg border border-line bg-surface-2 px-3 py-2.5 text-base text-fg transition-colors duration-500 outline-none placeholder:text-fg-3 focus-visible:border-safe"
             />
           </label>
           <button
             type="submit" disabled={busy}
-            className="ease-fluid mt-4 w-full rounded-full bg-fg px-3 py-2 text-base font-semibold text-ink transition-all duration-500 hover:bg-fg-2 active:scale-[0.98] disabled:opacity-30"
+            className="ease-fluid mt-4 w-full rounded-lg bg-accent px-3 py-3 text-base font-semibold text-fg transition-all duration-500 hover:bg-accent-2 active:scale-[0.99] disabled:opacity-30"
           >
             {busy ? 'Signing in…' : 'Continue'}
           </button>
-        </form>
-        )}
-
-        {googleEnabled ? null : (
           <p className="mt-4 text-xs text-pretty text-fg-3">
             <b className="font-medium text-fg-2">This is a demo session.</b> It accepts any valid
             email address and verifies nothing. Real Google sign in is wired and switches on when
             OAuth credentials are configured — we would rather show you this than a button that
             looks like Google and is not.
           </p>
-        )}
-      </div>
+        </form>
+      )}
     </div>
   );
 }
