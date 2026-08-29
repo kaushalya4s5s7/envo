@@ -42,6 +42,6 @@ export const config = {
   matcher: [
     '/app/:path*', '/dashboard', '/onboarding',
     '/api/capture/:path*', '/api/sandbox/:path*', '/api/points/:path*', '/api/geocode/:path*',
-    '/api/digest/:path*',
+    '/api/digest/:path*', '/api/team/:path*',
   ],
 };

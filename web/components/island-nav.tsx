@@ -21,6 +21,8 @@ const APP = [
   { href: '/dashboard', label: 'Buildings' },
   { href: '/app', label: 'Today' },
   { href: '/app/decisions', label: 'Decisions' },
+  { href: '/app/reports', label: 'Reports' },
+  { href: '/app/team', label: 'Team' },
 ];
 
 export type NavVariant = 'marketing' | 'app';
