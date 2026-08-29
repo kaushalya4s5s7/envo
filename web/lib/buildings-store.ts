@@ -1,25 +1,24 @@
 import type { Building } from 'core/contracts';
-import { getDb, type Db, type SavedBuildingRow, type RunRow } from './db';
+import { getDb } from './db';
 
 /**
  * Durable counterpart to web/lib/capture-store.ts. That store holds one
- * in-flight capture for 30 minutes; this one holds what a signed-in user has
+ * in-flight capture for 30 minutes; this one holds what an org has
  * captured, indefinitely, so `/app` and `/app/buildings` survive a reload.
+ * Scoped by org, not by user — a teammate invited into the same org sees
+ * the same buildings, which is the actual point of having an org at all.
  * See docs/decisions/product/operator-product-shape.md.
- *
- * Every function takes an optional `database`, defaulting to `getDb()` — a
- * function call, not a value, so the store file is only opened the first
- * time one of these actually runs. See web/lib/db.ts.
  */
 
 export interface SavedBuilding {
   id: string;
-  userEmail: string;
+  orgId: string;
   address: string;
   lat: number;
   lon: number;
   floorAreaM2: number;
   building: Building;
+  createdBy: string;
   createdAt: number;
 }
 
@@ -31,68 +30,102 @@ export interface SavedRun {
   assumptions: string[];
 }
 
-function rowToSaved(row: SavedBuildingRow): SavedBuilding {
+interface BuildingRow {
+  id: string; org_id: string; address: string; lat: number; lon: number;
+  floor_area_m2: number; building_json: Building; created_by: string; created_at: string;
+}
+
+function rowToSaved(row: BuildingRow): SavedBuilding {
   return {
-    id: row.id, userEmail: row.userEmail, address: row.address,
-    lat: row.lat, lon: row.lon, floorAreaM2: row.floorAreaM2,
-    building: JSON.parse(row.buildingJson) as Building, createdAt: row.createdAt,
+    id: row.id, orgId: row.org_id, address: row.address,
+    lat: row.lat, lon: row.lon, floorAreaM2: row.floor_area_m2,
+    building: row.building_json, createdBy: row.created_by, createdAt: Number(row.created_at),
   };
 }
 
-function rowToRun(row: RunRow): SavedRun {
-  return {
-    id: row.id, buildingId: row.buildingId, capturedAt: row.capturedAt,
-    artifact: JSON.parse(row.artifactJson), assumptions: JSON.parse(row.assumptionsJson) as string[],
-  };
+export async function saveBuilding(input: {
+  id: string; orgId: string; address: string; lat: number; lon: number;
+  floorAreaM2: number; building: Building; createdBy: string; createdAt: number;
+}): Promise<void> {
+  const sql = await getDb();
+  await sql`
+    INSERT INTO saved_buildings
+      (id, org_id, address, lat, lon, floor_area_m2, building_json, created_by, created_at)
+    VALUES (
+      ${input.id}, ${input.orgId}, ${input.address}, ${input.lat}, ${input.lon},
+      ${input.floorAreaM2}, ${sql.json(input.building)}, ${input.createdBy}, ${input.createdAt}
+    )
+    ON CONFLICT (id) DO UPDATE SET
+      address = excluded.address, lat = excluded.lat, lon = excluded.lon,
+      floor_area_m2 = excluded.floor_area_m2, building_json = excluded.building_json
+  `;
 }
 
-export function saveBuilding(input: {
-  id: string; userEmail: string; address: string; lat: number; lon: number;
-  floorAreaM2: number; building: Building; createdAt: number;
-}, database?: Db) {
-  const db = database ?? getDb();
-  const store = db.read();
-  const savedBuildings = store.savedBuildings.filter((b) => b.id !== input.id);
-  savedBuildings.push({
-    id: input.id, userEmail: input.userEmail, address: input.address,
-    lat: input.lat, lon: input.lon, floorAreaM2: input.floorAreaM2,
-    buildingJson: JSON.stringify(input.building), createdAt: input.createdAt,
-  });
-  db.write({ ...store, savedBuildings });
-}
-
-export function getBuilding(id: string, database?: Db): SavedBuilding | null {
-  const row = (database ?? getDb()).read().savedBuildings.find((b) => b.id === id);
+export async function getBuilding(id: string): Promise<SavedBuilding | null> {
+  const sql = await getDb();
+  const [row] = await sql<BuildingRow[]>`SELECT * FROM saved_buildings WHERE id = ${id}`;
   return row ? rowToSaved(row) : null;
 }
 
-export function listBuildingsForUser(userEmail: string, database?: Db): SavedBuilding[] {
-  return (database ?? getDb()).read().savedBuildings
-    .filter((b) => b.userEmail === userEmail)
-    .sort((a, b) => b.createdAt - a.createdAt)
-    .map(rowToSaved);
+export async function listBuildingsForOrg(orgId: string): Promise<SavedBuilding[]> {
+  const sql = await getDb();
+  const rows = await sql<BuildingRow[]>`
+    SELECT * FROM saved_buildings WHERE org_id = ${orgId} ORDER BY created_at DESC
+  `;
+  return rows.map(rowToSaved);
 }
 
-export function getLatestBuildingForUser(userEmail: string, database?: Db): SavedBuilding | null {
-  return listBuildingsForUser(userEmail, database)[0] ?? null;
+export async function getLatestBuildingForOrg(orgId: string): Promise<SavedBuilding | null> {
+  const buildings = await listBuildingsForOrg(orgId);
+  return buildings[0] ?? null;
 }
 
-export function saveRun(input: {
+export async function saveRun(input: {
   id: string; buildingId: string; capturedAt: number; artifact: unknown; assumptions: string[];
-}, database?: Db) {
-  const db = database ?? getDb();
-  const store = db.read();
-  const runs = store.runs.filter((r) => r.id !== input.id);
-  runs.push({
-    id: input.id, buildingId: input.buildingId, capturedAt: input.capturedAt,
-    artifactJson: JSON.stringify(input.artifact), assumptionsJson: JSON.stringify(input.assumptions),
-  });
-  db.write({ ...store, runs });
+}): Promise<void> {
+  const sql = await getDb();
+  await sql`
+    INSERT INTO runs (id, building_id, captured_at, artifact_json, assumptions_json)
+    VALUES (
+      ${input.id}, ${input.buildingId}, ${input.capturedAt},
+      ${sql.json(JSON.parse(JSON.stringify(input.artifact)))}, ${sql.json(input.assumptions)}
+    )
+    ON CONFLICT (id) DO UPDATE SET
+      captured_at = excluded.captured_at, artifact_json = excluded.artifact_json,
+      assumptions_json = excluded.assumptions_json
+  `;
 }
 
-export function getLatestRun(buildingId: string, database?: Db): SavedRun | null {
-  const rows = (database ?? getDb()).read().runs
-    .filter((r) => r.buildingId === buildingId)
-    .sort((a, b) => b.capturedAt - a.capturedAt);
-  return rows[0] ? rowToRun(rows[0]) : null;
+export async function getLatestRun(buildingId: string): Promise<SavedRun | null> {
+  const sql = await getDb();
+  const [row] = await sql<
+    { id: string; building_id: string; captured_at: string; artifact_json: unknown; assumptions_json: string[] }[]
+  >`
+    SELECT * FROM runs WHERE building_id = ${buildingId} ORDER BY captured_at DESC LIMIT 1
+  `;
+  if (!row) return null;
+  return {
+    id: row.id, buildingId: row.building_id, capturedAt: Number(row.captured_at),
+    artifact: row.artifact_json, assumptions: row.assumptions_json,
+  };
+}
+
+/** Every run for every building in an org, newest first — the raw material for reports.ts. */
+export async function listRunsForOrg(orgId: string): Promise<Array<SavedRun & { buildingAddress: string }>> {
+  const sql = await getDb();
+  const rows = await sql<
+    {
+      id: string; building_id: string; captured_at: string; artifact_json: unknown;
+      assumptions_json: string[]; address: string;
+    }[]
+  >`
+    SELECT r.id, r.building_id, r.captured_at, r.artifact_json, r.assumptions_json, b.address
+    FROM runs r JOIN saved_buildings b ON b.id = r.building_id
+    WHERE b.org_id = ${orgId}
+    ORDER BY r.captured_at DESC
+  `;
+  return rows.map((row) => ({
+    id: row.id, buildingId: row.building_id, capturedAt: Number(row.captured_at),
+    artifact: row.artifact_json, assumptions: row.assumptions_json, buildingAddress: row.address,
+  }));
 }

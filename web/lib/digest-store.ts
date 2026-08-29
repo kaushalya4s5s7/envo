@@ -1,29 +1,29 @@
-import { getDb, type Db } from './db';
+import { getDb } from './db';
 
 export type Cadence = 'daily' | 'weekly';
 
 export interface DigestSubscription {
-  userEmail: string;
+  userId: string;
   buildingId: string;
   cadence: Cadence;
   createdAt: number;
 }
 
-export function subscribe(
-  userEmail: string, buildingId: string, cadence: Cadence, database?: Db,
-) {
-  const db = database ?? getDb();
-  const store = db.read();
-  const digestSubscriptions = store.digestSubscriptions
-    .filter((s) => !(s.userEmail === userEmail && s.buildingId === buildingId));
-  digestSubscriptions.push({ userEmail, buildingId, cadence, createdAt: Date.now() });
-  db.write({ ...store, digestSubscriptions });
+export async function subscribe(userId: string, buildingId: string, cadence: Cadence): Promise<void> {
+  const sql = await getDb();
+  await sql`
+    INSERT INTO digest_subscriptions (user_id, building_id, cadence, created_at)
+    VALUES (${userId}, ${buildingId}, ${cadence}, ${Date.now()})
+    ON CONFLICT (user_id, building_id) DO UPDATE SET cadence = excluded.cadence
+  `;
 }
 
-export function getSubscription(
-  userEmail: string, buildingId: string, database?: Db,
-): DigestSubscription | null {
-  const row = (database ?? getDb()).read().digestSubscriptions
-    .find((s) => s.userEmail === userEmail && s.buildingId === buildingId);
-  return row ? { ...row } : null;
+export async function getSubscription(userId: string, buildingId: string): Promise<DigestSubscription | null> {
+  const sql = await getDb();
+  const [row] = await sql<{ user_id: string; building_id: string; cadence: Cadence; created_at: string }[]>`
+    SELECT * FROM digest_subscriptions WHERE user_id = ${userId} AND building_id = ${buildingId}
+  `;
+  return row
+    ? { userId: row.user_id, buildingId: row.building_id, cadence: row.cadence, createdAt: Number(row.created_at) }
+    : null;
 }
