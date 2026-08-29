@@ -10,3 +10,4 @@ web/data/
 !.env.example
 .DS_Store
 .turbo/
+onboarding.png
