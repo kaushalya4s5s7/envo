@@ -4,8 +4,11 @@ import { FortyGuardClient, boxAround, tileGrid, tileTemperatureAt } from 'core/w
 import { normalizeEnvParams } from 'core/weather/normalize';
 import { buildArtifact } from 'core/copilot/artifact';
 import { demoBuilding } from 'core/building';
+import { log } from 'core/observability';
 import { usTimezone } from '@/lib/us-timezone';
 import { createJob, failJob, getGeometry, getJob, patchJob, setGeometry } from '@/lib/capture-store';
+import { auth } from '@/auth';
+import { saveBuilding, saveRun, getBuilding, getLatestRun } from '@/lib/buildings-store';
 
 export const runtime = 'nodejs';
 export const maxDuration = 300;
@@ -45,6 +48,7 @@ export async function POST(request: Request) {
   if (!process.env['FORTYGUARD_API_KEY']) {
     return NextResponse.json({ error: 'FORTYGUARD_API_KEY is not configured on the server.' }, { status: 500 });
   }
+  const session = await auth();
   const job = createJob(address.trim());
   const chosen = Number.isFinite(lat) && Number.isFinite(lon)
     ? { lat: lat as number, lon: lon as number, label: address.trim() }
@@ -52,7 +56,7 @@ export async function POST(request: Request) {
   void run(
     job.id, address.trim(),
     Number(floorAreaM2) > 0 ? Number(floorAreaM2) : demoBuilding.floorAreaM2,
-    chosen,
+    chosen, session?.user?.email ?? null,
   );
   return NextResponse.json({ id: job.id, stage: job.stage });
 }
@@ -66,8 +70,19 @@ export async function GET(request: Request) {
     return NextResponse.json(g);
   }
   const job = id ? getJob(id) : undefined;
-  if (!job) return NextResponse.json({ error: 'This capture has expired. Run a new one.' }, { status: 404 });
-  return NextResponse.json(job);
+  if (job) return NextResponse.json(job);
+
+  if (id) {
+    const saved = getBuilding(id);
+    const savedRun = saved ? getLatestRun(saved.id) : null;
+    if (saved && savedRun) {
+      return NextResponse.json({
+        id: saved.id, stage: 'done', address: saved.address,
+        artifact: savedRun.artifact, assumptions: savedRun.assumptions,
+      });
+    }
+  }
+  return NextResponse.json({ error: 'This capture has expired. Run a new one.' }, { status: 404 });
 }
 
 /**
@@ -100,7 +115,8 @@ function buildingFor(name: string, lat: number, lon: number, floorAreaM2: number
 async function run(
   id: string, address: string, floorAreaM2: number,
   /** Already picked from the candidate list, so it is not guessed a second time. */
-  chosen?: { lat: number; lon: number; label: string },
+  chosen: { lat: number; lon: number; label: string } | undefined,
+  userEmail: string | null,
 ) {
   try {
     const { lat, lon, label } = chosen ?? await geocode(address);
@@ -154,6 +170,21 @@ async function run(
     });
 
     patchJob(id, { stage: 'done', artifact, assumptions });
+
+    if (userEmail) {
+      try {
+        saveBuilding({
+          id, userEmail, address: label, lat, lon, floorAreaM2, building, createdAt: Date.now(),
+        });
+        saveRun({ id: `${id}-run`, buildingId: id, capturedAt: Date.now(), artifact, assumptions });
+      } catch (persistError) {
+        // The capture itself succeeded — the user still gets their answer.
+        // They just won't see it again tomorrow, which is a real but survivable gap.
+        log.warn('failed to persist captured building', {
+          id, error: persistError instanceof Error ? persistError.message : String(persistError),
+        });
+      }
+    }
   } catch (e) {
     failJob(id, e instanceof Error ? e.message : String(e));
   }
