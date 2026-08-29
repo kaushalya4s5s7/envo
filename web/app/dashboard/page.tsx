@@ -4,6 +4,7 @@ import { auth } from '@/auth';
 import { AppNav } from '@/components/app-nav';
 import { Reveal } from '@/components/reveal';
 import { ProductionNote } from '@/components/production-note';
+import { listBuildingsForUser } from '@/lib/buildings-store';
 
 export const metadata: Metadata = {
   title: 'Your buildings — Envelope Copilot',
@@ -21,6 +22,7 @@ export const metadata: Metadata = {
 export default async function DashboardPage() {
   const session = await auth();
   if (!session?.user) redirect('/login');
+  const buildings = session.user.email ? listBuildingsForUser(session.user.email) : [];
 
   return (
     <>
@@ -36,6 +38,38 @@ export default async function DashboardPage() {
             Signed in as {session.user.email}. Pick a building to run the deployment against.
           </p>
         </Reveal>
+
+        {buildings.length > 0 ? (
+          <Reveal delay={280} className="mt-10 w-full max-w-[1120px]">
+            <div className="rounded-2xl border border-line bg-surface p-2">
+              <div className="rounded-lg border border-line bg-ink p-4">
+                <div className="flex items-center justify-between gap-4">
+                  <span className="font-mono text-xs tracking-wider text-fg-3">YOUR BUILDINGS</span>
+                  {buildings.length > 3 ? (
+                    <a href="/app/buildings" className="font-mono text-xs text-fg-2 underline underline-offset-4">
+                      See all {buildings.length} →
+                    </a>
+                  ) : null}
+                </div>
+                <ul className="mt-3 divide-y divide-line">
+                  {buildings.slice(0, 3).map((b) => (
+                    <li key={b.id}>
+                      <a
+                        href={`/app?capture=${b.id}`}
+                        className="ease-fluid flex items-center justify-between gap-4 py-2 transition-opacity duration-300 hover:opacity-70"
+                      >
+                        <span className="text-sm text-fg">{b.address}</span>
+                        <span className="tabular font-mono text-xs text-fg-3">
+                          captured {new Date(b.createdAt).toLocaleDateString()}
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </Reveal>
+        ) : null}
 
         <Reveal delay={340} className="mt-14 w-full max-w-[1120px]">
           <div className="grid gap-4 md:grid-cols-2">
