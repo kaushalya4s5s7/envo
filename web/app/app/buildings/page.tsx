@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { AppNav } from '@/components/app-nav';
 import { Reveal } from '@/components/reveal';
 import { getCurrentAccount } from '@/lib/session';
 import { listBuildingsForOrg } from '@/lib/buildings-store';
@@ -23,10 +22,8 @@ export default async function BuildingsPage() {
   const buildings = await listBuildingsForOrg(account.orgId);
 
   return (
-    <>
-      <AppNav />
-      <main id="main" className="flex flex-col items-center px-6 pt-24 pb-20 md:pt-[180px]">
-        <Reveal delay={120}>
+    <main id="main" className="flex flex-col items-center px-6 pb-20 pt-24 md:pt-16 md:pl-72">
+      <Reveal delay={120}>
           <h1 className="heading-gradient max-w-[680px] text-center text-4xl font-semibold tracking-tighter text-balance md:text-6xl md:leading-none">
             Your buildings.
           </h1>
@@ -63,8 +60,7 @@ export default async function BuildingsPage() {
               ))}
             </ul>
           )}
-        </Reveal>
-      </main>
-    </>
+      </Reveal>
+    </main>
   );
 }

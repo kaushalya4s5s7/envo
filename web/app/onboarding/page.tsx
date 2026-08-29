@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { AppNav } from '@/components/app-nav';
 import { Reveal } from '@/components/reveal';
 import { DeploymentSteps } from '@/components/deployment-steps';
 import { ProductionNote } from '@/components/production-note';
@@ -13,40 +12,37 @@ export const metadata: Metadata = {
 
 export default function OnboardingPage() {
   return (
-    <>
-      <AppNav />
-      <main id="main" className="flex flex-col items-center px-6 pt-24 pb-20 md:pt-[140px]">
-        <Reveal delay={80} className="mb-12 flex w-full justify-center">
-          <DeploymentSteps />
-        </Reveal>
-        <Reveal delay={120}>
-          <h1 className="heading-gradient max-w-[680px] text-center text-4xl font-semibold tracking-tighter text-balance md:text-6xl md:leading-none">
-            An address is<br />enough to start.
-          </h1>
-        </Reveal>
-        <Reveal delay={230}>
-          <p className="mt-6 max-w-[680px] text-center text-base text-pretty text-fg-2 md:text-lg">
-            Every other product in this category installs a gateway, maps thousands of BMS points by
-            hand, then learns your building for six to eight weeks before it says anything. Our
-            intelligence comes from outside the building, so the first useful answer arrives before
-            you have granted us anything at all.
-          </p>
-        </Reveal>
-        <Reveal delay={340} className="mt-16 flex w-full justify-center">
-          <Onboarding />
-        </Reveal>
-        <Reveal delay={420} className="mt-6 w-full max-w-[1120px]">
-          <div className="rounded-2xl border border-line bg-surface p-2">
-            <div className="rounded-lg border border-line bg-ink">
-              <ProductionNote effort="none, this step is already real">
-                This step is identical for a real building. The address, the map, and the forecast
-                are live for whatever you type, because none of it needs anything inside the
-                building. It is the reason the first useful answer arrives before any installation.
-              </ProductionNote>
-            </div>
+    <main id="main" className="flex flex-col items-center px-6 pb-20 pt-24 md:pt-16 md:pl-72">
+      <Reveal delay={80} className="mb-12 flex w-full justify-center">
+        <DeploymentSteps />
+      </Reveal>
+      <Reveal delay={120}>
+        <h1 className="heading-gradient max-w-[680px] text-center text-4xl font-semibold tracking-tighter text-balance md:text-6xl md:leading-none">
+          An address is<br />enough to start.
+        </h1>
+      </Reveal>
+      <Reveal delay={230}>
+        <p className="mt-6 max-w-[680px] text-center text-base text-pretty text-fg-2 md:text-lg">
+          Every other product in this category installs a gateway, maps thousands of BMS points by
+          hand, then learns your building for six to eight weeks before it says anything. Our
+          intelligence comes from outside the building, so the first useful answer arrives before
+          you have granted us anything at all.
+        </p>
+      </Reveal>
+      <Reveal delay={340} className="mt-16 flex w-full justify-center">
+        <Onboarding />
+      </Reveal>
+      <Reveal delay={420} className="mt-6 w-full max-w-[1120px]">
+        <div className="rounded-2xl border border-line bg-surface p-2">
+          <div className="rounded-lg border border-line bg-ink">
+            <ProductionNote effort="none, this step is already real">
+              This step is identical for a real building. The address, the map, and the forecast
+              are live for whatever you type, because none of it needs anything inside the
+              building. It is the reason the first useful answer arrives before any installation.
+            </ProductionNote>
           </div>
-        </Reveal>
-      </main>
-    </>
+        </div>
+      </Reveal>
+    </main>
   );
 }

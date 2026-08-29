@@ -1,8 +1,8 @@
-import { auth } from '@/auth';
-import { IslandNav } from './island-nav';
+import { getCurrentAccount } from '@/lib/session';
+import { AppSidebar } from './app-sidebar';
 
 /**
- * The signed in navigation, with the account it belongs to.
+ * The signed in navigation, with the account and org it belongs to.
  *
  * Showing the email is not decoration. The navigation previously rendered
  * "Sign out" whether or not a session existed, so a dropped or replaced session
@@ -10,6 +10,6 @@ import { IslandNav } from './island-nav';
  * screen at all times.
  */
 export async function AppNav() {
-  const session = await auth();
-  return <IslandNav variant="app" {...(session?.user?.email ? { user: session.user.email } : {})} />;
+  const account = await getCurrentAccount();
+  return <AppSidebar {...(account ? { user: account.email, orgName: account.orgName } : {})} />;
 }

@@ -1,7 +1,6 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { AppNav } from '@/components/app-nav';
 import { Today } from '@/components/today';
 import { getCurrentAccount } from '@/lib/session';
 import { getLatestBuildingForOrg } from '@/lib/buildings-store';
@@ -30,13 +29,10 @@ export default async function AppPage({
   }
 
   return (
-    <>
-      <AppNav />
-      <main id="main" className="flex flex-col items-center px-6 pt-24 pb-20 md:pt-[180px]">
-        <Suspense fallback={null}>
-          <Today />
-        </Suspense>
-      </main>
-    </>
+    <main id="main" className="flex flex-col items-center px-6 pb-20 pt-24 md:pt-16 md:pl-72">
+      <Suspense fallback={null}>
+        <Today />
+      </Suspense>
+    </main>
   );
 }
