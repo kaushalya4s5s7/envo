@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { auth } from '@/auth';
 import { AppNav } from '@/components/app-nav';
 import { Reveal } from '@/components/reveal';
-import { listBuildingsForUser } from '@/lib/buildings-store';
+import { getCurrentAccount } from '@/lib/session';
+import { listBuildingsForOrg } from '@/lib/buildings-store';
 
 export const metadata: Metadata = {
   title: 'Your buildings — Envelope Copilot',
-  description: 'Every building you have captured, and when.',
+  description: 'Every building your org has captured, and when.',
 };
 
 /**
@@ -15,11 +15,12 @@ export const metadata: Metadata = {
  * doesn't fit this buyer — and not a benchmarked analytics table, which
  * who-we-build-for.md already rejected. Same one-line-per-action instinct as
  * the rest of the app: an address and when it was captured, nothing more.
+ * Org-scoped, so a teammate sees the same list, not just their own captures.
  */
 export default async function BuildingsPage() {
-  const session = await auth();
-  if (!session?.user?.email) redirect('/login');
-  const buildings = listBuildingsForUser(session.user.email);
+  const account = await getCurrentAccount();
+  if (!account) redirect('/login');
+  const buildings = await listBuildingsForOrg(account.orgId);
 
   return (
     <>
@@ -32,7 +33,7 @@ export default async function BuildingsPage() {
         </Reveal>
         <Reveal delay={230}>
           <p className="mt-6 max-w-[620px] text-center text-base text-pretty text-fg-2">
-            Every address you have captured, most recent first.
+            Every address {account.orgName} has captured, most recent first.
           </p>
         </Reveal>
 

@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { auth } from '@/auth';
 import { AppNav } from '@/components/app-nav';
 import { Reveal } from '@/components/reveal';
 import { ProductionNote } from '@/components/production-note';
-import { listBuildingsForUser } from '@/lib/buildings-store';
+import { getCurrentAccount } from '@/lib/session';
+import { listBuildingsForOrg } from '@/lib/buildings-store';
 
 export const metadata: Metadata = {
   title: 'Your buildings — Envelope Copilot',
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
  * opens onto nothing.
  */
 export default async function DashboardPage() {
-  const session = await auth();
-  if (!session?.user) redirect('/login');
-  const buildings = session.user.email ? listBuildingsForUser(session.user.email) : [];
+  const account = await getCurrentAccount();
+  if (!account) redirect('/login');
+  const buildings = await listBuildingsForOrg(account.orgId);
 
   return (
     <>
@@ -35,7 +35,8 @@ export default async function DashboardPage() {
         </Reveal>
         <Reveal delay={230}>
           <p className="mt-6 max-w-[620px] text-center text-base text-pretty text-fg-2">
-            Signed in as {session.user.email}. Pick a building to run the deployment against.
+            Signed in as {account.email}, {account.role} of {account.orgName}. Pick a building to
+            run the deployment against.
           </p>
         </Reveal>
 
