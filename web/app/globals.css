@@ -23,6 +23,13 @@
   --color-safe:      #57C99A;
   --color-alert:     #E05A4E;
 
+  /* Onboarding only, matched to a reference screenshot on request. A
+     background blue is otherwise outside this palette on purpose — see
+     .agents/skills/design-skills.md B4 — so this stays scoped to
+     app/onboarding rather than becoming a second accent site wide. */
+  --color-accent:    #2454A6;
+  --color-accent-2:  #2E63C0;
+
   /* B7 — the one easing curve */
   --ease-fluid: cubic-bezier(0.32, 0.72, 0, 1);
 

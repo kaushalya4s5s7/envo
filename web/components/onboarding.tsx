@@ -131,8 +131,7 @@ export function Onboarding() {
         ))}
       </ol>
 
-      <div className="rounded-2xl border border-line bg-surface p-2">
-        <div className="overflow-hidden rounded-lg border border-line bg-ink">
+      <div className="flex flex-col gap-8">
 
           {step === 0 ? (
             <Panel title="WHERE IS THE BUILDING"
@@ -187,7 +186,7 @@ export function Onboarding() {
               </div>
               {error ? <p className="mt-3 text-sm text-alert">{error}</p> : null}
               <button type="button" onClick={() => void start()} disabled={!picked}
-                className="ease-fluid mt-4 rounded-full bg-fg px-3 py-2 text-base font-semibold text-ink transition-all duration-500 hover:bg-fg-2 active:scale-[0.98] disabled:opacity-30">
+                className="ease-fluid mt-4 w-full rounded-lg bg-accent px-3 py-3 text-base font-semibold text-fg transition-all duration-500 hover:bg-accent-2 active:scale-[0.99] disabled:opacity-30">
                 {picked ? 'Capture this building' : 'Choose an address above'}
               </button>
               <p className="mt-3 text-xs text-fg-3">
@@ -220,7 +219,7 @@ export function Onboarding() {
                   <div className="mt-3">
                     <p className="text-sm text-alert">{job.error}</p>
                     <button type="button" onClick={() => { setJob(null); setStep(0); }}
-                      className="ease-fluid mt-3 rounded-full border border-line-2 px-3 py-2 text-sm font-semibold transition-all duration-500 hover:border-fg-3">
+                      className="ease-fluid mt-3 rounded-lg border border-line-2 px-3 py-2 text-sm font-semibold transition-all duration-500 hover:border-fg-3">
                       Try another address
                     </button>
                   </div>
@@ -251,51 +250,46 @@ export function Onboarding() {
                 ) : null}
               </Panel>
               {job?.preview && geometry ? (
-                <div className="border-t border-line">
-                  <BlockMap
-                    geometry={geometry} lat={job.preview.lat} lon={job.preview.lon}
-                    buildingC={job.preview.tileTemperatureC}
-                  />
-                </div>
+                <BlockMap
+                  geometry={geometry} lat={job.preview.lat} lon={job.preview.lon}
+                  buildingC={job.preview.tileTemperatureC}
+                />
               ) : null}
             </>
           ) : null}
 
           {step === 2 && job?.artifact ? (
-            <div className="border-t border-line">
-              <Panel title="YOUR DAY"
-                note={`Captured ${job.artifact.date} for ${job.artifact.building.name}. Zero access to your building.`}>
-                <dl className="grid gap-4 sm:grid-cols-3">
-                  <Stat k="YOUR TILE"
-                    v={`${cToF(job.artifact.tileTemperatureC).toFixed(1)} °F`}
-                    n="at the captured minute" />
-                  <Stat k="SPREAD ACROSS THE GRID"
-                    v={`${(((job.preview?.maxC ?? 0) - (job.preview?.minC ?? 0)) * 9 / 5).toFixed(1)} °F`}
-                    n="one citywide number serves all of it" />
-                  <Stat k="DECISIONS PLANNED"
-                    v={String(job.artifact.intervals.filter((i) => i.copilot.decisions.length).length)}
-                    n="over the captured window" />
-                </dl>
-                <div className="mt-4 flex flex-wrap items-center gap-3">
-                  <a href={`/app?capture=${job.id}`}
-                    className="ease-fluid inline-flex items-center gap-2 rounded-full bg-fg px-3 py-2 text-base font-semibold text-ink transition-all duration-500 hover:bg-fg-2 active:scale-[0.98]">
-                    See today&rsquo;s plan
-                  </a>
-                  <a href="/app/connect"
-                    className="ease-fluid inline-flex items-center gap-2 rounded-full border border-line-2 px-3 py-2 text-base font-semibold transition-all duration-500 hover:border-fg-3 active:scale-[0.98]">
-                    Next: find its controls →
-                  </a>
-                </div>
-                <p className="mt-3 max-w-[620px] text-xs text-pretty text-fg-3">
-                  Everything above came from the address alone, with no access to the building. The
-                  next step looks inside it. This capture is held for thirty minutes and is not
-                  saved to an account yet.
-                </p>
-              </Panel>
-            </div>
+            <Panel title="YOUR DAY"
+              note={`Captured ${job.artifact.date} for ${job.artifact.building.name}. Zero access to your building.`}>
+              <dl className="grid gap-4 sm:grid-cols-3">
+                <Stat k="YOUR TILE"
+                  v={`${cToF(job.artifact.tileTemperatureC).toFixed(1)} °F`}
+                  n="at the captured minute" />
+                <Stat k="SPREAD ACROSS THE GRID"
+                  v={`${(((job.preview?.maxC ?? 0) - (job.preview?.minC ?? 0)) * 9 / 5).toFixed(1)} °F`}
+                  n="one citywide number serves all of it" />
+                <Stat k="DECISIONS PLANNED"
+                  v={String(job.artifact.intervals.filter((i) => i.copilot.decisions.length).length)}
+                  n="over the captured window" />
+              </dl>
+              <div className="mt-4 flex flex-wrap items-center gap-3">
+                <a href={`/app?capture=${job.id}`}
+                  className="ease-fluid inline-flex items-center gap-2 rounded-lg bg-accent px-3 py-3 text-base font-semibold text-fg transition-all duration-500 hover:bg-accent-2 active:scale-[0.99]">
+                  See today&rsquo;s plan
+                </a>
+                <a href="/app/connect"
+                  className="ease-fluid inline-flex items-center gap-2 rounded-lg border border-line-2 px-3 py-3 text-base font-semibold transition-all duration-500 hover:border-fg-3 active:scale-[0.99]">
+                  Next: find its controls →
+                </a>
+              </div>
+              <p className="mt-3 max-w-[620px] text-xs text-pretty text-fg-3">
+                Everything above came from the address alone, with no access to the building. The
+                next step looks inside it. This capture is held for thirty minutes and is not
+                saved to an account yet.
+              </p>
+            </Panel>
           ) : null}
 
-        </div>
       </div>
     </div>
   );

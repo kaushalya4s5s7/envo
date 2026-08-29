@@ -16,17 +16,16 @@ export default function OnboardingPage() {
       <Reveal delay={80} className="mb-12 flex w-full justify-center">
         <DeploymentSteps />
       </Reveal>
-      <Reveal delay={120}>
-        <h1 className="heading-gradient max-w-[680px] text-center text-4xl font-semibold tracking-tighter text-balance md:text-6xl md:leading-none">
-          An address is<br />enough to start.
+      <Reveal delay={120} className="w-full max-w-[560px]">
+        <h1 className="text-left text-4xl font-semibold tracking-tight text-fg text-balance">
+          An address is enough to start.
         </h1>
       </Reveal>
-      <Reveal delay={230}>
-        <p className="mt-6 max-w-[680px] text-center text-base text-pretty text-fg-2 md:text-lg">
-          Every other product in this category installs a gateway, maps thousands of BMS points by
-          hand, then learns your building for six to eight weeks before it says anything. Our
-          intelligence comes from outside the building, so the first useful answer arrives before
-          you have granted us anything at all.
+      <Reveal delay={230} className="w-full max-w-[560px]">
+        <p className="mt-3 text-left text-base text-pretty text-fg-2">
+          Every other product in this category installs a gateway and learns your building for six
+          to eight weeks first. Our intelligence comes from outside it, so the first answer arrives
+          before you have granted us anything at all.
         </p>
       </Reveal>
       <Reveal delay={340} className="mt-16 flex w-full justify-center">
