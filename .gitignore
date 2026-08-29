@@ -3,6 +3,7 @@ node_modules/
 dist/
 out/
 runs/
+web/data/
 *.tsbuildinfo
 .env
 .env.*
