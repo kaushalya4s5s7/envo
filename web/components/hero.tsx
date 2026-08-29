@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { cToF, spreadF, tiles } from '@/lib/data';
 import { Reveal } from './reveal';
 import { HeatGrid } from './heat-grid';
@@ -32,7 +33,7 @@ export function Hero() {
       </Reveal>
 
       <Reveal delay={450} className="flex flex-col items-center">
-        <a
+        <Link
           href="/login"
           className="ease-fluid group inline-flex items-center gap-2 rounded-full bg-fg px-3 py-2 text-base font-semibold text-ink transition-all duration-500 hover:bg-fg-2 active:scale-[0.98]"
         >
@@ -42,7 +43,7 @@ export function Hero() {
             <path d="M40 128h176M152 64l64 64-64 64" stroke="currentColor" strokeWidth="20"
               strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </a>
+        </Link>
         <p className="mt-4 max-w-[620px] text-center text-sm text-pretty text-fg-3">
           One real FortyGuard heatmap of Manhattan, {tiles.date}:{' '}
           <b className="font-medium text-fg-2">{tiles.sourceTiles.toLocaleString()} blocks spanning{' '}

@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import { cn } from '@/lib/cn';
 
 /**
@@ -36,7 +37,7 @@ export function DeploymentSteps() {
           const active = current === i;
           return (
             <li key={s.href} className="min-w-[180px] flex-1">
-              <a
+              <Link
                 href={s.href}
                 aria-current={active ? 'step' : undefined}
                 className={cn(
@@ -55,14 +56,14 @@ export function DeploymentSteps() {
                   {s.label}
                 </span>
                 <span className="text-xs text-fg-3">{s.note}</span>
-              </a>
+              </Link>
             </li>
           );
         })}
 
         {/* Where the sequence ends up, so the last step is not a dead end. */}
         <li className="min-w-[150px] flex-1">
-          <a
+          <Link
             href="/app"
             className={cn(
               'ease-fluid flex h-full flex-col rounded-lg border border-dashed px-3 py-2 transition-colors duration-500',
@@ -78,7 +79,7 @@ export function DeploymentSteps() {
               Your morning screen
             </span>
             <span className="text-xs text-fg-3">One look, then get on with it</span>
-          </a>
+          </Link>
         </li>
       </ol>
     </nav>

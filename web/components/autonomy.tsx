@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import Link from 'next/link';
 import type { Actuator } from 'core/contracts';
 import { DEFAULT_GRANTS, LEVELS, gate, type GrantMap } from 'core/autonomy';
 import { run } from '@/lib/data';
@@ -133,14 +134,14 @@ export function Autonomy() {
             </p>
           )}
           <div className="mt-4 flex flex-wrap items-center gap-3">
-            <a href="/app"
+            <Link href="/app"
               className="ease-fluid inline-flex items-center gap-2 rounded-full bg-fg px-3 py-2 text-sm font-semibold text-ink transition-all duration-500 hover:bg-fg-2 active:scale-[0.98]">
               See your morning screen →
-            </a>
-            <a href="/app/decisions"
+            </Link>
+            <Link href="/app/decisions"
               className="text-sm font-medium text-fg-2 underline underline-offset-4">
               Or read the full decision log
-            </a>
+            </Link>
           </div>
         </div>
 

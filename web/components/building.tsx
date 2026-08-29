@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import Link from 'next/link';
 import type { Arm, Experiment } from 'core/sandbox';
 import { cn } from '@/lib/cn';
 
@@ -208,10 +209,10 @@ export function Building() {
         </div>
 
         <div className="flex flex-wrap items-center gap-4 border-b border-line p-4">
-          <a href="/app/sandbox"
+          <Link href="/app/sandbox"
             className="ease-fluid inline-flex items-center gap-2 rounded-full bg-fg px-3 py-2 text-sm font-semibold text-ink transition-all duration-500 hover:bg-fg-2 active:scale-[0.98]">
             Next: prove it is worth it →
-          </a>
+          </Link>
         </div>
 
         <p className="p-4 text-xs text-pretty text-fg-3">

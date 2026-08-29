@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
+import Link from 'next/link';
 import { Reveal } from '@/components/reveal';
 import { ProductionNote } from '@/components/production-note';
 import { getCurrentAccount } from '@/lib/session';
@@ -44,15 +45,15 @@ export default async function DashboardPage() {
               <div className="flex items-center justify-between gap-4">
                 <span className="font-mono text-xs tracking-wider text-fg-3">YOUR BUILDINGS</span>
                 {buildings.length > 3 ? (
-                  <a href="/app/buildings" className="font-mono text-xs text-fg-2 underline underline-offset-4">
+                  <Link href="/app/buildings" className="font-mono text-xs text-fg-2 underline underline-offset-4">
                     See all {buildings.length} →
-                  </a>
+                  </Link>
                 ) : null}
               </div>
               <ul className="mt-3 divide-y divide-line">
                 {buildings.slice(0, 3).map((b) => (
                   <li key={b.id}>
-                    <a
+                    <Link
                       href={`/app?capture=${b.id}`}
                       className="ease-fluid flex items-center justify-between gap-4 py-2 transition-opacity duration-300 hover:opacity-70"
                     >
@@ -60,7 +61,7 @@ export default async function DashboardPage() {
                       <span className="tabular font-mono text-xs text-fg-3">
                         captured {new Date(b.createdAt).toLocaleDateString()}
                       </span>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -72,7 +73,7 @@ export default async function DashboardPage() {
       <Reveal delay={340} className="mt-14 w-full max-w-[1120px]">
         <div className="grid gap-4 md:grid-cols-2">
 
-          <a
+          <Link
             href="/onboarding"
             className="ease-fluid group rounded-2xl border border-line bg-surface p-2 transition-colors duration-500 hover:border-line-2"
           >
@@ -105,7 +106,7 @@ export default async function DashboardPage() {
                 Start at step one →
               </span>
             </div>
-          </a>
+          </Link>
 
           <div className="rounded-2xl border border-line bg-surface p-2 opacity-60">
             <div className="flex h-full flex-col rounded-lg border border-line bg-ink p-4">

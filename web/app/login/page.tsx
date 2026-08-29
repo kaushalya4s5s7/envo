@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { GOOGLE_ENABLED } from '@/auth';
 import { Reveal } from '@/components/reveal';
 import { LoginForm } from '@/components/login-form';
@@ -15,10 +16,10 @@ export default function LoginPage() {
     <main id="main" className="flex min-h-screen flex-col items-center justify-center px-6 py-24">
       <div className="w-full max-w-[480px]">
         <Reveal delay={80}>
-          <a href="/" className="flex items-center gap-2 text-sm font-semibold tracking-tight text-fg">
+          <Link href="/" className="flex items-center gap-2 text-sm font-semibold tracking-tight text-fg">
             <PixelMark />
             Envelope Copilot
-          </a>
+          </Link>
         </Reveal>
         <Reveal delay={160} className="mt-10">
           <h1 className="text-left text-4xl font-semibold tracking-tight text-fg text-balance">

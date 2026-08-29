@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import type { Candidate } from '@/app/api/geocode/route';
 import type { CaptureGeometry, CaptureJob, Stage } from '@/lib/capture-store';
 import { cToF } from '@/lib/data';
@@ -273,14 +274,14 @@ export function Onboarding() {
                   n="over the captured window" />
               </dl>
               <div className="mt-4 flex flex-wrap items-center gap-3">
-                <a href={`/app?capture=${job.id}`}
+                <Link href={`/app?capture=${job.id}`}
                   className="ease-fluid inline-flex items-center gap-2 rounded-lg bg-accent px-3 py-3 text-base font-semibold text-fg transition-all duration-500 hover:bg-accent-2 active:scale-[0.99]">
                   See today&rsquo;s plan
-                </a>
-                <a href="/app/connect"
+                </Link>
+                <Link href="/app/connect"
                   className="ease-fluid inline-flex items-center gap-2 rounded-lg border border-line-2 px-3 py-3 text-base font-semibold transition-all duration-500 hover:border-fg-3 active:scale-[0.99]">
                   Next: find its controls →
-                </a>
+                </Link>
               </div>
               <p className="mt-3 max-w-[620px] text-xs text-pretty text-fg-3">
                 Everything above came from the address alone, with no access to the building. The

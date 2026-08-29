@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
+import Link from 'next/link';
 import { Reveal } from '@/components/reveal';
 import { getCurrentAccount } from '@/lib/session';
 import { buildOrgReport } from '@/lib/reports';
@@ -39,7 +40,7 @@ export default async function ReportsPage() {
         {report.totals.captures === 0 ? (
           <Reveal delay={340} className="mt-12">
             <p className="text-center text-sm text-pretty text-fg-3">
-              Nothing captured yet. <a href="/onboarding" className="text-fg-2 underline underline-offset-4">Capture a building</a> first.
+              Nothing captured yet. <Link href="/onboarding" className="text-fg-2 underline underline-offset-4">Capture a building</Link> first.
             </p>
           </Reveal>
         ) : (

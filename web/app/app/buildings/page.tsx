@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
+import Link from 'next/link';
 import { Reveal } from '@/components/reveal';
 import { getCurrentAccount } from '@/lib/session';
 import { listBuildingsForOrg } from '@/lib/buildings-store';
@@ -38,16 +39,16 @@ export default async function BuildingsPage() {
           {buildings.length === 0 ? (
             <p className="text-center text-sm text-pretty text-fg-3">
               Nothing captured yet.{' '}
-              <a href="/onboarding" className="text-fg-2 underline underline-offset-4">
+              <Link href="/onboarding" className="text-fg-2 underline underline-offset-4">
                 Type an address
-              </a>{' '}
+              </Link>{' '}
               to capture your first one.
             </p>
           ) : (
             <ul className="divide-y divide-line overflow-hidden rounded-2xl border border-line bg-surface">
               {buildings.map((b) => (
                 <li key={b.id}>
-                  <a
+                  <Link
                     href={`/app?capture=${b.id}`}
                     className="ease-fluid flex items-center justify-between gap-4 px-4 py-3 transition-colors duration-300 hover:bg-ink"
                   >
@@ -55,7 +56,7 @@ export default async function BuildingsPage() {
                     <span className="tabular font-mono text-xs text-fg-3">
                       captured {new Date(b.createdAt).toLocaleDateString()}
                     </span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

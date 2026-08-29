@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import Link from 'next/link';
 import type { CapabilityId, CapabilityMatch, DiscoveredPoint } from 'core/connect';
 import { readiness } from 'core/connect';
 import { cn } from '@/lib/cn';
@@ -199,9 +200,9 @@ export function Connect() {
             {busy ? 'Discovering…' : 'Re discover from the live building'}
           </button>
           {error ? <span className="text-sm text-alert">{error}</span> : null}
-          <a href="/app/building" className="text-sm font-medium text-fg-2 underline underline-offset-4">
+          <Link href="/app/building" className="text-sm font-medium text-fg-2 underline underline-offset-4">
             Next: watch it run →
-          </a>
+          </Link>
         </div>
 
         <p className="p-4 text-xs text-pretty text-fg-3">

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { run, tiles, cToF, spreadF } from '@/lib/data';
 import { fixtureBrief } from '@/lib/brief';
 import { describeTrigger } from '@/lib/plain';
@@ -114,12 +115,12 @@ export function HowItWorks() {
           </div>
         ) : null}
 
-        <a
+        <Link
           href="/replay"
           className="ease-fluid mt-8 inline-flex items-center gap-2 rounded-full border border-line-2 px-3 py-2 text-base font-semibold transition-all duration-500 hover:border-fg-3 active:scale-[0.98]"
         >
           See the whole day, hour by hour
-        </a>
+        </Link>
       </section>
     </>
   );

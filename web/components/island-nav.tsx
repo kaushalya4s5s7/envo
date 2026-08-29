@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { cn } from '@/lib/cn';
 import { PixelMark } from './pixel-mark';
 
@@ -31,29 +32,29 @@ export function IslandNav() {
           aria-label="Primary"
           className="ease-fluid pointer-events-auto flex w-max items-center gap-6 rounded-full border border-line-2 bg-surface-2/60 py-2 pr-2 pl-6 backdrop-blur-xl transition-all duration-700 hover:border-[#3d3d3d] max-md:gap-4 max-md:pl-4"
         >
-          <a href="/" aria-current="page" className="flex items-center gap-2 text-sm font-semibold tracking-tight">
+          <Link href="/" aria-current="page" className="flex items-center gap-2 text-sm font-semibold tracking-tight">
             <PixelMark />
             Envelope Copilot
-          </a>
+          </Link>
 
           <div className="flex items-center gap-6 max-md:hidden">
             {LINKS.map((l) => (
-              <a
+              <Link
                 key={l.href}
                 href={l.href}
                 className="ease-fluid text-sm font-medium text-fg-2 transition-colors duration-500 hover:text-fg"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
           </div>
 
-          <a
+          <Link
             href="/login"
             className="ease-fluid inline-flex items-center rounded-full bg-fg px-3 py-2 text-sm font-semibold text-ink transition-all duration-500 hover:bg-fg-2 active:scale-[0.98] max-md:hidden"
           >
             Sign in
-          </a>
+          </Link>
 
           <button
             type="button"
@@ -88,7 +89,7 @@ export function IslandNav() {
         )}
       >
         {[...LINKS, { href: '/login', label: 'Sign in' }].map((l, i) => (
-          <a
+          <Link
             key={l.href}
             href={l.href}
             style={{ transitionDelay: open ? `${100 + i * 50}ms` : '0ms' }}
@@ -98,7 +99,7 @@ export function IslandNav() {
             )}
           >
             {l.label}
-          </a>
+          </Link>
         ))}
       </div>
     </>

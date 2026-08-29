@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import { cn } from '@/lib/cn';
 import { PixelMark } from './pixel-mark';
 
@@ -36,7 +37,7 @@ export function AppSidebar({ user, orgName }: { user?: string; orgName?: string 
   const NavLinks = () => (
     <nav aria-label="Primary" className="mt-8 flex flex-col gap-1">
       {LINKS.map((l) => (
-        <a
+        <Link
           key={l.href}
           href={l.href}
           aria-current={isActive(l.href) ? 'page' : undefined}
@@ -46,7 +47,7 @@ export function AppSidebar({ user, orgName }: { user?: string; orgName?: string 
           )}
         >
           {l.label}
-        </a>
+        </Link>
       ))}
     </nav>
   );
@@ -70,20 +71,20 @@ export function AppSidebar({ user, orgName }: { user?: string; orgName?: string 
     <>
       {/* Desktop: persistent left sidebar, out of document flow. */}
       <aside className="fixed inset-y-0 left-0 z-40 hidden w-64 flex-col border-r border-line bg-surface-2/60 p-4 backdrop-blur-xl md:flex">
-        <a href="/" className="flex items-center gap-2 px-2 text-sm font-semibold tracking-tight">
+        <Link href="/" className="flex items-center gap-2 px-2 text-sm font-semibold tracking-tight">
           <PixelMark />
           Envelope Copilot
-        </a>
+        </Link>
         <NavLinks />
         <Identity />
       </aside>
 
       {/* Mobile: slim top bar with a hamburger into a full-screen sheet. */}
       <div className="fixed inset-x-0 top-0 z-50 flex items-center justify-between border-b border-line bg-surface-2/60 px-4 py-3 backdrop-blur-xl md:hidden">
-        <a href="/" className="flex items-center gap-2 text-sm font-semibold tracking-tight">
+        <Link href="/" className="flex items-center gap-2 text-sm font-semibold tracking-tight">
           <PixelMark />
           Envelope Copilot
-        </a>
+        </Link>
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}

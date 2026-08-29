@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 import type { CaptureJob } from '@/lib/capture-store';
 import { agentModel, agentSummary } from '@/lib/brief';
 import { Reveal } from './reveal';
@@ -58,16 +59,16 @@ export function Today() {
       {gone ? (
         <p className="mt-8 max-w-[560px] text-center text-sm text-pretty text-fg-3">
           That capture has expired — captures are held in memory for thirty minutes and nothing is
-          stored. <a href="/onboarding" className="text-fg-2 underline underline-offset-4">Run a new one</a>.
+          stored. <Link href="/onboarding" className="text-fg-2 underline underline-offset-4">Run a new one</Link>.
         </p>
       ) : null}
 
       {!id ? (
         <p className="mt-8 max-w-[560px] text-center text-sm text-pretty text-fg-3">
           You are looking at the committed demo day, not a building of yours.{' '}
-          <a href="/onboarding" className="text-fg-2 underline underline-offset-4">
+          <Link href="/onboarding" className="text-fg-2 underline underline-offset-4">
             Type your own address
-          </a>{' '} to capture the real one.
+          </Link>{' '} to capture the real one.
         </p>
       ) : null}
 
