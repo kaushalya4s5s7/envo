@@ -1,5 +1,4 @@
-import type { Database } from 'bun:sqlite';
-import { db as defaultDb } from './db';
+import { getDb, type Db } from './db';
 
 export type Cadence = 'daily' | 'weekly';
 
@@ -11,25 +10,20 @@ export interface DigestSubscription {
 }
 
 export function subscribe(
-  userEmail: string, buildingId: string, cadence: Cadence, database: Database = defaultDb,
+  userEmail: string, buildingId: string, cadence: Cadence, database?: Db,
 ) {
-  database.query(`
-    INSERT INTO digest_subscription (user_email, building_id, cadence, created_at)
-    VALUES ($userEmail, $buildingId, $cadence, $createdAt)
-    ON CONFLICT (user_email, building_id) DO UPDATE SET cadence = excluded.cadence
-  `).run({
-    $userEmail: userEmail, $buildingId: buildingId, $cadence: cadence, $createdAt: Date.now(),
-  });
+  const db = database ?? getDb();
+  const store = db.read();
+  const digestSubscriptions = store.digestSubscriptions
+    .filter((s) => !(s.userEmail === userEmail && s.buildingId === buildingId));
+  digestSubscriptions.push({ userEmail, buildingId, cadence, createdAt: Date.now() });
+  db.write({ ...store, digestSubscriptions });
 }
 
 export function getSubscription(
-  userEmail: string, buildingId: string, database: Database = defaultDb,
+  userEmail: string, buildingId: string, database?: Db,
 ): DigestSubscription | null {
-  const row = database.query(
-    'SELECT * FROM digest_subscription WHERE user_email = $userEmail AND building_id = $buildingId',
-  ).get({ $userEmail: userEmail, $buildingId: buildingId }) as
-    { user_email: string; building_id: string; cadence: Cadence; created_at: number } | null;
-  return row
-    ? { userEmail: row.user_email, buildingId: row.building_id, cadence: row.cadence, createdAt: row.created_at }
-    : null;
+  const row = (database ?? getDb()).read().digestSubscriptions
+    .find((s) => s.userEmail === userEmail && s.buildingId === buildingId);
+  return row ? { ...row } : null;
 }

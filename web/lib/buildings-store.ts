@@ -1,12 +1,15 @@
-import type { Database } from 'bun:sqlite';
 import type { Building } from 'core/contracts';
-import { db as defaultDb } from './db';
+import { getDb, type Db, type SavedBuildingRow, type RunRow } from './db';
 
 /**
  * Durable counterpart to web/lib/capture-store.ts. That store holds one
  * in-flight capture for 30 minutes; this one holds what a signed-in user has
  * captured, indefinitely, so `/app` and `/app/buildings` survive a reload.
  * See docs/decisions/product/operator-product-shape.md.
+ *
+ * Every function takes an optional `database`, defaulting to `getDb()` — a
+ * function call, not a value, so the store file is only opened the first
+ * time one of these actually runs. See web/lib/db.ts.
  */
 
 export interface SavedBuilding {
@@ -28,74 +31,68 @@ export interface SavedRun {
   assumptions: string[];
 }
 
-interface BuildingRow {
-  id: string; user_email: string; address: string; lat: number; lon: number;
-  floor_area_m2: number; building_json: string; created_at: number;
+function rowToSaved(row: SavedBuildingRow): SavedBuilding {
+  return {
+    id: row.id, userEmail: row.userEmail, address: row.address,
+    lat: row.lat, lon: row.lon, floorAreaM2: row.floorAreaM2,
+    building: JSON.parse(row.buildingJson) as Building, createdAt: row.createdAt,
+  };
 }
 
-function rowToSaved(row: BuildingRow): SavedBuilding {
+function rowToRun(row: RunRow): SavedRun {
   return {
-    id: row.id, userEmail: row.user_email, address: row.address,
-    lat: row.lat, lon: row.lon, floorAreaM2: row.floor_area_m2,
-    building: JSON.parse(row.building_json) as Building, createdAt: row.created_at,
+    id: row.id, buildingId: row.buildingId, capturedAt: row.capturedAt,
+    artifact: JSON.parse(row.artifactJson), assumptions: JSON.parse(row.assumptionsJson) as string[],
   };
 }
 
 export function saveBuilding(input: {
   id: string; userEmail: string; address: string; lat: number; lon: number;
   floorAreaM2: number; building: Building; createdAt: number;
-}, database: Database = defaultDb) {
-  database.query(`
-    INSERT OR REPLACE INTO saved_building
-      (id, user_email, address, lat, lon, floor_area_m2, building_json, created_at)
-    VALUES ($id, $userEmail, $address, $lat, $lon, $floorAreaM2, $buildingJson, $createdAt)
-  `).run({
-    $id: input.id, $userEmail: input.userEmail, $address: input.address,
-    $lat: input.lat, $lon: input.lon, $floorAreaM2: input.floorAreaM2,
-    $buildingJson: JSON.stringify(input.building), $createdAt: input.createdAt,
+}, database?: Db) {
+  const db = database ?? getDb();
+  const store = db.read();
+  const savedBuildings = store.savedBuildings.filter((b) => b.id !== input.id);
+  savedBuildings.push({
+    id: input.id, userEmail: input.userEmail, address: input.address,
+    lat: input.lat, lon: input.lon, floorAreaM2: input.floorAreaM2,
+    buildingJson: JSON.stringify(input.building), createdAt: input.createdAt,
   });
+  db.write({ ...store, savedBuildings });
 }
 
-export function getBuilding(id: string, database: Database = defaultDb): SavedBuilding | null {
-  const row = database.query('SELECT * FROM saved_building WHERE id = $id')
-    .get({ $id: id }) as BuildingRow | null;
+export function getBuilding(id: string, database?: Db): SavedBuilding | null {
+  const row = (database ?? getDb()).read().savedBuildings.find((b) => b.id === id);
   return row ? rowToSaved(row) : null;
 }
 
-export function listBuildingsForUser(userEmail: string, database: Database = defaultDb): SavedBuilding[] {
-  const rows = database.query(
-    'SELECT * FROM saved_building WHERE user_email = $userEmail ORDER BY created_at DESC',
-  ).all({ $userEmail: userEmail }) as BuildingRow[];
-  return rows.map(rowToSaved);
+export function listBuildingsForUser(userEmail: string, database?: Db): SavedBuilding[] {
+  return (database ?? getDb()).read().savedBuildings
+    .filter((b) => b.userEmail === userEmail)
+    .sort((a, b) => b.createdAt - a.createdAt)
+    .map(rowToSaved);
 }
 
-export function getLatestBuildingForUser(userEmail: string, database: Database = defaultDb): SavedBuilding | null {
-  const row = database.query(
-    'SELECT * FROM saved_building WHERE user_email = $userEmail ORDER BY created_at DESC LIMIT 1',
-  ).get({ $userEmail: userEmail }) as BuildingRow | null;
-  return row ? rowToSaved(row) : null;
+export function getLatestBuildingForUser(userEmail: string, database?: Db): SavedBuilding | null {
+  return listBuildingsForUser(userEmail, database)[0] ?? null;
 }
 
 export function saveRun(input: {
   id: string; buildingId: string; capturedAt: number; artifact: unknown; assumptions: string[];
-}, database: Database = defaultDb) {
-  database.query(`
-    INSERT OR REPLACE INTO run (id, building_id, captured_at, artifact_json, assumptions_json)
-    VALUES ($id, $buildingId, $capturedAt, $artifactJson, $assumptionsJson)
-  `).run({
-    $id: input.id, $buildingId: input.buildingId, $capturedAt: input.capturedAt,
-    $artifactJson: JSON.stringify(input.artifact), $assumptionsJson: JSON.stringify(input.assumptions),
+}, database?: Db) {
+  const db = database ?? getDb();
+  const store = db.read();
+  const runs = store.runs.filter((r) => r.id !== input.id);
+  runs.push({
+    id: input.id, buildingId: input.buildingId, capturedAt: input.capturedAt,
+    artifactJson: JSON.stringify(input.artifact), assumptionsJson: JSON.stringify(input.assumptions),
   });
+  db.write({ ...store, runs });
 }
 
-export function getLatestRun(buildingId: string, database: Database = defaultDb): SavedRun | null {
-  const row = database.query(
-    'SELECT * FROM run WHERE building_id = $buildingId ORDER BY captured_at DESC LIMIT 1',
-  ).get({ $buildingId: buildingId }) as
-    { id: string; building_id: string; captured_at: number; artifact_json: string; assumptions_json: string } | null;
-  if (!row) return null;
-  return {
-    id: row.id, buildingId: row.building_id, capturedAt: row.captured_at,
-    artifact: JSON.parse(row.artifact_json), assumptions: JSON.parse(row.assumptions_json) as string[],
-  };
+export function getLatestRun(buildingId: string, database?: Db): SavedRun | null {
+  const rows = (database ?? getDb()).read().runs
+    .filter((r) => r.buildingId === buildingId)
+    .sort((a, b) => b.capturedAt - a.capturedAt);
+  return rows[0] ? rowToRun(rows[0]) : null;
 }

@@ -1,53 +1,77 @@
-import { Database } from 'bun:sqlite';
-import { mkdirSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 
 /**
- * One file, created on first use. `:memory:` (used by tests) skips the
- * filesystem entirely. Not a service — a hackathon-scale account and building
- * store, per docs/decisions/product/operator-product-shape.md.
+ * A plain JSON file, not sqlite.
+ *
+ * Two sqlite drivers were tried and both failed in this exact stack: `bun:sqlite`
+ * cannot be resolved by Next's own server module loader
+ * (`next/dist/server/require.js`), confirmed against both `next build`'s page-data
+ * collection and `next dev`'s actual request handling — not a build-time worker
+ * quirk, the loader itself doesn't forward the `bun:` protocol. `better-sqlite3`
+ * resolves fine as an ordinary npm package, but its native N-API binding crashes
+ * Bun's test runner outright. `node:sqlite` isn't available in this Bun version.
+ *
+ * This store uses only `node:fs`/`node:path` — no native binding, no
+ * runtime-special protocol — so it behaves identically under `bun test`,
+ * `bun run dev`, and inside a compiled Next server bundle. Whole-file
+ * read-modify-write is not safe under real concurrent writers; that's an
+ * accepted simplification at hackathon scale (single process, low traffic),
+ * not a hidden one. See docs/decisions/product/operator-product-shape.md.
  */
-const DEFAULT_PATH = process.env['DB_PATH'] ?? join(process.cwd(), 'data', 'app.db');
 
-export function createDb(path: string = DEFAULT_PATH): Database {
-  if (path !== ':memory:') mkdirSync(dirname(path), { recursive: true });
-  const database = new Database(path);
-  database.exec('PRAGMA journal_mode = WAL;');
-  migrate(database);
-  return database;
+export interface SavedBuildingRow {
+  id: string; userEmail: string; address: string; lat: number; lon: number;
+  floorAreaM2: number; buildingJson: string; createdAt: number;
 }
 
-function migrate(database: Database) {
-  database.exec(`
-    CREATE TABLE IF NOT EXISTS saved_building (
-      id TEXT PRIMARY KEY,
-      user_email TEXT NOT NULL,
-      address TEXT NOT NULL,
-      lat REAL NOT NULL,
-      lon REAL NOT NULL,
-      floor_area_m2 REAL NOT NULL,
-      building_json TEXT NOT NULL,
-      created_at INTEGER NOT NULL
-    );
-    CREATE INDEX IF NOT EXISTS idx_saved_building_user ON saved_building(user_email, created_at DESC);
-
-    CREATE TABLE IF NOT EXISTS run (
-      id TEXT PRIMARY KEY,
-      building_id TEXT NOT NULL REFERENCES saved_building(id),
-      captured_at INTEGER NOT NULL,
-      artifact_json TEXT NOT NULL,
-      assumptions_json TEXT NOT NULL
-    );
-    CREATE INDEX IF NOT EXISTS idx_run_building ON run(building_id, captured_at DESC);
-
-    CREATE TABLE IF NOT EXISTS digest_subscription (
-      user_email TEXT NOT NULL,
-      building_id TEXT NOT NULL REFERENCES saved_building(id),
-      cadence TEXT NOT NULL CHECK (cadence IN ('daily', 'weekly')),
-      created_at INTEGER NOT NULL,
-      PRIMARY KEY (user_email, building_id)
-    );
-  `);
+export interface RunRow {
+  id: string; buildingId: string; capturedAt: number; artifactJson: string; assumptionsJson: string;
 }
 
-export const db = createDb();
+export interface DigestSubscriptionRow {
+  userEmail: string; buildingId: string; cadence: 'daily' | 'weekly'; createdAt: number;
+}
+
+interface Store {
+  savedBuildings: SavedBuildingRow[];
+  runs: RunRow[];
+  digestSubscriptions: DigestSubscriptionRow[];
+}
+
+const DEFAULT_PATH = process.env['DB_PATH'] ?? join(process.cwd(), 'data', 'app.json');
+
+function emptyStore(): Store {
+  return { savedBuildings: [], runs: [], digestSubscriptions: [] };
+}
+
+export interface Db {
+  read(): Store;
+  write(store: Store): void;
+}
+
+export function createDb(path: string = DEFAULT_PATH): Db {
+  const inMemory = path === ':memory:';
+  if (!inMemory) mkdirSync(dirname(path), { recursive: true });
+  let memoryStore = emptyStore();
+
+  return {
+    read(): Store {
+      if (inMemory) return memoryStore;
+      if (!existsSync(path)) return emptyStore();
+      return JSON.parse(readFileSync(path, 'utf8')) as Store;
+    },
+    write(store: Store) {
+      if (inMemory) { memoryStore = store; return; }
+      writeFileSync(path, JSON.stringify(store));
+    },
+  };
+}
+
+let singleton: Db | null = null;
+
+/** The shared instance store functions default to. Created on first call, not on import. */
+export function getDb(): Db {
+  if (!singleton) singleton = createDb();
+  return singleton;
+}

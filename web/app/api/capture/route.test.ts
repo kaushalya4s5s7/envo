@@ -1,6 +1,6 @@
 import { describe, test, expect, afterAll } from 'bun:test';
 import { GET } from './route';
-import { db } from '@/lib/db';
+import { getDb } from '@/lib/db';
 import { saveBuilding, saveRun } from '@/lib/buildings-store';
 import type { Building } from 'core/contracts';
 
@@ -19,8 +19,13 @@ const building: Building = {
 };
 
 afterAll(() => {
-  db.query('DELETE FROM run WHERE building_id = $id').run({ $id: 'route-test-1' });
-  db.query('DELETE FROM saved_building WHERE id = $id').run({ $id: 'route-test-1' });
+  const db = getDb();
+  const store = db.read();
+  db.write({
+    ...store,
+    runs: store.runs.filter((r) => r.buildingId !== 'route-test-1'),
+    savedBuildings: store.savedBuildings.filter((b) => b.id !== 'route-test-1'),
+  });
 });
 
 describe('GET /api/capture — durable fallback', () => {
