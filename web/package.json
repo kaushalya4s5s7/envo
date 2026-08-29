@@ -6,12 +6,14 @@
     "dev": "next dev --port 3000",
     "build": "next build",
     "start": "next start --port 3000",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "test": "bun test --timeout 30000"
   },
   "dependencies": {
     "core": "workspace:*",
     "next": "catalog:",
     "next-auth": "^5.0.0-beta.32",
+    "postgres": "^3.4.9",
     "react": "catalog:",
     "react-dom": "catalog:"
   },

@@ -1,0 +1,5 @@
+[test]
+# Tests hit a real, remote Neon Postgres instance — no in-memory swap-in
+# exists for it. The default 5000ms trips on tests doing several sequential
+# round trips (invite -> sign-in -> membership -> roster), not on a bug.
+timeout = 20000
