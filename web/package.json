@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3000",
+    "dev": "next dev --port ${PORT:-3000}",
     "build": "next build",
-    "start": "next start --port 3000",
+    "start": "next start --port ${PORT:-3000}",
     "check-types": "tsc --noEmit",
     "test": "bun test --timeout 30000"
   },
