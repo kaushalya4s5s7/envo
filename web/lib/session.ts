@@ -1,6 +1,6 @@
 import { cache } from 'react';
 import { auth } from '@/auth';
-import { ensureUser, ensureMembership, getPrimaryOrg, type Role } from './accounts-store';
+import { ensureUser, ensureMembership, type Role } from './accounts-store';
 
 export interface CurrentAccount {
   userId: string;
@@ -24,9 +24,7 @@ export const getCurrentAccount = cache(async (): Promise<CurrentAccount | null> 
   const name = authSession.user?.name ?? null;
 
   const user = await ensureUser(email, name);
-  await ensureMembership(user.id, email, name);
-  const org = await getPrimaryOrg(user.id);
-  if (!org) return null;
+  const org = await ensureMembership(user.id, email, name);
 
   return {
     userId: user.id, email: user.email, name: user.name,

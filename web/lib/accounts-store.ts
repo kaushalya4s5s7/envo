@@ -54,12 +54,17 @@ export async function ensureUser(email: string, name: string | null): Promise<Ac
 }
 
 /**
- * Ensures this user has at least one org membership. First applies any
- * pending invitation for their email (joining a teammate's org with the
- * invited role), and only if none exists, creates a personal org where
- * they are the owner. Idempotent — safe to call every request.
+ * Ensures this user has at least one org membership, and returns it. First
+ * applies any pending invitation for their email (joining a teammate's org
+ * with the invited role), and only if none exists, creates a personal org
+ * where they are the owner. Idempotent — safe to call every request.
+ *
+ * Returns the membership directly (reusing getPrimaryOrg's query) rather
+ * than making the caller fetch it again separately — this runs on every
+ * authenticated page load via getCurrentAccount, so one fewer round trip
+ * against a remote Postgres instance is not free to skip.
  */
-export async function ensureMembership(userId: string, email: string, name: string | null): Promise<void> {
+export async function ensureMembership(userId: string, email: string, name: string | null): Promise<Membership> {
   const sql = await getDb();
 
   const pending = await sql<{ id: string; org_id: string; role: Role }[]>`
@@ -75,10 +80,8 @@ export async function ensureMembership(userId: string, email: string, name: stri
     await sql`UPDATE invitations SET accepted_at = ${Date.now()} WHERE id = ${invite.id}`;
   }
 
-  const countRows = await sql<{ count: string }[]>`
-    SELECT COUNT(*)::text as count FROM memberships WHERE user_id = ${userId}
-  `;
-  if (Number(countRows[0]?.count ?? 0) > 0) return;
+  const existing = await getPrimaryOrg(userId);
+  if (existing) return existing;
 
   const orgId = crypto.randomUUID();
   const orgName = `${name ?? email}’s workspace`;
@@ -87,6 +90,7 @@ export async function ensureMembership(userId: string, email: string, name: stri
     INSERT INTO memberships (user_id, org_id, role, created_at)
     VALUES (${userId}, ${orgId}, 'owner', ${Date.now()})
   `;
+  return { orgId, orgName, role: 'owner' };
 }
 
 /**
