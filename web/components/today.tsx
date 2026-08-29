@@ -6,6 +6,7 @@ import type { CaptureJob } from '@/lib/capture-store';
 import { agentModel, agentSummary } from '@/lib/brief';
 import { Reveal } from './reveal';
 import { MorningBrief } from './morning-brief';
+import { DigestForm } from './digest-form';
 
 /**
  * The 07:15 screen, for one building.
@@ -90,6 +91,8 @@ export function Today() {
           </div>
         </div>
       ) : null}
+
+      {id && artifact ? <DigestForm buildingId={id} /> : null}
     </>
   );
 }
