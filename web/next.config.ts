@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
    * vendor stays confined to one place, per docs/architecture.md.
    */
   transpilePackages: ['core'],
+  /**
+   * `bun:sqlite` is a Bun runtime built-in, not an npm package — Next must not
+   * try to bundle it for a client boundary. See web/lib/db.ts.
+   */
+  serverExternalPackages: ['bun:sqlite'],
 };
 
 export default nextConfig;
