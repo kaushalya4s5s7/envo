@@ -46,6 +46,10 @@ When the map appears, stop talking for a second and let it land.
 > measurement. The ring is the building."
 >
 > "This took about twenty five seconds. The full read takes two minutes."
+>
+> "Those two minutes are two live calls to FortyGuard, for this exact block — a
+> heatmap read, then twelve hours of the parameters our policies actually use.
+> Nothing you are about to see was cached or replayed."
 
 ---
 
@@ -56,6 +60,10 @@ When the map appears, stop talking for a second and let it land.
 > "Each line says what to do, the reading that caused it, and what would make you
 > undo it. Because the person reading this often manages buildings under contract,
 > and has to justify it to somebody who was not in the room."
+>
+> "Every reading behind these lines — the apparent temperature, the ozone level,
+> the cloud cover — is the same live FortyGuard read from a minute ago, for their
+> block specifically. Nothing on this screen is a synthetic day."
 
 ---
 
@@ -156,6 +164,13 @@ constant?
 > "The middle and the right are both **our** software, on the same equipment. The
 > only difference between them is what the agent was allowed to see. The middle
 > gets a normal city weather feed. The right gets the forecast for that one block."
+>
+> "That forecast is a real FortyGuard day, captured for this reference building's
+> block — not synthetic, and not the live address we typed earlier, this is a
+> separate capture we recorded to run the comparison. FortyGuard drives the
+> decisions here. BOPTEST drives the physics of what happens when you act on
+> them. Two different vendors, two different jobs, and neither one grades its
+> own homework."
 
 ### What it actually returned
 
@@ -292,6 +307,7 @@ Flip one control to **Let it act**, and let the list below change.
 | "Did the sandbox itself have bugs?" | "Yes, and we'd rather you hear it from us. The first run had a harness bug where one of the two controlled arms wasn't actually actuating, so an early comparison was really us against no control at all. We found it, fixed it, and re-ran. That's what an independent scorer is for — it's also independently capable of exposing our own mistakes." |
 | "Is the air quality hyperlocal too?" | "No. Heat is per block, and that is real. Air quality is metro scale, and PM2.5 is daily. We probed it and it disproved part of our own original idea, so we changed the product." |
 | "Is that a real building?" | "It is a simulation of a real US Department of Energy reference building. The physics is real. The equipment is not ours." |
+| "Where exactly does FortyGuard show up versus BOPTEST?" | "FortyGuard is the real hyperlocal weather — the heatmap on the landing page, the address capture, the twelve-hour forecast behind the morning screen. It is what the agent decides from. BOPTEST only shows up in the sandbox step, standing in for a real building's physics so an independent scorer can grade us. They never talk to each other: FortyGuard tells the agent what to decide, BOPTEST tells us what happens when you act on it." |
 | "How do you get from this simulation to an actual BACnet network?" | "The interface we built doesn't change. There's a proxy that exposes a BOPTEST emulator as real BACnet/IP devices, so the same point-discovery and setpoint-write code we ran against the emulator can run against a real gateway. What's missing is that gateway and a site to put it on — not new code." |
 
 ## Do not say
