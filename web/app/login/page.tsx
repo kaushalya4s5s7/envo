@@ -11,6 +11,15 @@ export const metadata: Metadata = {
   description: 'Sign in to your buildings.',
 };
 
+/**
+ * Without this, Next statically prerenders the page at build time and bakes
+ * in whatever GOOGLE_ENABLED was during the build step — not what the running
+ * server actually has. That's how it shipped once with Google OAuth silently
+ * stuck "off" on a deploy where the build stage didn't see the credentials
+ * that the runtime stage did.
+ */
+export const dynamic = 'force-dynamic';
+
 export default function LoginPage() {
   return (
     <main id="main" className="flex min-h-screen flex-col items-center justify-center px-6 py-24">

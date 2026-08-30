@@ -11,3 +11,4 @@ web/data/
 .DS_Store
 .turbo/
 onboarding.png
+.vercel

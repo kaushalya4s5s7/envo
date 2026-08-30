@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { signOut } from 'next-auth/react';
 import { cn } from '@/lib/cn';
 import { PixelMark } from './pixel-mark';
 
@@ -125,12 +126,13 @@ export function AppSidebar({ user, orgName }: { user?: string; orgName?: string 
       {user ? (
         <span className="truncate px-3 font-mono text-xs text-fg-3" title={user}>{user}</span>
       ) : null}
-      <a
-        href="/api/auth/signout"
-        className="ease-fluid rounded-lg px-3 py-2 text-sm font-medium text-fg-2 transition-colors duration-300 hover:bg-surface-2/60 hover:text-fg"
+      <button
+        type="button"
+        onClick={() => void signOut({ redirectTo: '/' })}
+        className="ease-fluid rounded-lg px-3 py-2 text-left text-sm font-medium text-fg-2 transition-colors duration-300 hover:bg-surface-2/60 hover:text-fg"
       >
         Sign out
-      </a>
+      </button>
     </div>
   );
 

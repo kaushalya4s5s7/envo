@@ -58,17 +58,15 @@ export function HowItWorks() {
 
         <ol className="mt-14 grid w-full max-w-[1120px] gap-4 md:grid-cols-2">
           {STEPS.map((s) => (
-            <li key={s.n} className="rounded-2xl border border-line bg-surface p-2">
-              <div className="flex h-full flex-col rounded-lg border border-line bg-ink p-4">
-                <span className="font-mono text-xs tracking-wider text-fg-3">{s.n}</span>
-                <h3 className="mt-2 text-lg font-semibold tracking-tight">{s.title}</h3>
-                <p className="mt-2 flex-1 text-sm text-pretty text-fg-2">{s.body}</p>
-                <div className="mt-4 border-t border-line pt-3">
-                  <div className="tabular font-mono text-xl font-medium tracking-tight text-fg">
-                    {s.stat}
-                  </div>
-                  <div className="mt-0.5 text-xs text-pretty text-fg-3">{s.statNote}</div>
+            <li key={s.n} className="flex h-full flex-col rounded-2xl border border-line bg-ink p-4">
+              <span className="font-mono text-xs tracking-wider text-fg-3">{s.n}</span>
+              <h3 className="mt-2 text-lg font-semibold tracking-tight">{s.title}</h3>
+              <p className="mt-2 flex-1 text-sm text-pretty text-fg-2">{s.body}</p>
+              <div className="mt-4 border-t border-line pt-3">
+                <div className="tabular font-mono text-xl font-medium tracking-tight text-fg">
+                  {s.stat}
                 </div>
+                <div className="mt-0.5 text-xs text-pretty text-fg-3">{s.statNote}</div>
               </div>
             </li>
           ))}
@@ -84,34 +82,32 @@ export function HowItWorks() {
         </p>
 
         {first ? (
-          <div className="mt-12 w-full max-w-[840px] rounded-2xl border border-line bg-surface p-2">
-            <div className="overflow-hidden rounded-lg border border-line bg-ink">
-              <header className="flex flex-wrap items-center justify-between gap-4 border-b border-line px-4 py-3">
-                <span className="tabular font-mono text-xs text-fg-2">
-                  {new Date(first.at).toISOString().slice(11, 16)} · {run.date}
-                </span>
-                <span className="font-mono text-xs text-fg-3">ADVICE ONLY</span>
-              </header>
+          <div className="mt-12 w-full max-w-[840px] overflow-hidden rounded-2xl border border-line bg-ink">
+            <header className="flex flex-wrap items-center justify-between gap-4 border-b border-line px-4 py-3">
+              <span className="tabular font-mono text-xs text-fg-2">
+                {new Date(first.at).toISOString().slice(11, 16)} · {run.date}
+              </span>
+              <span className="font-mono text-xs text-fg-3">ADVICE ONLY</span>
+            </header>
 
-              <dl className="divide-y divide-line">
-                <div className="p-4">
-                  <dt className="font-mono text-xs tracking-wider text-fg-3">WHAT WE WOULD DO</dt>
-                  <dd className="mt-1 text-base font-medium">
-                    Start cooling early, before the afternoon peak
-                  </dd>
-                </div>
-                <div className="p-4">
-                  <dt className="font-mono text-xs tracking-wider text-fg-3">WHY</dt>
-                  <dd className="mt-1 text-sm text-pretty text-fg-2">
-                    {describeTrigger(first.trigger.parameter, first.trigger.observed, first.trigger.threshold)}
-                  </dd>
-                </div>
-                <div className="p-4">
-                  <dt className="font-mono text-xs tracking-wider text-fg-3">WHAT WOULD MAKE US UNDO IT</dt>
-                  <dd className="mt-1 text-sm text-pretty text-fg-2">{first.reverseWhen}</dd>
-                </div>
-              </dl>
-            </div>
+            <dl className="divide-y divide-line">
+              <div className="p-4">
+                <dt className="font-mono text-xs tracking-wider text-fg-3">WHAT WE WOULD DO</dt>
+                <dd className="mt-1 text-base font-medium">
+                  Start cooling early, before the afternoon peak
+                </dd>
+              </div>
+              <div className="p-4">
+                <dt className="font-mono text-xs tracking-wider text-fg-3">WHY</dt>
+                <dd className="mt-1 text-sm text-pretty text-fg-2">
+                  {describeTrigger(first.trigger.parameter, first.trigger.observed, first.trigger.threshold)}
+                </dd>
+              </div>
+              <div className="p-4">
+                <dt className="font-mono text-xs tracking-wider text-fg-3">WHAT WOULD MAKE US UNDO IT</dt>
+                <dd className="mt-1 text-sm text-pretty text-fg-2">{first.reverseWhen}</dd>
+              </div>
+            </dl>
           </div>
         ) : null}
 
