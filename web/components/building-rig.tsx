@@ -71,16 +71,16 @@ export function BuildingRig() {
             x2={c.tagX + 12} y2={c.tagY + TAG_H / 2}
             stroke={c.color} strokeWidth="1" strokeDasharray="3 3" opacity="0.6"
           />
-          <circle cx={c.mx} cy={c.my} r="3.5" fill="var(--color-surface)" stroke={c.color} strokeWidth="1.5" />
+          <circle cx={c.mx} cy={c.my} r="3.5" className="fill-[#FFF6E5]" stroke={c.color} strokeWidth="1.5" />
           <rect
             x={c.tagX} y={c.tagY} width={c.tagW} height={TAG_H} rx="6"
-            fill="#1B1613" stroke="#3F3630" strokeWidth="1"
+            className="fill-[#1B1613] stroke-[#3F3630]"
+            strokeWidth="1"
           />
-          <circle cx={c.tagX + 12} cy={c.tagY + TAG_H / 2} r="3" fill={c.color} />
+          <circle cx={c.tagX + 12} cy={c.tagY + TAG_H / 2} r="3" style={{ fill: c.color }} />
           <text
             x={c.tagX + 22} y={c.tagY + TAG_H / 2 + 3}
-            className="font-mono text-[9px] tracking-wide"
-            fill="#F4EFE8"
+            className="fill-[#F4EFE8] font-mono text-[9px] tracking-wide"
           >
             {c.label}
           </text>
