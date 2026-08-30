@@ -371,22 +371,13 @@ function LiveOps() {
 
 function OrbitField() {
   return (
-    <div className="relative mx-auto flex min-h-[420px] items-center justify-center">
-      <svg className="absolute inset-0 size-full" viewBox="0 0 520 420" fill="none" aria-hidden="true">
-        <ellipse className="orbit-stroke" cx="260" cy="210" rx="210" ry="78" stroke="#B1ACA6" pathLength="1" />
-        <ellipse className="orbit-stroke" style={{ animationDelay: '180ms' }} cx="260" cy="210" rx="148" ry="128" stroke="#DFD8D3" pathLength="1" />
-        <path className="orbit-stroke" style={{ animationDelay: '320ms' }} d="M80 210C80 210 180 320 260 320C340 320 440 210 440 210" stroke="#B1ACA6" pathLength="1" />
-        <circle cx="80" cy="210" r="3" fill="#FF8B3E" />
-        <circle cx="440" cy="210" r="3" fill="#5D5C57" />
-        <circle cx="260" cy="320" r="3" fill="#5D5C57" />
-      </svg>
-      <div className="relative z-10 border border-[#1B1613] bg-[#FFF6E5] px-5 py-4">
-        <div className="font-mono text-xs tracking-[0.05em] text-[#54504E]">
-          COMMAND SCHEMATIC
-        </div>
-        <div className="mt-4 scale-90">
-          <BuildingRig />
-        </div>
+    <div className="relative mx-auto w-full max-w-[560px] border border-[#1B1613] bg-[#FFF6E5] px-5 py-5">
+      <div className="flex items-baseline justify-between gap-4">
+        <p className="font-mono text-xs tracking-[0.05em] text-[#54504E]">COMMAND SCHEMATIC</p>
+        <p className="text-[11px] text-[#54504E]">Four commands. One building.</p>
+      </div>
+      <div className="mt-5">
+        <BuildingRig />
       </div>
     </div>
   );
