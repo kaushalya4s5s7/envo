@@ -1,9 +1,15 @@
 import type { Metadata, Viewport } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 
-const geist = Geist({ subsets: ['latin'], variable: '--font-geist', display: 'swap' });
-const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono', display: 'swap' });
+const gellix = localFont({
+  src: [
+    { path: './fonts/Gellix-TRIAL-Regular.otf', weight: '400', style: 'normal' },
+    { path: './fonts/Gellix-TRIAL-Medium.otf', weight: '500', style: 'normal' },
+  ],
+  variable: '--font-gellix',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Envo — the outdoor brain for building automation',
@@ -29,18 +35,7 @@ export const viewport: Viewport = { themeColor: '#000000' };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
-      <head>
-        {/* Aspekta — not on Google Fonts, so this can't go through next/font/google.
-            Fontshare serves it as its official free source; next/font/local would
-            need the .woff2 files committed here instead. Geist stays as the
-            fallback in --font-sans (globals.css) if this stylesheet is slow or
-            blocked for a visitor. */}
-        <link
-          rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=aspekta@400,500,600,700&display=swap"
-        />
-      </head>
+    <html lang="en" className={gellix.variable}>
       <body>
         <a
           href="#main"

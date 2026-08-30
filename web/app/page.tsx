@@ -1,6 +1,7 @@
 import { IslandNav } from '@/components/island-nav';
 import { Hero } from '@/components/hero';
 import { HowItWorks } from '@/components/how-it-works';
+import { SiteFooter } from '@/components/site-footer';
 
 export default function Page() {
   return (
@@ -10,6 +11,7 @@ export default function Page() {
         <Hero />
         <HowItWorks />
       </main>
+      <SiteFooter />
     </>
   );
 }

@@ -64,7 +64,7 @@ export function Hero() {
 
       <Reveal delay={560} className="flex w-full justify-center">
         <div
-          className="mt-16 w-full max-w-[1120px] overflow-hidden rounded-2xl border border-line bg-ink"
+          className="mt-16 w-full max-w-[1120px] overflow-hidden rounded-2xl border border-line bg-ink shadow-2xl shadow-black/30"
           role="img"
           aria-label={`A heatmap of ${tiles.sourceTiles} real FortyGuard tiles at ${tiles.granularityM} metres across Manhattan at ${tiles.time} on ${tiles.date}. This building's block reads ${cToF(tiles.buildingC).toFixed(1)} degrees Fahrenheit while the coolest block in the same grid reads ${cToF(tiles.minC).toFixed(1)}, a spread of ${spreadF.toFixed(1)} degrees at the same minute.`}
         >

@@ -33,11 +33,10 @@
   /* B7 — the one easing curve */
   --ease-fluid: cubic-bezier(0.32, 0.72, 0, 1);
 
-  /* Explicit exception to design-skills.md B1 (Geist/Manrope/Geist Mono/Poppins
-     only), on direct request. Aspekta loads from Fontshare (web/app/layout.tsx);
-     Geist stays as the fallback if that stylesheet is slow or blocked. */
-  --font-sans: 'Aspekta', var(--font-geist), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  /* Gellix is loaded locally through next/font/local, so the landing page has
+     one clean, self-hosted type system with no external font stylesheet. */
+  --font-sans: var(--font-gellix), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 @layer base {
@@ -66,6 +65,117 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* Preview-only theme. Does not apply to `/` or product surfaces.
+   Warm industrial: desert paper + copper sun on near-black. Terrane is
+   licensed, so display uses a legal light serif stand-in via --font-preview-serif. */
+.landing-preview {
+  --color-ink: #0B0907;
+  --color-surface: #191614;
+  --color-surface-2: #0F0C0B;
+  --color-surface-3: #27221F;
+  --color-line: #393432;
+  --color-line-2: #5D5C57;
+  --color-fg: #DDD8D5;
+  --color-fg-2: #B1ACA6;
+  --color-fg-3: #5D5C57;
+  --color-heat: #FF8B3E;
+  --color-smoke: #B1ACA6;
+  --color-safe: #E18645;
+  --color-alert: #FF8B3E;
+  --color-sun: #FF8B3E;
+  --color-dust: #FBF6EC;
+  --color-night: #1B1613;
+  --color-stroke: #DFD8D3;
+  --font-heading: var(--font-preview-serif), ui-serif, Georgia, serif;
+  background: #0B0907;
+  color: var(--color-fg);
+}
+
+.landing-preview .display {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+
+.landing-preview-hero {
+  background:
+    radial-gradient(ellipse 48% 32% at 82% 0%, rgba(255, 139, 62, 0.18), transparent 62%),
+    linear-gradient(180deg, #0B0907 58%, #15203D 100%);
+}
+
+.landing-preview-hero .sun-disc {
+  position: absolute;
+  left: 50%;
+  bottom: -40px;
+  width: 1500px;
+  height: 300px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.55) 0%, transparent 85%);
+  filter: blur(50px);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.landing-preview .band-dust {
+  --color-fg: #1B1613;
+  --color-fg-2: #3F3630;
+  --color-fg-3: #54504E;
+  --color-line: #DFD8D3;
+  --color-line-2: #B1ACA6;
+  --color-ink: #FFFFFF;
+  --color-surface: #FBF6EC;
+  background: #FBF6EC;
+  color: #1B1613;
+}
+
+.landing-preview .band-night {
+  background: #0B0907;
+}
+
+.landing-preview .wash-to-dust {
+  height: 160px;
+  background: linear-gradient(180deg, #15203D 0%, #3F3630 38%, #E2CDB2 72%, #FBF6EC 100%);
+}
+
+.landing-preview .wash-to-night {
+  height: 160px;
+  background: linear-gradient(180deg, #FBF6EC 0%, #E2CDB2 28%, #3F3630 68%, #0B0907 100%);
+}
+
+.landing-preview .wash-hero-end {
+  height: 200px;
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 0%, rgba(255, 255, 255, 0.18), transparent 70%),
+    linear-gradient(180deg, #15203D 0%, #27221F 40%, #E2CDB2 78%, #FBF6EC 100%);
+}
+
+.landing-preview .live-dot {
+  animation: live-pulse 2.4s cubic-bezier(0.32, 0, 0.17, 1) infinite;
+}
+
+.landing-preview .orbit-stroke {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: orbit-draw 1.6s cubic-bezier(0.32, 0, 0.17, 1) forwards;
+}
+
+.landing-preview .tick-grid {
+  background-image:
+    linear-gradient(to right, #DFD8D3 1px, transparent 1px),
+    linear-gradient(to bottom, #DFD8D3 1px, transparent 1px);
+  background-size: 50% 50%;
+  background-position: center;
+}
+
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+@keyframes orbit-draw {
+  to { stroke-dashoffset: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

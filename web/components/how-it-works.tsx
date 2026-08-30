@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CloudSun, ListChecks, MapPin, ShieldCheck } from '@phosphor-icons/react/ssr';
 import { run, tiles, cToF, spreadF } from '@/lib/data';
 import { fixtureBrief } from '@/lib/brief';
 import { describeTrigger } from '@/lib/plain';
@@ -17,6 +18,7 @@ const first = run.intervals.flatMap((i) =>
 const STEPS = [
   {
     n: '01',
+    icon: MapPin,
     title: 'You give us an address',
     body: 'No hardware, no site visit, no access to your building automation system. We find the 100 metre square your building sits in and read the next twelve hours for that square specifically.',
     stat: `${tiles.sourceTiles.toLocaleString()} squares`,
@@ -24,6 +26,7 @@ const STEPS = [
   },
   {
     n: '02',
+    icon: CloudSun,
     title: 'We work out what today will do to it',
     body: 'Heat, sun angle on each face, and air quality become a plan for the day: cool early before the expensive hour, shade the side the sun is actually on, and close the fresh air intake only while it is worth closing.',
     stat: `${cToF(tiles.buildingC).toFixed(1)} °F`,
@@ -31,6 +34,7 @@ const STEPS = [
   },
   {
     n: '03',
+    icon: ListChecks,
     title: 'You get one screen in the morning',
     body: 'Each item says what to do, the reading that caused it, and what would make you undo it. Not a dashboard. Something you can act on in two minutes and then close.',
     stat: `${fixtureBrief.items.length} actions`,
@@ -38,6 +42,7 @@ const STEPS = [
   },
   {
     n: '04',
+    icon: ShieldCheck,
     title: 'Nothing is sent until you say so',
     body: 'It advises first. Then it runs against a simulated copy of a building so you can watch it work. Then it shadows your real one. Only then does it touch anything, one piece of equipment at a time.',
     stat: 'Four stages',
@@ -58,8 +63,13 @@ export function HowItWorks() {
 
         <ol className="mt-14 grid w-full max-w-[1120px] gap-4 md:grid-cols-2">
           {STEPS.map((s) => (
-            <li key={s.n} className="flex h-full flex-col rounded-2xl border border-line bg-ink p-4">
-              <span className="font-mono text-xs tracking-wider text-fg-3">{s.n}</span>
+            <li key={s.n} className="group flex h-full flex-col rounded-2xl border border-line bg-ink p-4 shadow-lg shadow-black/20 transition-all duration-700 ease-fluid hover:-translate-y-1 hover:border-line-2 hover:shadow-xl">
+              <div className="flex items-start justify-between">
+                <span className="flex size-12 items-center justify-center rounded-xl border border-line-2 bg-surface-2 text-fg-2 transition-colors duration-700 ease-fluid group-hover:bg-surface-3 group-hover:text-fg">
+                  <s.icon size={22} weight="regular" aria-hidden="true" />
+                </span>
+                <span className="font-mono text-xs tracking-wider text-fg-3">{s.n}</span>
+              </div>
               <h3 className="mt-2 text-lg font-semibold tracking-tight">{s.title}</h3>
               <p className="mt-2 flex-1 text-sm text-pretty text-fg-2">{s.body}</p>
               <div className="mt-4 border-t border-line pt-3">
@@ -82,7 +92,7 @@ export function HowItWorks() {
         </p>
 
         {first ? (
-          <div className="mt-12 w-full max-w-[840px] overflow-hidden rounded-2xl border border-line bg-ink">
+          <div className="mt-12 w-full max-w-[840px] overflow-hidden rounded-2xl border border-line bg-ink shadow-xl shadow-black/20">
             <header className="flex flex-wrap items-center justify-between gap-4 border-b border-line px-4 py-3">
               <span className="tabular font-mono text-xs text-fg-2">
                 {new Date(first.at).toISOString().slice(11, 16)} · {run.date}
