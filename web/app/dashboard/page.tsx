@@ -33,7 +33,7 @@ export default async function DashboardPage() {
       </Reveal>
       <Reveal delay={230}>
         <p className="mt-6 max-w-[620px] text-center text-base text-pretty text-fg-2">
-          Signed in as {account.email}, {account.role} of {account.orgName}. Pick a building to
+           Pick a building to
           run the deployment against.
         </p>
       </Reveal>
