@@ -15,6 +15,7 @@
 <p align="center">
   <a href="https://envo.up.railway.app"><b>Live demo</b></a> ·
   <a href="idea.md">Full concept &amp; research</a> ·
+  <a href="docs/architecture.md">Platform architecture</a> ·
   <a href="#fortyguard-api-usage">FortyGuard usage</a> ·
   <a href="#why-trust-the-numbers--the-boptest-sandbox">The sandbox</a>
 </p>
@@ -24,6 +25,10 @@
 Envo is a per-building agent. You give it an address. It reads the next twelve hours of block level
 heat and sun, combines them with the available air quality signal, and turns the result into HVAC
 setpoint, shade tint, outside air damper, and demand response commands.
+
+The full platform flow is documented in
+[`docs/architecture.md`](docs/architecture.md): customer deployment, environmental data processing,
+pure policies, arbitration, safety gates, simulated execution, and independent BOPTEST validation.
 
 <p align="center">
   <a href="https://envo.up.railway.app">
