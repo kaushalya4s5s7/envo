@@ -19,9 +19,10 @@ function GoogleIcon() {
 /**
  * Sign in.
  *
- * Google appears only when real credentials are configured. When they are not,
- * this offers a demo session and says exactly what that means — no imitation of
- * anyone else's sign in flow.
+ * Google is offered whenever it's configured, and email is always offered
+ * alongside it — not everyone signing in has a Google account. See auth.ts
+ * for why the email path is honest about verifying nothing, rather than
+ * pretending it does.
  */
 export function LoginForm({ googleEnabled }: { googleEnabled: boolean }) {
   const [email, setEmail] = useState('');
@@ -41,41 +42,41 @@ export function LoginForm({ googleEnabled }: { googleEnabled: boolean }) {
             <GoogleIcon />
             Sign in with Google
           </button>
-          <p className="mt-4 text-xs text-pretty text-fg-3">
-            Real Google OAuth. There is no email fallback while this is configured — a second door
-            that accepts any address would make the first one decorative.
-          </p>
+          <div className="my-6 flex items-center gap-3" aria-hidden="true">
+            <span className="h-px flex-1 bg-line" />
+            <span className="text-xs text-fg-3">or</span>
+            <span className="h-px flex-1 bg-line" />
+          </div>
         </>
-      ) : (
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setBusy(true);
-            void signIn('demo', { email, redirectTo: target });
-          }}
+      ) : null}
+
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          setBusy(true);
+          void signIn('demo', { email, redirectTo: target });
+        }}
+      >
+        <label className="block">
+          <span className="text-sm font-semibold text-fg">Email</span>
+          <input
+            type="email" value={email} onChange={(e) => setEmail(e.target.value)}
+            required placeholder="you@company.com"
+            className="ease-fluid mt-2 w-full rounded-lg border border-line bg-surface-2 px-3 py-2.5 text-base text-fg transition-colors duration-500 outline-none placeholder:text-fg-3 focus-visible:border-safe"
+          />
+        </label>
+        <button
+          type="submit" disabled={busy}
+          className="ease-fluid mt-4 w-full rounded-lg bg-accent px-3 py-3 text-base font-semibold text-fg transition-all duration-500 hover:bg-accent-2 active:scale-[0.99] disabled:opacity-30"
         >
-          <label className="block">
-            <span className="text-sm font-semibold text-fg">Email</span>
-            <input
-              type="email" value={email} onChange={(e) => setEmail(e.target.value)}
-              required placeholder="you@company.com"
-              className="ease-fluid mt-2 w-full rounded-lg border border-line bg-surface-2 px-3 py-2.5 text-base text-fg transition-colors duration-500 outline-none placeholder:text-fg-3 focus-visible:border-safe"
-            />
-          </label>
-          <button
-            type="submit" disabled={busy}
-            className="ease-fluid mt-4 w-full rounded-lg bg-accent px-3 py-3 text-base font-semibold text-fg transition-all duration-500 hover:bg-accent-2 active:scale-[0.99] disabled:opacity-30"
-          >
-            {busy ? 'Signing in…' : 'Continue'}
-          </button>
-          <p className="mt-4 text-xs text-pretty text-fg-3">
-            <b className="font-medium text-fg-2">This is a demo session.</b> It accepts any valid
-            email address and verifies nothing. Real Google sign in is wired and switches on when
-            OAuth credentials are configured — we would rather show you this than a button that
-            looks like Google and is not.
-          </p>
-        </form>
-      )}
+          {busy ? 'Signing in…' : 'Continue with email'}
+        </button>
+        <p className="mt-4 text-xs text-pretty text-fg-3">
+          <b className="font-medium text-fg-2">Email sign in is not verified.</b> It accepts any
+          address you type and does not confirm you own it. Use Google above when you can — it
+          actually proves who you are.(Testors with no mail can go through this)
+        </p>
+      </form>
     </div>
   );
 }
