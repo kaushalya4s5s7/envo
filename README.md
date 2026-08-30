@@ -26,29 +26,27 @@ Envo is a per-building agent. You give it an address. It reads the next twelve h
 heat and sun, combines them with the available air quality signal, and turns the result into HVAC
 setpoint, shade tint, outside air damper, and demand response commands.
 
+> “When wildfire smoke crossed New York during the July 2026 heat wave, buildings faced a hard
+> tradeoff: reduce outdoor air to protect occupants, or keep ventilation moving as temperatures
+> climbed. Buildings have the controls. What they need is an outdoor brain that sees heat, smoke,
+> and sun together—before it arrives. That’s what we built on FortyGuard.”
+>
+> — [NYC Emergency Management, July 15, 2026](https://www.nyc.gov/site/em/about/press-releases/20260715_pr-NYCEM-Smoke-From-Canadian-Wildfires-May-Affect-NYC-Air-Quality.page)
+
 The full platform flow is documented in
 [`docs/architecture.md`](docs/architecture.md): customer deployment, environmental data processing,
 pure policies, arbitration, safety gates, simulated execution, and independent BOPTEST validation.
 
 <p align="center">
-  <a href="https://envo.up.railway.app">
-    <img src="docs/assets/demo-thumbnail.png" alt="Envo — watch the demo" width="720" />
+  <a href="https://youtu.be/tsp1lsIyA_M?si=5QymeRy7jDz_59d8">
+    <img src="https://img.youtube.com/vi/tsp1lsIyA_M/maxresdefault.jpg" alt="Watch the Envo demo" width="720" />
   </a>
   <br />
   <sub>
-    <a href="https://envo.up.railway.app">▶ Try the live demo</a> · 3-minute walkthrough video coming soon
+    <a href="https://youtu.be/tsp1lsIyA_M?si=5QymeRy7jDz_59d8">▶ Watch the demo video</a> ·
+    <a href="https://envo.up.railway.app">Try the live demo</a>
   </sub>
 </p>
-
-<!--
-  Once the demo video is recorded and uploaded, swap the block above for:
-
-  <p align="center">
-    <a href="https://www.youtube.com/watch?v=VIDEO_ID">
-      <img src="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg" alt="Watch the 3-minute demo" width="720" />
-    </a>
-  </p>
--->
 
 ---
 
@@ -126,6 +124,27 @@ useful for proving the control logic actually works: **BOPTEST**, an independent
 building emulator built through IBPSA with U.S. Department of Energy and national lab
 contributions — the same class of tool real building-science research uses to score control
 algorithms, not something we wrote ourselves.
+
+### Where BOPTEST comes from
+
+Envo does **not** fork or own BOPTEST. We use the upstream open-source
+[IBPSA Project 1 BOPTEST repository](https://github.com/ibpsa/project1-boptest) and its standard
+HTTP API. BOPTEST development began under IBPSA Project 1 and continues under
+[IBPSA Project 2](https://ibpsa.github.io/project1-boptest/ibpsa/), an international collaboration
+under the [International Building Performance Simulation Association (IBPSA)](https://ibpsa.org/).
+
+This is an open research benchmarking framework, not a regulatory certification or an authority
+that approves Envo. Project 2 maintains the framework, emulators, API, and KPI definitions through
+its collaborating institutions. The U.S. Department of Energy's
+[Building Technologies Office overview](https://www.energy.gov/eere/buildings/boptest-building-operations-testing-framework)
+identifies Lawrence Berkeley National Laboratory (LBNL) as the principal investigator; the official
+project page lists David Blum (LBNL) and Lieve Helsen (KU Leuven) as Project 2 co-operating agents.
+
+In this project, `BoptestClient` talks to a BOPTEST service configured through `BOPTEST_URL`
+(default: `http://127.0.0.1:8000`). The local service is started from the upstream deployment with
+`docker compose up web worker provision`; the public service is
+[`api.boptest.net`](https://api.boptest.net). If the emulator is unavailable, the product serves
+the committed experiment rather than pretending a new score was produced.
 
 **Why not just trust our own twin?** `core/src/twin` is code we wrote — fast first-order thermal
 lags, good for an instant in-product preview, but it can never disagree with us in an interesting
@@ -218,6 +237,7 @@ bun run dev                  # web on :3000
 | `FORTYGUARD_API_KEY` | Yes | Live capture will not work without it |
 | `FORTYGUARD_TIER` | Yes | `BASIC` or `PREMIUM` — changes the call plan above |
 | `DATABASE_URL` | Yes | Postgres. Accounts, buildings, and reports are stored here |
+| `BOPTEST_URL` | No | BOPTEST service URL; defaults to `http://127.0.0.1:8000` |
 | `AUTH_SECRET` | Yes | Session signing, required by NextAuth |
 | `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | No | Enables real Google sign-in. Without them, sign-in falls back to a clearly labeled demo mode that accepts any email and verifies nothing — never both at once |
 | `GOOGLE_GENAI_API_KEY` | No | Powers the rationale text behind each decision |
