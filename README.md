@@ -40,12 +40,12 @@ The full platform flow is documented in
 pure policies, arbitration, safety gates, simulated execution, and independent BOPTEST validation.
 
 <p align="center">
-  <a href="https://youtu.be/tsp1lsIyA_M?si=5QymeRy7jDz_59d8">
-    <img src="https://img.youtube.com/vi/tsp1lsIyA_M/maxresdefault.jpg" alt="Watch the Envo demo" width="720" />
+  <a href="https://youtu.be/-8r6QPC62YI">
+    <img src="https://img.youtube.com/vi/-8r6QPC62YI/maxresdefault.jpg" alt="Watch the Envo demo" width="720" />
   </a>
   <br />
   <sub>
-    <a href="https://youtu.be/tsp1lsIyA_M?si=5QymeRy7jDz_59d8">▶ Watch the demo video</a> ·
+    <a href="https://youtu.be/-8r6QPC62YI">▶ Watch the demo video</a> ·
     <a href="https://envo.up.railway.app">Try the live demo</a>
   </sub>
 </p>

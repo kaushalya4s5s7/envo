@@ -1,5 +1,5 @@
 const V1_URL = 'https://envy-main-v1.up.railway.app';
-const DEMO_VIDEO_URL = 'https://youtu.be/tsp1lsIyA_M?si=5QymeRy7jDz_59d8';
+const DEMO_VIDEO_URL = 'https://youtu.be/-8r6QPC62YI';
 
 function DemoVideoLink() {
   return (
