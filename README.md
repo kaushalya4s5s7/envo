@@ -121,13 +121,15 @@ the zone three degrees colder than the building was designed for. That is the en
 running a sandbox instead of grading our own homework. Full writeup:
 [`sandbox-findings.md`](docs/decisions/platform/sandbox-findings.md).
 
-**How it plugs in.** Envo's `BmsAdapter` interface has two implementations sitting behind the exact
-same policies and arbiter — neither one knows which is underneath:
+**How it plugs in.** [`core/src/sandbox/index.ts`](core/src/sandbox/index.ts) runs the **identical**
+`airQualityPolicy`, `precoolPolicy`, `tintPolicy`, and `arbitrate` functions the live product uses —
+not a reimplementation for the benchmark. The only thing that changes is where the resulting
+commands land:
 
-| Adapter | Role |
+| Target | Role |
 |---|---|
 | `SimulatedBms` | Instant, in-process — the live preview inside the product |
-| `BoptestAdapter` | HTTP to a running BOPTEST emulator — independent scoring |
+| BOPTEST, via [`BoptestClient`](core/src/bms/boptest/client.ts) | Independent scoring, real physics |
 
 Against BOPTEST, commands go out as `POST /advance/{testid}` with `{"<point>_u": value,
 "<point>_activate": 1}` for only the actuators Envo has earned control of that interval —
@@ -214,8 +216,9 @@ core/     the agent — framework-free TypeScript, no imports from web
           weather/fortyguard/   the only place the vendor name appears
           policies/             precool · tint · airQuality — pure functions, no I/O
           twin/                 the digital twin: temperature, mass, CO₂, cooling energy
-          bms/                  SimulatedBms + BoptestAdapter, behind one interface
+          bms/                  SimulatedBms (live preview) + a BOPTEST HTTP client
           copilot/              the control loop and conflict arbiter
+          sandbox/              runs the same policies against BOPTEST for independent scoring
 web/      Next.js 15 — the pitch at /, the app at /app, the replay viewer at /replay
 fixtures/ captured days, committed, deterministic — what /replay always shows
 docs/     product law lives in docs/decisions/ — read before changing a threshold
