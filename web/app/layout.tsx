@@ -30,6 +30,17 @@ export const viewport: Viewport = { themeColor: '#000000' };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
+      <head>
+        {/* Aspekta — not on Google Fonts, so this can't go through next/font/google.
+            Fontshare serves it as its official free source; next/font/local would
+            need the .woff2 files committed here instead. Geist stays as the
+            fallback in --font-sans (globals.css) if this stylesheet is slow or
+            blocked for a visitor. */}
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=aspekta@400,500,600,700&display=swap"
+        />
+      </head>
       <body>
         <a
           href="#main"
