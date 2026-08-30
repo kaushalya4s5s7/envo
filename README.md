@@ -17,6 +17,7 @@
   <a href="docs/idea.md">Full concept &amp; research</a> ·
   <a href="docs/architecture.md">Platform architecture</a> ·
   <a href="LICENSE">MIT License</a> ·
+  <a href="#try-it-locally">Try locally</a> ·
   <a href="#fortyguard-api-usage">FortyGuard usage</a> ·
   <a href="#why-trust-the-numbers--the-boptest-sandbox">The sandbox</a>
 </p>
@@ -217,13 +218,53 @@ need two calls to cover the same set. See `FORTYGUARD_TIER` in [`.env.example`](
 
 ---
 
-## Quick start
+## Try it locally
+
+### Prerequisites
+
+- [Bun](https://bun.sh/) 1.3.6 or newer
+- Node.js for the Next.js server runtime
+- A FortyGuard API key only if you want to run a live address capture
+- Postgres only if you want account, building, and run persistence
+
+### Offline replay
+
+The deterministic replay is the fastest way to see the product and does not require API keys,
+Postgres, or a running BOPTEST emulator:
 
 ```bash
 bun install
-cp .env.example .env.local   # fill in FORTYGUARD_API_KEY and DATABASE_URL at minimum
-bun run dev                  # web on :3000
+bun run dev
 ```
+
+Open [http://localhost:3000/replay](http://localhost:3000/replay). It uses the committed fixture,
+so the demo remains reproducible and offline.
+
+### Live address capture
+
+Copy the example environment file and fill in the required server-side values:
+
+```bash
+cp .env.example .env.local
+# Set FORTYGUARD_API_KEY, FORTYGUARD_TIER, DATABASE_URL, and AUTH_SECRET in .env.local.
+bun run dev
+```
+
+Open [http://localhost:3000/onboarding](http://localhost:3000/onboarding), sign in, and enter a
+U.S. address. The capture makes live geocoding and FortyGuard requests, then renders the resulting
+artifact at `/app?capture=<id>`. Never commit or paste `.env.local` into the browser.
+
+### Optional BOPTEST sandbox
+
+The sandbox page can use the committed experiment when BOPTEST is unavailable. To run a fresh
+independent experiment, start the upstream BOPTEST service and configure its URL:
+
+```bash
+BOPTEST_URL=http://127.0.0.1:8000 bun run dev
+```
+
+See [the BOPTEST deployment contract](docs/reference/boptest/api.md) for the upstream Docker
+command and service details.
 
 | Command | Does |
 |---|---|
