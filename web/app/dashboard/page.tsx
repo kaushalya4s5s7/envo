@@ -27,7 +27,7 @@ export default async function DashboardPage() {
   return (
     <main id="main" className="flex flex-col items-center px-6 pb-20 pt-24 md:pt-16 md:pl-72">
       <Reveal delay={120}>
-        <h1 className="heading-gradient max-w-[760px] text-center text-4xl font-semibold tracking-tighter text-balance md:text-5xl md:leading-none">
+        <h1 className="heading-gradient max-w-[760px] text-center text-4xl text-balance md:text-5xl md:leading-none">
           Your buildings.
         </h1>
       </Reveal>
@@ -82,7 +82,7 @@ export default async function DashboardPage() {
                 <span className="font-mono text-xs tracking-wider text-safe">READY</span>
                 <span className="font-mono text-xs text-fg-3">SIMULATED</span>
               </div>
-              <h2 className="mt-3 text-xl font-semibold tracking-tight">Reference medium office</h2>
+              <h2 className="mt-3 text-xl font-normal tracking-tight">Reference medium office</h2>
               <p className="mt-1 text-sm text-pretty text-fg-2">
                 Walk the whole deployment: place it on a map, read its local forecast, find its
                 controls, watch it run, and see it scored. Five rooms and 95 controls, simulated
@@ -114,7 +114,7 @@ export default async function DashboardPage() {
                 <span className="font-mono text-xs tracking-wider text-fg-3">NOT AVAILABLE</span>
                 <span className="font-mono text-xs text-fg-3">YOUR BUILDING</span>
               </div>
-              <h2 className="mt-3 text-xl font-semibold tracking-tight text-fg-2">
+              <h2 className="mt-3 text-xl font-normal tracking-tight text-fg-2">
                 Connect a real building
               </h2>
               <p className="mt-1 text-sm text-pretty text-fg-3">

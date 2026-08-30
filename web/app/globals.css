@@ -40,7 +40,10 @@
 }
 
 @layer base {
-  html { -webkit-text-size-adjust: 100%; }
+  html {
+    -webkit-text-size-adjust: 100%;
+    --notice-h: 2.25rem;
+  }
   body {
     background-color: var(--color-ink);
     /* flat colour dots, not a gradient — B4 holds */
@@ -109,7 +112,7 @@
 .landing-preview-hero {
   background:
     radial-gradient(ellipse 48% 32% at 82% 0%, rgba(255, 139, 62, 0.18), transparent 62%),
-    linear-gradient(180deg, #0B0907 58%, #15203D 100%);
+    #0B0907;
 }
 
 .landing-preview-hero .sun-disc {
@@ -142,20 +145,18 @@
 }
 
 .landing-preview .wash-to-dust {
-  height: 160px;
-  background: linear-gradient(180deg, #15203D 0%, #3F3630 38%, #E2CDB2 72%, #FBF6EC 100%);
+  height: 200px;
+  background: linear-gradient(180deg in oklab, #0B0907, #FBF6EC);
 }
 
 .landing-preview .wash-to-night {
-  height: 160px;
-  background: linear-gradient(180deg, #FBF6EC 0%, #E2CDB2 28%, #3F3630 68%, #0B0907 100%);
+  height: 200px;
+  background: linear-gradient(180deg in oklab, #FBF6EC, #0B0907);
 }
 
 .landing-preview .wash-hero-end {
   height: 200px;
-  background:
-    radial-gradient(ellipse 70% 80% at 50% 0%, rgba(255, 255, 255, 0.18), transparent 70%),
-    linear-gradient(180deg, #15203D 0%, #27221F 40%, #E2CDB2 78%, #FBF6EC 100%);
+  background: linear-gradient(180deg in oklab, #0B0907, #FBF6EC);
 }
 
 .landing-preview .live-dot {
@@ -187,10 +188,23 @@
 
 .landing-preview .footer-cta {
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #0B0907;
+}
+
+.landing-preview .footer-cta::before {
+  content: "";
+  position: absolute;
+  inset: -35% -15%;
+  pointer-events: none;
   background:
-    radial-gradient(ellipse 90% 80% at 78% 20%, rgba(255, 170, 91, 0.42), transparent 58%),
-    radial-gradient(ellipse 70% 70% at 20% 90%, rgba(146, 75, 24, 0.55), transparent 60%),
-    linear-gradient(115deg, #0B0907 8%, #3F3630 42%, #E18645 78%, #0B0907 100%);
+    radial-gradient(ellipse 42% 10% at 74% 18%, rgba(255, 210, 140, 0.55), transparent 70%),
+    radial-gradient(ellipse 56% 12% at 62% 40%, rgba(255, 168, 82, 0.38), transparent 72%),
+    radial-gradient(ellipse 40% 9% at 86% 58%, rgba(255, 196, 110, 0.28), transparent 68%),
+    radial-gradient(ellipse 30% 8% at 40% 68%, rgba(120, 62, 22, 0.35), transparent 70%);
+  transform: rotate(-18deg);
+  filter: blur(22px);
 }
 
 .landing-preview .footer-cta::after {
@@ -198,8 +212,17 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.28;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='1' height='1' fill='%23FBF3E9'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='3'%3E%3Crect width='1' height='1' fill='%23FBF3E9'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(
+      122deg,
+      transparent 0,
+      transparent 5px,
+      rgba(255, 243, 233, 0.035) 5px,
+      rgba(255, 243, 233, 0.035) 6px
+    );
 }
 
 @media (prefers-reduced-motion: reduce) {

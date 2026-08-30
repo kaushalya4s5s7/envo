@@ -54,7 +54,7 @@ export function HowItWorks() {
   return (
     <>
       <section id="how" className="flex flex-col items-center px-6 pt-24 pb-12 md:pt-32">
-        <h2 className="heading-gradient max-w-[680px] text-center text-3xl font-semibold tracking-tighter text-balance md:text-5xl md:leading-none">
+        <h2 className="heading-gradient max-w-[680px] text-center text-3xl text-balance md:text-5xl md:leading-none">
           How it works.
         </h2>
         <p className="mt-6 max-w-[620px] text-center text-base text-pretty text-fg-2">
@@ -70,7 +70,7 @@ export function HowItWorks() {
                 </span>
                 <span className="font-mono text-xs tracking-wider text-fg-3">{s.n}</span>
               </div>
-              <h3 className="mt-2 text-lg font-semibold tracking-tight">{s.title}</h3>
+              <h3 className="mt-2 text-lg font-normal tracking-tight">{s.title}</h3>
               <p className="mt-2 flex-1 text-sm text-pretty text-fg-2">{s.body}</p>
               <div className="mt-4 border-t border-line pt-3">
                 <div className="tabular font-mono text-xl font-medium tracking-tight text-fg">
@@ -84,7 +84,7 @@ export function HowItWorks() {
       </section>
 
       <section id="proof" className="flex flex-col items-center px-6 pt-12 pb-24">
-        <h2 className="heading-gradient max-w-[680px] text-center text-3xl font-semibold tracking-tighter text-balance md:text-5xl md:leading-none">
+        <h2 className="heading-gradient max-w-[680px] text-center text-3xl text-balance md:text-5xl md:leading-none">
           What one decision<br />actually looks like.
         </h2>
         <p className="mt-6 max-w-[620px] text-center text-base text-pretty text-fg-2">

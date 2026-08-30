@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <a
           href="#main"
-          className="ease-fluid absolute left-4 top-[-64px] z-100 rounded-sm border border-line-2 bg-surface-3 px-3 py-2 text-sm font-medium transition-all duration-300 focus:top-4"
+          className="ease-fluid absolute left-4 top-[-64px] z-[70] rounded-sm border border-line-2 bg-surface-3 px-3 py-2 text-sm font-medium transition-all duration-300 focus:top-12"
         >
           Skip to content
         </a>

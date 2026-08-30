@@ -34,7 +34,7 @@ export function Hero() {
       </Reveal>
 
       <Reveal delay={230}>
-        <h1 className="heading-gradient max-w-[680px] text-center text-3xl font-semibold tracking-tighter text-balance sm:text-4xl md:text-6xl md:leading-none">
+        <h1 className="heading-gradient max-w-[680px] text-center text-3xl text-balance sm:text-4xl md:text-6xl md:leading-none">
           Your building knows<br />the weather.<br />Not your block.
         </h1>
       </Reveal>

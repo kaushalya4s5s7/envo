@@ -34,7 +34,7 @@ export default async function TeamPage() {
   return (
     <main id="main" className="flex flex-col items-center px-6 pb-20 pt-24 md:pt-16 md:pl-72">
       <Reveal delay={120}>
-          <h1 className="heading-gradient max-w-[680px] text-center text-4xl font-semibold tracking-tighter text-balance md:text-6xl md:leading-none">
+          <h1 className="heading-gradient max-w-[680px] text-center text-4xl text-balance md:text-6xl md:leading-none">
             {account.orgName}.
           </h1>
         </Reveal>

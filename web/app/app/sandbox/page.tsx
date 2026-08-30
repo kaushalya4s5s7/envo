@@ -17,7 +17,7 @@ export default function SandboxPage() {
         <DeploymentSteps />
       </Reveal>
       <Reveal delay={120}>
-        <h1 className="heading-gradient max-w-[760px] text-center text-4xl font-semibold tracking-tighter text-balance md:text-6xl md:leading-none">
+        <h1 className="heading-gradient max-w-[760px] text-center text-4xl text-balance md:text-6xl md:leading-none">
           We let someone else<br />mark our homework.
         </h1>
       </Reveal>

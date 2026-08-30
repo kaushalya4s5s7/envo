@@ -27,7 +27,7 @@ export function IslandNav() {
 
   return (
     <>
-      <div className="pointer-events-none fixed inset-x-0 top-10 z-50 flex justify-center pt-4">
+      <div className="pointer-events-none fixed inset-x-0 top-[var(--notice-h)] z-50 flex justify-center pt-4">
         <nav
           aria-label="Primary"
           className="ease-fluid pointer-events-auto flex w-max items-center gap-6 rounded-full border border-line-2 bg-surface-2/60 py-2 pr-2 pl-6 backdrop-blur-xl transition-all duration-700 hover:border-[#3d3d3d] max-md:gap-4 max-md:pl-4"

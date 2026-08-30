@@ -16,7 +16,7 @@ export default function ConnectPage() {
         <DeploymentSteps />
       </Reveal>
       <Reveal delay={120}>
-        <h1 className="heading-gradient max-w-[760px] text-center text-4xl font-semibold tracking-tighter text-balance md:text-6xl md:leading-none">
+        <h1 className="heading-gradient max-w-[760px] text-center text-4xl text-balance md:text-6xl md:leading-none">
           Ninety five points.<br />Four of them matter.
         </h1>
       </Reveal>

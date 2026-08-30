@@ -271,22 +271,24 @@ export function LandingPreview() {
       </main>
 
       <footer>
-        <section className="footer-cta px-5 py-20 md:px-12 md:py-24">
-          <div className="relative z-10 mx-auto max-w-[1344px]">
-            <h2 className="display max-w-[680px] text-4xl leading-tight text-balance text-fg md:text-6xl">
+        <section className="footer-cta px-5 py-24 md:px-12 md:py-32">
+          <div className="relative z-10 mx-auto flex min-h-[200px] max-w-[1344px] flex-col justify-between gap-16 md:min-h-[240px]">
+            <h2 className="display max-w-[720px] text-4xl leading-[1.05] text-balance text-white md:text-6xl">
               See the same day through two signals.
             </h2>
-            <Link
-              href="/replay"
-              className="mt-10 inline-flex rounded-sm bg-[#DDD8D5] px-3 py-2 text-base font-medium text-[#0B0907] transition-colors duration-300 ease-out hover:bg-fg"
-            >
-              See a real day
-            </Link>
+            <div>
+              <Link
+                href="/replay"
+                className="inline-flex rounded-[3px] bg-[#F4EFE8] px-3 py-1.5 text-sm font-medium text-[#0B0907] transition-colors duration-300 ease-out hover:bg-white"
+              >
+                See a real day
+              </Link>
+            </div>
           </div>
         </section>
 
-        <section className="bg-[#0B0907] px-5 pt-24 pb-16 md:px-12">
-          <div className="mx-auto grid max-w-[1344px] gap-16 md:grid-cols-3">
+        <section className="bg-[#0B0907] px-5 pt-28 pb-20 md:px-12">
+          <div className="mx-auto grid max-w-[1344px] gap-16 md:grid-cols-3 md:gap-24">
             <FooterCol title="Product" links={[
               { href: '#problem', label: 'The signal' },
               { href: '#how', label: 'How it works' },
@@ -307,7 +309,7 @@ export function LandingPreview() {
               { href: '/replay', label: 'Replay' },
             ]} />
           </div>
-          <div className="mx-auto mt-24 max-w-[1344px] font-mono text-xs tracking-[0.05em] text-fg-3">
+          <div className="mx-auto mt-28 max-w-[1344px] text-xs tracking-[0.04em] text-[#5D5C57]">
             Simulation and advisory only. No real equipment is controlled.
           </div>
         </section>
@@ -462,8 +464,8 @@ function FooterCol({
 }) {
   return (
     <nav aria-label={title}>
-      <h2 className="font-mono text-xs tracking-[0.08em] text-fg-3">{title.toUpperCase()}</h2>
-      <ul className="mt-6 space-y-3">
+      <h2 className="text-[11px] tracking-[0.14em] text-[#8A8580]">{title.toUpperCase()}</h2>
+      <ul className="mt-8 space-y-4">
         {links.map((link) => (
           <li key={link.href}>
             {link.external ? (
@@ -471,12 +473,12 @@ function FooterCol({
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
-                className="text-base text-fg transition-colors duration-300 ease-out hover:text-fg-2"
+                className="text-[15px] text-[#F4EFE8] transition-colors duration-300 ease-out hover:text-white"
               >
                 {link.label}
               </a>
             ) : (
-              <Link href={link.href} className="text-base text-fg transition-colors duration-300 ease-out hover:text-fg-2">
+              <Link href={link.href} className="text-[15px] text-[#F4EFE8] transition-colors duration-300 ease-out hover:text-white">
                 {link.label}
               </Link>
             )}

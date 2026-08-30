@@ -38,7 +38,7 @@ export function Today() {
   return (
     <>
       <Reveal delay={120}>
-        <h1 className="heading-gradient max-w-[680px] text-center text-4xl font-semibold tracking-tighter text-balance md:text-6xl md:leading-none">
+        <h1 className="heading-gradient max-w-[680px] text-center text-4xl text-balance md:text-6xl md:leading-none">
           Two minutes.<br />Then get on with it.
         </h1>
       </Reveal>

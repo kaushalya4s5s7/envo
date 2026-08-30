@@ -139,8 +139,8 @@ export function AppSidebar({ user, orgName }: { user?: string; orgName?: string 
   return (
     <>
       {/* Desktop: persistent left sidebar, out of document flow. */}
-      <aside className="fixed inset-y-0 left-0 z-40 hidden w-64 flex-col border-r border-line bg-surface-2/60 p-4 backdrop-blur-xl md:flex">
-        <Link href="/" className="flex items-center gap-2 px-2 text-sm font-semibold tracking-tight">
+      <aside className="fixed top-[var(--notice-h)] bottom-0 left-0 z-40 hidden w-64 flex-col border-r border-line bg-surface-2/60 p-4 backdrop-blur-xl md:flex">
+        <Link href="/" className="flex items-center gap-2 px-2 text-sm font-medium tracking-tight">
           <PixelMark />
           Envo
         </Link>
@@ -149,8 +149,8 @@ export function AppSidebar({ user, orgName }: { user?: string; orgName?: string 
       </aside>
 
       {/* Mobile: slim top bar with a hamburger into a full-screen sheet. */}
-      <div className="fixed inset-x-0 top-0 z-50 flex items-center justify-between border-b border-line bg-surface-2/60 px-4 py-3 backdrop-blur-xl md:hidden">
-        <Link href="/" className="flex items-center gap-2 text-sm font-semibold tracking-tight">
+      <div className="fixed inset-x-0 top-[var(--notice-h)] z-50 flex items-center justify-between border-b border-line bg-surface-2/60 px-4 py-3 backdrop-blur-xl md:hidden">
+        <Link href="/" className="flex items-center gap-2 text-sm font-medium tracking-tight">
           <PixelMark />
           Envo
         </Link>
