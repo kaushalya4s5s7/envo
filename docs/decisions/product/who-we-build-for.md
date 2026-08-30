@@ -20,7 +20,7 @@ materially wrong; both corrections are recorded below.
 
 **Trane Technologies agreed to acquire BrainBox AI on 20 December 2024**, closing early 2025, and is
 integrating it into the Tracer SC+ building automation system. Verified 29 Aug 2026; see
-[`idea.md`](../../../idea.md) Appendix B.
+[`../../idea.md`](../../idea.md) Appendix B.
 
 Say this plainly rather than avoid it. It validates the category enough that the largest HVAC
 manufacturer bought in, and it means our nearest competitor now has OEM distribution we cannot

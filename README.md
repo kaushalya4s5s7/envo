@@ -14,8 +14,9 @@
 
 <p align="center">
   <a href="https://envo.up.railway.app"><b>Live demo</b></a> ·
-  <a href="idea.md">Full concept &amp; research</a> ·
+  <a href="docs/idea.md">Full concept &amp; research</a> ·
   <a href="docs/architecture.md">Platform architecture</a> ·
+  <a href="LICENSE">MIT License</a> ·
   <a href="#fortyguard-api-usage">FortyGuard usage</a> ·
   <a href="#why-trust-the-numbers--the-boptest-sandbox">The sandbox</a>
 </p>
@@ -72,8 +73,9 @@ forecast and a decision layer that can arbitrate the tradeoff before the problem
 2. **It reads the right signals.** A live [FortyGuard](#fortyguard-api-usage) heatmap finds the
    100 m thermal tile the building sits in. A twelve hour parameter forecast adds heat, sun, ozone,
    and particulate context for the decisions that follow.
-3. **Four pure policies decide.** Precool, shade tint, outside air damper, and air quality each
-   propose commands from the forecast; an arbiter resolves conflicts between them (see
+3. **Three active pure policies decide.** Precooling, shade tint, and outside-air quality each
+   propose commands from the forecast; an arbiter resolves conflicts between them. Demand response
+   is defined as a supporting policy but is not active in the replay loop (see
    [`docs/decisions/product/arbitration.md`](docs/decisions/product/arbitration.md)).
 4. **Commands land in a digital twin for instant preview, and are independently scored against
    BOPTEST** — a real physics-based building emulator, not our own model. See
@@ -277,9 +279,10 @@ that. Full list:
 
 | Doc | Read it for |
 |---|---|
-| [`idea.md`](idea.md) | The full concept, the research, every objection and its answer |
+| [`docs/idea.md`](docs/idea.md) | The full concept, the research, every objection and its answer |
 | [`docs/decisions/product/what-we-can-claim.md`](docs/decisions/product/what-we-can-claim.md) | Exactly what is proven versus what is not |
 | [`docs/decisions/platform/sandbox-findings.md`](docs/decisions/platform/sandbox-findings.md) | The full BOPTEST scoring writeup, including where Envo currently loses |
 | [`docs/reference/boptest/api.md`](docs/reference/boptest/api.md) | The BOPTEST API contract this project actually calls |
-| [`docs/architecture.md`](docs/architecture.md) | Repo shape and the principles worth keeping |
-| [`docs/decisions/product/arbitration.md`](docs/decisions/product/arbitration.md) | How the four policies resolve conflicts |
+| [`docs/architecture.md`](docs/architecture.md) | End-to-end platform flow, code boundaries, and simulation layers |
+| [`docs/decisions/product/arbitration.md`](docs/decisions/product/arbitration.md) | How policy proposals resolve conflicts |
+| [`LICENSE`](LICENSE) · [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) | Source-code license and external asset/service notices |

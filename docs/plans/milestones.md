@@ -197,7 +197,7 @@ touching anything they own.
 ## M8 — The agent ⬜
 
 Today the system is a deterministic controller. Every `rationale` is a template string, so
-[`../../idea.md`](../../idea.md) line 270 currently overclaims. Two layers fix that:
+[`../idea.md`](../idea.md) line 270 currently overclaims. Two layers fix that:
 
 | Step | Deliverable |
 |---|---|
@@ -212,7 +212,7 @@ Today the system is a deterministic controller. Every `rationale` is a template 
 
 | Step | Deliverable | Done when |
 |---|---|---|
-| M9.1 | Re verify every research claim in [`idea.md`](../../idea.md) Appendix B, and the EPA AQI breakpoint table | Zero ⚠️ rows. Unsourced claims cut from the script. |
+| M9.1 | Re verify every research claim in [`idea.md`](../idea.md) Appendix B, and the EPA AQI breakpoint table | Zero ⚠️ rows. Unsourced claims cut from the script. |
 | M9.2 | Rehearse ×3, timed | Opening line, demo, five objections from memory |
 
 **Gate:** the smoke moment lands in under 20 seconds of demo time.
@@ -237,4 +237,4 @@ Today the system is a deterministic controller. Every `rationale` is a template 
 - [ ] 100% of commands carry a populated rationale
 - [ ] Demo runs offline from a committed fixture
 - [ ] Every modeled number shows its assumptions on screen
-- [ ] `idea.md` Appendix B has zero unverified rows
+- [ ] `docs/idea.md` Appendix B has zero unverified rows

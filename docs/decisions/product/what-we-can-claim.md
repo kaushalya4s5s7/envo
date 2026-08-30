@@ -1,6 +1,6 @@
 # Decision — What we can claim
 
-**Status:** locked · **Product law.** Supersedes any earlier positioning in [`../../../idea.md`](../../../idea.md).
+**Status:** locked · **Product law.** Supersedes any earlier positioning in [`../../idea.md`](../../idea.md).
 
 Live probing on 27 Aug 2026 disproved part of the original thesis. Evidence and method:
 [`../../reference/fortyguard/api.md`](../../reference/fortyguard/api.md), "Resolution limits".

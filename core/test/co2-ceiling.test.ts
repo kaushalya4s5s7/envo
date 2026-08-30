@@ -8,7 +8,7 @@ import { AIR, co2CeilingPpm } from '../src/utils';
  *
  * FortyGuard returns `co2_ppm` hourly — observed 436 to 472 ppm over Manhattan on
  * 2026-08-29 — so the ceiling can be computed from the actual outdoor air instead
- * of assumed. idea.md Appendix B.
+ * of assumed. docs/idea.md Appendix B.
  */
 
 describe('co2CeilingPpm', () => {

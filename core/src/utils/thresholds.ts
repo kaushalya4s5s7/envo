@@ -102,7 +102,7 @@ export const AIR = {
    *
    * ASHRAE is explicit that this value exists to set demand controlled
    * ventilation setpoints and is **not an indoor air quality indicator**. Copy
-   * must not describe CO₂ as an air quality measure. idea.md Appendix B.
+   * must not describe CO₂ as an air quality measure. docs/idea.md Appendix B.
    */
   CO2_CEILING_PPM: 1100,
   /**

@@ -21,7 +21,7 @@
 | "We saved X% energy" | "Our model shows X% against a modeled baseline, assumptions on screen" |
 | "Indoor CO₂ was 1100 ppm" | "CO₂ is estimated by our twin, not measured" |
 | "We integrate with BMS" | "We emit BMS-shaped commands into a digital twin — this is a simulation" |
-| Any research claim without a live source link | Cite it or drop it (see `idea.md` Appendix B) |
+| Any research claim without a live source link | Cite it or drop it (see [`../../idea.md`](../../idea.md) Appendix B) |
 
 ## Volunteer limitations before being asked
 

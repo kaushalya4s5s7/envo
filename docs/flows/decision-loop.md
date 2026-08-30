@@ -3,7 +3,7 @@
 One pass per 15-minute interval, per building, per strategy.
 
 ```
- fixtures/<scenario>.jsonl
+ fixtures/<scenario>.json
         │
         ▼
  1 SENSE     core/weather  replay source → raw vendor rows
@@ -12,7 +12,7 @@ One pass per 15-minute interval, per building, per strategy.
  2 FUSE      core/weather  normalize units → align timebase → EnvSnapshot
         │                          + solar: projectBeamOntoFacade → derateForCloud
         ▼
- 3 STATE     core/copilot        push to ring buffer (N intervals) → hysteresis + persistence
+ 3 STATE     core/copilot        carry latches between intervals → hysteresis + persistence
         │
         ▼
  4 DECIDE    core/policies       precool | tint | airQuality | demandResponse
@@ -47,7 +47,8 @@ Environmental Parameters ──▶ wet-bulb, apparent temp, ozone, PM2.5, DNI/DH
 write fixtures/<scenario>.jsonl
 ```
 
-Heatmap-first and async is the correct sequence. `api` prints the chain it would have executed even in replay mode — it is a cheap, high-signal credibility marker in the demo.
+Heatmap-first and async is the correct sequence for capture. Replay starts from the committed
+fixture and never contacts FortyGuard.
 
 ## Both strategies, one loop
 
@@ -56,6 +57,6 @@ Heatmap-first and async is the correct sequence. `api` prints the chain it would
 | Strategy | Signal |
 |---|---|
 | `envelopeCopilot` | Full `EnvSnapshot` — segment-level, multi-parameter, 12 h forecast |
-| `baseline` | Degraded snapshot: citywide temperature only, current value, no forecast, no AQI |
+| `baseline` | Degraded snapshot: current conditions with flattened metro AQI, no forecast |
 
 Same loop, same twin, same thresholds. **Only the signal differs.** That is the honest comparison.

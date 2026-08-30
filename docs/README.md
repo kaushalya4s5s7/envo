@@ -2,10 +2,10 @@
 
 | Doc | Purpose |
 |---|---|
-| [`../idea.md`](../idea.md) | The concept, the research, the pitch, the objections |
+| [`idea.md`](idea.md) | Historical concept and research, with current corrections |
 | [`general.md`](general.md) | What the product is + stack table |
-| [`architecture.md`](architecture.md) | Shape of the repo and the four principles worth keeping. Adapt freely. |
-| [`deployment.md`](deployment.md) | Where things run + deliberate omissions from the SaaS blueprint |
+| [`architecture.md`](architecture.md) | End-to-end platform architecture and runtime boundaries |
+| [`deployment.md`](deployment.md) | Node deployment, environment boundaries, and deliberate omissions |
 | [`flows/decision-loop.md`](flows/decision-loop.md) | End to end sense→fuse→decide→actuate→verify |
 | [`flows/product-flow.md`](flows/product-flow.md) | **Org to autonomous control.** How the market onboards, and how ours inverts it. |
 | [`plans/2026-08-27-build.md`](plans/2026-08-27-build.md) | **Step-by-step build** — T00–T26, three gates |

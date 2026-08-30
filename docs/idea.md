@@ -1,4 +1,9 @@
-# Envo
+# Envo concept and research
+
+> This is the historical concept and research record. Current product behavior and claims are
+> governed by [`decisions/product/what-we-can-claim.md`](decisions/product/what-we-can-claim.md),
+> [`decisions/product/honesty-rails.md`](decisions/product/honesty-rails.md), and
+> [`decisions/product/scope.md`](decisions/product/scope.md).
 
 > **The outdoor brain for buildings that already have the controls but not the signal.**
 
@@ -24,8 +29,8 @@ buildings already own the outdoor foresight they currently lack.
 > This document was written **before** we probed the API and before we scored ourselves against an
 > independent emulator. Both disproved parts of it. The corrections below supersede anything later in
 > this file that contradicts them. Full evidence:
-> [`docs/decisions/product/what-we-can-claim.md`](docs/decisions/product/what-we-can-claim.md) and
-> [`docs/decisions/platform/sandbox-findings.md`](docs/decisions/platform/sandbox-findings.md).
+> [`decisions/product/what-we-can-claim.md`](decisions/product/what-we-can-claim.md) and
+> [`decisions/platform/sandbox-findings.md`](decisions/platform/sandbox-findings.md).
 >
 > | This document claims | Measured reality |
 > |---|---|
@@ -867,7 +872,7 @@ assumed, and one competitor no longer exists as an independent company.
 | BrainBox AI deployed in **14,000+ commercial buildings** | ✅ | [Facilities Dive](https://www.facilitiesdive.com/news/trane-technologies-agrees-to-acquire-brainbox-ai/736155/) |
 | Parity: **200+ buildings, 65M sq ft**, Toronto, NYC, Boston, DC; condos, co ops, rentals, hotels | ✅ | [Parity](https://www.paritygo.com/) |
 | Parity charges **no upfront cost**, contractually guaranteed savings | ✅ | [Parity](https://www.paritygo.com/actual-savings-on-your-utility-bill/) |
-| Runwise controls **boilers and central heating** in multifamily; our actuators are absent there | ✅ confirms Correction 1 in [who-we-build-for.md](docs/decisions/product/who-we-build-for.md) | [Runwise FAQ](https://www.runwise.com/faq) |
+| Runwise controls **boilers and central heating** in multifamily; our actuators are absent there | ✅ confirms Correction 1 in [who-we-build-for.md](decisions/product/who-we-build-for.md) | [Runwise FAQ](https://www.runwise.com/faq) |
 | Manual point mapping is **30 to 40% of BMS integration labour** | ⚠️ verified only to a consultancy blog, not a primary study | [ASDV](https://www.asdvconsultant.com/blog/open-protocol-bacnet-knx-modbus-integration) |
 | FERC Order 2222 (17 Sep 2020) opens RTO/ISO wholesale markets to **DER aggregations** | ✅ | [FERC fact sheet](https://www.ferc.gov/media/ferc-order-no-2222-fact-sheet) |
 | 300 lux is a standard daylight and office task target | ✅ supports `DAYLIGHT_FLOOR_LUX` | [EN 17037 via ClimateStudio](https://climatestudiodocs.com/docs/daylightEN17037.html) |

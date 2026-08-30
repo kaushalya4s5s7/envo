@@ -3,7 +3,7 @@
  *
  * This is the step that kills projects. A building exposes hundreds of points
  * named `hvac_oveAhu_yOA_u`, and a human decides which one is the outside air
- * damper — roughly 30 to 40% of BMS integration labour, per idea.md Appendix B.
+ * damper — roughly 30 to 40% of BMS integration labour, per docs/idea.md Appendix B.
  *
  * We do not pretend to solve it. We rank candidates, explain every suggestion in
  * words, and require a person to confirm. A mapping accepted silently is how a

@@ -1,32 +1,34 @@
-# FortyGuard reference — EMPTY, NEEDED
+# FortyGuard reference
 
-This folder is the **only** permitted source for FortyGuard API facts. Nothing here yet, so
-`core/src/weather/fortyguard/` is blocked.
+This directory is the repository's source of truth for the FortyGuard integration. The request and
+response details here are the basis for [`core/src/weather/fortyguard/`](../../../core/src/weather/fortyguard/)
+and the live capture route.
 
-## What to drop in here
+## Reference files
 
-Paste or save the docs in any form: a markdown export, a PDF, an OpenAPI or Postman file, or a
-screenshot set. Raw is fine, it does not need tidying.
+| File | Purpose |
+|---|---|
+| [`api.md`](api.md) | Verified API boundary, resolution findings, and claim limits |
+| [`create-heatmap.md`](create-heatmap.md) | Heatmap request and response notes |
+| [`check-status-taskmanagemnt.md`](check-status-taskmanagemnt.md) | Asynchronous task polling notes |
+| [`enviornment-parameter.md`](enviornment-parameter.md) | Environmental parameter request and response notes |
+| [`satellite-view.md`](satellite-view.md) | Surface and segmentation notes |
+| [`street-view-segment.md`](street-view-segment.md) | Segment and street-view notes |
+| [`samples/`](samples/) | Captured response samples used to type and test normalization |
 
-## What the client cannot be written without
+## Integration boundary
 
-| # | Needed | Used for |
-|---|---|---|
-| 1 | Base URL and **auth scheme** (header name, bearer vs key, any signing) | Every request |
-| 2 | **Endpoint list** with paths and HTTP methods | The call chain |
-| 3 | Whether heatmap creation is **sync or async**, and if async, how to poll and what the terminal states are | Retry and backoff logic |
-| 4 | **Request shape** per endpoint: required and optional fields, how a location is specified (lat/lon, bbox, segment id) | Building requests |
-| 5 | **Response shape** per endpoint, with an example payload | Normalization and types |
-| 6 | **Exact parameter names and units** for: wet bulb, apparent temperature, ozone, PM2.5, DNI, DHI, cloud cover | The whole decision layer |
-| 7 | How a **forecast** is requested and what horizon and step it returns | Pre cooling and pre positioning |
-| 8 | **Tier differences**: what Basic allows vs Premium, and whether there is a per call parameter limit | Call planning |
-| 9 | **Rate limits and quotas** | Capture strategy |
-| 10 | Whether **segmentation** is a separate call or part of the heatmap response | Facade context |
+FortyGuard appears as a vendor name only inside `core/src/weather/fortyguard/` and this reference
+directory. The rest of the application consumes the normalized `EnvSnapshot` contract.
 
-Partial is still useful. Items 1, 2, 5, and 6 unblock the most.
+Live requests are restricted to address capture and fixture generation. The deterministic replay
+surface reads committed fixtures and does not call FortyGuard.
 
-## Also needed, separately
+## Claim boundary
 
-- The **API key**, in `.env.local`, never committed
-- Which **tier** the key is on
-- The **demo location**: a US city and ideally a specific building or lat/lon
+The heatmap supports a block-level temperature claim. Air quality is metro-scale, PM2.5 is a daily
+signal, and the product must not claim hyperlocal ozone or PM2.5. Current product claims are governed
+by [`../../decisions/product/what-we-can-claim.md`](../../decisions/product/what-we-can-claim.md).
+
+Never commit API keys or other credentials. Use the server-side environment variables documented in
+[`../../../.env.example`](../../../.env.example).

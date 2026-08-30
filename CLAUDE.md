@@ -1,6 +1,6 @@
 # Envo
 
-Per building agent that fuses hyperlocal forecast environmental data into HVAC setpoint, shade tint, outside air damper, and demand response commands, and emits them into a **simulated** BMS. Hackathon build, 3 days. Concept: [`idea.md`](idea.md).
+Per building agent that fuses hyperlocal forecast environmental data into HVAC setpoint, shade tint, outside air damper, and demand response commands, and emits them into a **simulated** BMS. Hackathon build, 3 days. Concept: [`docs/idea.md`](docs/idea.md).
 
 ## Commands
 
@@ -44,7 +44,7 @@ init day.
 - **Do not invent numbers.** Every threshold traces to [`docs/decisions/product/thresholds.md`](docs/decisions/product/thresholds.md), which traces to an external standard. Every figure shown to a user is computed from a fixture, never typed by hand.
 - **Do not present modeled output as measured.** See [`docs/decisions/product/honesty-rails.md`](docs/decisions/product/honesty-rails.md).
 - **Never claim hyperlocal air quality.** It is metro scale and PM2.5 is daily. See `docs/decisions/product/what-we-can-claim.md`.
-- **Do not claim a research fact without a live source.** [`idea.md`](idea.md) Appendix B tracks which claims are still unverified.
+- **Do not claim a research fact without a live source.** [`docs/idea.md`](docs/idea.md) Appendix B tracks which claims are still unverified.
 - When something is unknown, say so and ask. A blocked task reported honestly costs minutes. A fabricated one costs the pitch.
 
 ## Hard rules

@@ -92,7 +92,7 @@ metric was designed to capture.
 
 ## What must not change yet
 
-**No pitch copy, `idea.md`, or landing page edits until the fixes above are made and re scored.**
+**No pitch copy, [`docs/idea.md`](../../idea.md), or landing page edits until the fixes above are made and re scored.**
 The current numbers measure a broken purge and a wrong setpoint, not the strategy.
 
 

@@ -217,9 +217,14 @@ export function BlockMap({
         </span>
       ) : null}
 
-      <span className="pointer-events-none absolute right-3 bottom-3 rounded bg-ink/80 px-1.5 py-0.5 font-mono text-[10px] text-fg-3">
+      <a
+        href="https://www.openstreetmap.org/copyright"
+        target="_blank"
+        rel="noreferrer"
+        className="pointer-events-auto absolute right-3 bottom-3 rounded bg-ink/80 px-1.5 py-0.5 font-mono text-[10px] text-fg-3 underline decoration-fg-3/50 underline-offset-2"
+      >
         © OpenStreetMap contributors
-      </span>
+      </a>
     </div>
   );
 }
