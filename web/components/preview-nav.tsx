@@ -66,10 +66,9 @@ export function PreviewNav() {
           <span className="pointer-events-none absolute -bottom-px -right-px size-3 border-b border-r border-[#DDD8D5]" aria-hidden="true" />
 
           <div className="flex items-center justify-between gap-6 px-4 md:px-5">
-            <Link href="/preview" className="flex items-center gap-2 text-sm font-medium tracking-tight">
+            <Link href="/" aria-current="page" className="flex items-center gap-2 text-sm font-medium tracking-tight">
               <PixelMark />
               <span>Envo</span>
-              <span className="hidden font-mono text-[10px] tracking-[0.08em] text-fg-3 sm:inline">PREVIEW</span>
             </Link>
 
             <div className="hidden items-center gap-1 md:flex">

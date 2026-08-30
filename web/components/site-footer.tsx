@@ -31,8 +31,9 @@ export function SiteFooter() {
           <FooterColumn
             title="Explore"
             links={[
+              { href: '/#problem', label: 'The signal' },
               { href: '/#how', label: 'How it works' },
-              { href: '/#proof', label: 'The evidence' },
+              { href: '/#evidence', label: 'The evidence' },
               { href: '/replay', label: 'See a real day' },
             ]}
           />

@@ -12,9 +12,9 @@ import { PixelMark } from './pixel-mark';
  * this component's old 'app' variant was starting to do.
  */
 const LINKS = [
+  { href: '/#problem', label: 'The signal' },
   { href: '/#how', label: 'How it works' },
-  { href: '/#proof', label: 'The evidence' },
-  { href: '/replay', label: 'See a real day' },
+  { href: '/#evidence', label: 'The evidence' },
 ];
 
 export function IslandNav() {

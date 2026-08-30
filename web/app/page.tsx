@@ -1,17 +1,17 @@
-import { IslandNav } from '@/components/island-nav';
-import { Hero } from '@/components/hero';
-import { HowItWorks } from '@/components/how-it-works';
-import { SiteFooter } from '@/components/site-footer';
+import { Newsreader } from 'next/font/google';
+import { LandingPreview } from '@/components/landing-preview';
+
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  weight: ['300', '400'],
+  variable: '--font-preview-serif',
+  display: 'swap',
+});
 
 export default function Page() {
   return (
-    <>
-      <IslandNav />
-      <main id="main">
-        <Hero />
-        <HowItWorks />
-      </main>
-      <SiteFooter />
-    </>
+    <div className={newsreader.variable}>
+      <LandingPreview />
+    </div>
   );
 }

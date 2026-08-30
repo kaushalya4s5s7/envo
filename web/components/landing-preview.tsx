@@ -274,7 +274,7 @@ export function LandingPreview() {
         <div className="mx-auto max-w-[1344px]">
           <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
             <div>
-              <Link href="/preview" className="inline-flex items-center gap-2">
+              <Link href="/" className="inline-flex items-center gap-2">
                 <PixelMark />
                 <span className="text-sm font-medium tracking-tight">Envo</span>
               </Link>
@@ -290,7 +290,7 @@ export function LandingPreview() {
             <FooterCol title="Start here" links={[
               { href: '/onboarding', label: 'Try a building' },
               { href: '/login', label: 'Sign in' },
-              { href: '/', label: 'Current landing page' },
+              { href: '/replay', label: 'Open the replay' },
             ]} />
           </div>
           <div className="mt-16 flex flex-col gap-3 border-t border-line pt-6 font-mono text-xs tracking-[0.05em] text-fg-3 md:flex-row md:justify-between">
