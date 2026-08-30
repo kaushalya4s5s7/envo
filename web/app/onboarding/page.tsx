@@ -17,7 +17,7 @@ export default function OnboardingPage() {
         <DeploymentSteps />
       </Reveal>
       <Reveal delay={120} className="w-full max-w-[560px]">
-        <h1 className="text-left text-4xl font-semibold tracking-tight text-fg text-balance">
+        <h1 className="display text-left text-4xl text-fg text-balance">
           An address is enough to start.
         </h1>
       </Reveal>

@@ -4,7 +4,7 @@ import { fixtureBrief } from '@/lib/brief';
 import { describeTrigger } from '@/lib/plain';
 import { BuildingRig } from './building-rig';
 import { HeatGrid } from './heat-grid';
-import { PixelMark } from './pixel-mark';
+import { BlurIn, BlurLines } from './blur-in';
 import { PreviewNav } from './preview-nav';
 import { Parallax } from './preview-motion';
 import { Reveal } from './reveal';
@@ -57,13 +57,13 @@ export function LandingPreview() {
       <PreviewNav />
 
       <main id="main">
-        <section className="landing-preview-hero relative overflow-hidden px-5 pb-16 pt-32 md:px-12 md:pt-40">
+        <section className="landing-preview-hero relative overflow-hidden px-5 pb-16 pt-40 md:px-12 md:pt-48">
           <Parallax strength={0.12} className="pointer-events-none absolute inset-x-0 bottom-0">
             <div className="sun-disc" aria-hidden="true" />
           </Parallax>
 
           <div className="relative mx-auto flex max-w-[1344px] flex-col items-center">
-            <Reveal delay={80}>
+            <BlurIn delay={80}>
               <span className="mb-8 inline-flex items-center gap-2 border border-line px-3 py-1 font-mono text-xs tracking-[0.05em] text-fg-2">
                 <span className="grid flex-none grid-cols-2 grid-rows-2 gap-px" aria-hidden="true">
                   <i className="block size-[3px] bg-line" />
@@ -73,23 +73,23 @@ export function LandingPreview() {
                 </span>
                 Decision layer for building automation
               </span>
-            </Reveal>
+            </BlurIn>
 
-            <Reveal delay={160}>
-              <h1 className="display max-w-[680px] text-center text-5xl leading-none text-balance text-fg md:text-7xl">
-                Your building knows<br />the weather.<br />Not your block.
-              </h1>
-            </Reveal>
+            <BlurLines
+              delay={180}
+              className="display max-w-[680px] text-center text-5xl leading-none text-balance text-fg md:text-7xl"
+              lines={['Your building knows', 'the weather.', 'Not your block.']}
+            />
 
-            <Reveal delay={240}>
+            <BlurIn delay={520}>
               <p className="mt-8 mb-8 max-w-[560px] text-center text-base leading-[1.625] text-pretty text-fg-2">
                 The next twelve hours of block level heat and sun, combined with ozone and particulate
                 air quality, become coordinated setpoint, shade, and outside air decisions that balance
                 comfort, energy, and indoor CO₂.
               </p>
-            </Reveal>
+            </BlurIn>
 
-            <Reveal delay={320}>
+            <BlurIn delay={680}>
               <Link
                 href="/login"
                 className="inline-flex items-center gap-2 rounded-sm bg-[#DDD8D5] px-3 py-2 text-base font-medium text-[#0B0907] transition-colors duration-300 ease-out hover:bg-fg"
@@ -100,7 +100,7 @@ export function LandingPreview() {
                     strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </Link>
-            </Reveal>
+            </BlurIn>
 
             <Reveal delay={400} className="mt-16 w-full">
               <Parallax strength={0.06}>
@@ -270,34 +270,47 @@ export function LandingPreview() {
         <div className="wash-to-night" aria-hidden="true" />
       </main>
 
-      <footer className="band-night px-5 py-16 md:px-12">
-        <div className="mx-auto max-w-[1344px]">
-          <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
-            <div>
-              <Link href="/" className="inline-flex items-center gap-2">
-                <PixelMark />
-                <span className="text-sm font-medium tracking-tight">Envo</span>
-              </Link>
-              <p className="mt-4 max-w-[320px] text-sm leading-6 text-pretty text-fg-2">
-                Outdoor intelligence for buildings that already have the controls.
-              </p>
-            </div>
-            <FooterCol title="Explore" links={[
+      <footer>
+        <section className="footer-cta px-5 py-20 md:px-12 md:py-24">
+          <div className="relative z-10 mx-auto max-w-[1344px]">
+            <h2 className="display max-w-[680px] text-4xl leading-tight text-balance text-fg md:text-6xl">
+              See the same day through two signals.
+            </h2>
+            <Link
+              href="/replay"
+              className="mt-10 inline-flex rounded-sm bg-[#DDD8D5] px-3 py-2 text-base font-medium text-[#0B0907] transition-colors duration-300 ease-out hover:bg-fg"
+            >
+              See a real day
+            </Link>
+          </div>
+        </section>
+
+        <section className="bg-[#0B0907] px-5 pt-24 pb-16 md:px-12">
+          <div className="mx-auto grid max-w-[1344px] gap-16 md:grid-cols-3">
+            <FooterCol title="Product" links={[
               { href: '#problem', label: 'The signal' },
               { href: '#how', label: 'How it works' },
+              { href: '#evidence', label: 'The evidence' },
               { href: '/replay', label: 'See a real day' },
-            ]} />
-            <FooterCol title="Start here" links={[
               { href: '/onboarding', label: 'Try a building' },
+            ]} />
+            <FooterCol title="App" links={[
               { href: '/login', label: 'Sign in' },
-              { href: '/replay', label: 'Open the replay' },
+              { href: '/app', label: 'Morning brief' },
+              { href: '/app/sandbox', label: 'Sandbox' },
+              { href: '/app/decisions', label: 'Decisions' },
+              { href: '/app/autonomy', label: 'Autonomy' },
+            ]} />
+            <FooterCol title="Company" links={[
+              { href: '/', label: 'Home' },
+              { href: 'https://envy-main-v1.up.railway.app', label: 'UI v1 deployment', external: true },
+              { href: '/replay', label: 'Replay' },
             ]} />
           </div>
-          <div className="mt-16 flex flex-col gap-3 border-t border-line pt-6 font-mono text-xs tracking-[0.05em] text-fg-3 md:flex-row md:justify-between">
-            <span>ENVO · OUTDOOR INTELLIGENCE</span>
-            <span>Simulation and advisory only. No real equipment is controlled.</span>
+          <div className="mx-auto mt-24 max-w-[1344px] font-mono text-xs tracking-[0.05em] text-fg-3">
+            Simulation and advisory only. No real equipment is controlled.
           </div>
-        </div>
+        </section>
       </footer>
     </div>
   );
@@ -440,16 +453,33 @@ function Stat({ label, value, note }: { label: string; value: string; note: stri
   );
 }
 
-function FooterCol({ title, links }: { title: string; links: Array<{ href: string; label: string }> }) {
+function FooterCol({
+  title,
+  links,
+}: {
+  title: string;
+  links: Array<{ href: string; label: string; external?: boolean }>;
+}) {
   return (
     <nav aria-label={title}>
-      <h2 className="font-mono text-xs tracking-[0.05em] text-fg-3">{title.toUpperCase()}</h2>
-      <ul className="mt-4 space-y-3">
+      <h2 className="font-mono text-xs tracking-[0.08em] text-fg-3">{title.toUpperCase()}</h2>
+      <ul className="mt-6 space-y-3">
         {links.map((link) => (
           <li key={link.href}>
-            <Link href={link.href} className="text-sm text-fg-2 transition-colors duration-300 ease-out hover:text-fg">
-              {link.label}
-            </Link>
+            {link.external ? (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="text-base text-fg transition-colors duration-300 ease-out hover:text-fg-2"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link href={link.href} className="text-base text-fg transition-colors duration-300 ease-out hover:text-fg-2">
+                {link.label}
+              </Link>
+            )}
           </li>
         ))}
       </ul>

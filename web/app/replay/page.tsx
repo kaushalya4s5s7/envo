@@ -15,9 +15,9 @@ export default function ReplayPage() {
   return (
     <>
       <IslandNav />
-      <main id="main" className="flex flex-col items-center px-6 pt-24 pb-20 md:pt-[180px]">
+      <main id="main" className="flex flex-col items-center px-6 pt-32 pb-20 md:pt-[180px]">
         <Reveal delay={120}>
-          <h1 className="heading-gradient max-w-[680px] text-center text-4xl font-semibold tracking-tighter text-balance md:text-6xl md:leading-none">
+          <h1 className="display max-w-[680px] text-center text-4xl leading-none text-balance md:text-6xl">
             One day.<br />Two controllers.
           </h1>
         </Reveal>

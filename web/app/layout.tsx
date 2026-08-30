@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
+import { Newsreader } from 'next/font/google';
+import { VersionStrip } from '@/components/version-strip';
 import './globals.css';
 
 const gellix = localFont({
@@ -8,6 +10,13 @@ const gellix = localFont({
     { path: './fonts/Gellix-TRIAL-Medium.otf', weight: '500', style: 'normal' },
   ],
   variable: '--font-gellix',
+  display: 'swap',
+});
+
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  weight: ['300', '400'],
+  variable: '--font-preview-serif',
   display: 'swap',
 });
 
@@ -35,14 +44,15 @@ export const viewport: Viewport = { themeColor: '#000000' };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={gellix.variable}>
+    <html lang="en" className={`${gellix.variable} ${newsreader.variable}`}>
       <body>
         <a
           href="#main"
-          className="ease-fluid absolute left-4 top-[-64px] z-100 rounded-lg border border-line-2 bg-surface-3 px-3 py-2 text-sm font-semibold transition-all duration-300 focus:top-4"
+          className="ease-fluid absolute left-4 top-[-64px] z-100 rounded-sm border border-line-2 bg-surface-3 px-3 py-2 text-sm font-medium transition-all duration-300 focus:top-4"
         >
           Skip to content
         </a>
+        <VersionStrip />
         {children}
       </body>
     </html>

@@ -52,7 +52,7 @@ export function PreviewNav() {
     <>
       <div id="preview-nav-sentinel" className="pointer-events-none absolute top-0 h-1 w-full" aria-hidden="true" />
 
-      <div className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center px-5 pt-6">
+      <div className="pointer-events-none fixed inset-x-0 top-10 z-50 flex justify-center px-5 pt-4">
         <nav
           aria-label="Primary"
           className={cn(

@@ -25,13 +25,13 @@ export default function LoginPage() {
     <main id="main" className="flex min-h-screen flex-col items-center justify-center px-6 py-24">
       <div className="w-full max-w-[480px]">
         <Reveal delay={80}>
-          <Link href="/" className="flex items-center gap-2 text-sm font-semibold tracking-tight text-fg">
+          <Link href="/" className="flex items-center gap-2 text-sm font-medium tracking-tight text-fg">
             <PixelMark />
             Envo
           </Link>
         </Reveal>
         <Reveal delay={160} className="mt-10">
-          <h1 className="text-left text-4xl font-semibold tracking-tight text-fg text-balance">
+          <h1 className="display text-left text-4xl text-fg text-balance">
             Sign in to Envo.
           </h1>
         </Reveal>

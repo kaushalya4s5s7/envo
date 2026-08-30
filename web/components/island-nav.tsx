@@ -27,12 +27,12 @@ export function IslandNav() {
 
   return (
     <>
-      <div className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center pt-6">
+      <div className="pointer-events-none fixed inset-x-0 top-10 z-50 flex justify-center pt-4">
         <nav
           aria-label="Primary"
           className="ease-fluid pointer-events-auto flex w-max items-center gap-6 rounded-full border border-line-2 bg-surface-2/60 py-2 pr-2 pl-6 backdrop-blur-xl transition-all duration-700 hover:border-[#3d3d3d] max-md:gap-4 max-md:pl-4"
         >
-          <Link href="/" aria-current="page" className="flex items-center gap-2 text-sm font-semibold tracking-tight">
+          <Link href="/" aria-current="page" className="flex items-center gap-2 text-sm font-medium tracking-tight">
             <PixelMark />
             Envo
           </Link>
@@ -51,7 +51,7 @@ export function IslandNav() {
 
           <Link
             href="/login"
-            className="ease-fluid inline-flex items-center rounded-full bg-fg px-3 py-2 text-sm font-semibold text-ink transition-all duration-500 hover:bg-fg-2 active:scale-[0.98] max-md:hidden"
+            className="ease-fluid inline-flex items-center rounded-sm bg-fg px-3 py-2 text-sm font-medium text-ink transition-all duration-500 hover:bg-fg-2 active:scale-[0.98] max-md:hidden"
           >
             Sign in
           </Link>
@@ -94,7 +94,7 @@ export function IslandNav() {
             href={l.href}
             style={{ transitionDelay: open ? `${100 + i * 50}ms` : '0ms' }}
             className={cn(
-              'ease-fluid text-4xl font-semibold tracking-tight transition-all duration-700',
+              'ease-fluid display text-4xl transition-all duration-700',
               open ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0',
             )}
           >

@@ -67,9 +67,18 @@
   color: transparent;
 }
 
-/* Preview-only theme. Does not apply to `/` or product surfaces.
-   Warm industrial: desert paper + copper sun on near-black. Terrane is
-   licensed, so display uses a legal light serif stand-in via --font-preview-serif. */
+@utility display {
+  font-family: var(--font-preview-serif), ui-serif, Georgia, serif;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+
+.heading-gradient {
+  font-family: var(--font-preview-serif), ui-serif, Georgia, serif;
+  font-weight: 300;
+}
+
+/* Landing theme. Warm industrial: desert paper + copper sun on near-black. */
 .landing-preview {
   --color-ink: #0B0907;
   --color-surface: #191614;
@@ -95,8 +104,6 @@
 
 .landing-preview .display {
   font-family: var(--font-heading);
-  font-weight: 300;
-  letter-spacing: -0.03em;
 }
 
 .landing-preview-hero {
@@ -176,6 +183,23 @@
 
 @keyframes orbit-draw {
   to { stroke-dashoffset: 0; }
+}
+
+.landing-preview .footer-cta {
+  position: relative;
+  background:
+    radial-gradient(ellipse 90% 80% at 78% 20%, rgba(255, 170, 91, 0.42), transparent 58%),
+    radial-gradient(ellipse 70% 70% at 20% 90%, rgba(146, 75, 24, 0.55), transparent 60%),
+    linear-gradient(115deg, #0B0907 8%, #3F3630 42%, #E18645 78%, #0B0907 100%);
+}
+
+.landing-preview .footer-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.28;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='1' height='1' fill='%23FBF3E9'/%3E%3C/svg%3E");
 }
 
 @media (prefers-reduced-motion: reduce) {
