@@ -18,7 +18,7 @@ const TAG_H = 28;
 const CALLOUTS: Callout[] = [
   { label: 'HVAC SETPOINT', color: 'var(--color-heat)', mx: 200, my: 50, tagX: 236, tagY: 14, tagW: 132 },
   { label: 'SHADE TINT', color: 'var(--color-smoke)', mx: 150, my: 140, tagX: 8, tagY: 124, tagW: 118 },
-  { label: 'OUTSIDE AIR DAMPER', color: 'var(--color-safe)', mx: 250, my: 230, tagX: 252, tagY: 214, tagW: 132 },
+  { label: 'OUTSIDE AIR DAMPER', color: 'var(--color-safe)', mx: 250, my: 230, tagX: 252, tagY: 214, tagW: 168 },
   { label: 'DEMAND RESPONSE', color: 'var(--color-alert)', mx: 150, my: 300, tagX: 8, tagY: 284, tagW: 150 },
 ];
 
@@ -28,15 +28,15 @@ const BRACKET = 16;
 export function BuildingRig() {
   return (
     <svg
-      width="320"
+      width="380"
       height="300"
-      viewBox="0 0 384 360"
+      viewBox="0 0 456 360"
       fill="none"
       aria-hidden="true"
       className="block"
     >
       {/* Scan corners — the one nod to a "robotic" targeting HUD, fully static. */}
-      {[[0, 0, 1, 1], [384, 0, -1, 1], [0, 356, 1, -1], [384, 356, -1, -1]].map(([x, y, dx, dy], i) => (
+      {[[0, 0, 1, 1], [456, 0, -1, 1], [0, 356, 1, -1], [456, 356, -1, -1]].map(([x, y, dx, dy], i) => (
         <path
           key={i}
           d={`M${x! + BRACKET * dx!},${y} L${x},${y} L${x},${y! + BRACKET * dy!}`}
@@ -74,13 +74,13 @@ export function BuildingRig() {
           <circle cx={c.mx} cy={c.my} r="3.5" fill="var(--color-surface)" stroke={c.color} strokeWidth="1.5" />
           <rect
             x={c.tagX} y={c.tagY} width={c.tagW} height={TAG_H} rx="6"
-            fill="var(--color-surface-2)" stroke="var(--color-line)" strokeWidth="1"
+            fill="#1B1613" stroke="#3F3630" strokeWidth="1"
           />
           <circle cx={c.tagX + 12} cy={c.tagY + TAG_H / 2} r="3" fill={c.color} />
           <text
             x={c.tagX + 22} y={c.tagY + TAG_H / 2 + 3}
             className="font-mono text-[9px] tracking-wide"
-            fill="var(--color-fg-2)"
+            fill="#F4EFE8"
           >
             {c.label}
           </text>

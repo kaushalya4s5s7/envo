@@ -110,11 +110,7 @@ export function LandingPreview() {
           </div>
         </section>
 
-        <div className="wash-hero-end relative" aria-hidden="true">
-          <Parallax strength={0.2} className="absolute inset-0 flex items-center justify-center">
-            <HorizonMark />
-          </Parallax>
-        </div>
+        <div className="wash-hero-end" aria-hidden="true" />
 
         <section id="problem" className="band-dust px-5 py-20 md:px-12 md:py-24">
           <div className="mx-auto grid max-w-[1344px] items-center gap-16 md:grid-cols-[1fr_1fr] md:gap-24">
@@ -148,7 +144,10 @@ export function LandingPreview() {
             <Reveal delay={80} className="mt-16">
               <ol className="grid border-y border-line md:grid-cols-2">
                 {STEPS.map((step) => (
-                  <li key={step.n} className="border-b border-line px-5 py-8 last:border-b-0 md:border-r md:odd:border-r md:even:border-r-0">
+                  <li
+                    key={step.n}
+                    className="border-b border-line px-5 py-8 last:border-b-0 md:border-r md:even:border-r-0 md:[&:nth-last-child(-n+2)]:border-b-0"
+                  >
                     <span className="font-mono text-xs tracking-[0.05em] text-fg-3">{step.n}</span>
                     <h3 className="mt-8 text-xl font-normal tracking-tight">{step.title}</h3>
                     <p className="mt-3 max-w-[480px] text-sm leading-6 text-pretty text-fg-2">{step.body}</p>
@@ -214,12 +213,14 @@ export function LandingPreview() {
               </h2>
             </Reveal>
             <Reveal delay={80} className="mt-16">
-              <ol className="relative grid border-y border-line md:grid-cols-4">
-                <span className="pointer-events-none absolute top-8 right-5 left-5 hidden h-px bg-line-2 md:block" aria-hidden="true" />
+              <ol className="grid border-y border-line md:grid-cols-4">
                 {STAGES.map(([number, title, body]) => (
-                  <li key={number} className="relative border-b border-line px-5 py-8 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0">
-                    <span className="relative z-10 inline-block bg-ink pr-2 font-mono text-xs tracking-[0.05em] text-fg-3">{number}</span>
-                    <h3 className="mt-10 text-xl font-normal tracking-tight">{title}</h3>
+                  <li
+                    key={number}
+                    className="border-b border-line px-5 py-8 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0"
+                  >
+                    <span className="font-mono text-xs tracking-[0.05em] text-fg-3">{number}</span>
+                    <h3 className="mt-8 text-xl font-normal tracking-tight">{title}</h3>
                     <p className="mt-3 text-sm leading-6 text-pretty text-fg-2">{body}</p>
                   </li>
                 ))}
@@ -249,19 +250,31 @@ export function LandingPreview() {
               </Link>
             </Reveal>
             <Reveal delay={80}>
-              <div className="relative grid sm:grid-cols-2">
-                <span className="pointer-events-none absolute inset-0 hidden border border-line sm:block" aria-hidden="true" />
-                <span className="pointer-events-none absolute top-0 bottom-0 left-1/2 hidden w-px bg-line sm:block" aria-hidden="true" />
-                <span className="pointer-events-none absolute right-0 left-0 top-1/2 hidden h-px bg-line sm:block" aria-hidden="true" />
-                <Tick mark="tl" />
-                <Tick mark="tr" />
-                <Tick mark="bl" />
-                <Tick mark="br" />
-                <Tick mark="mid" />
-                <Stat label="Modeled peak cooling" value={`${run.metrics.peakWindowKwh.copilot.toFixed(1)} kWh`} note="Envo arm · same simulated building" />
-                <Stat label="Modeled baseline" value={`${run.metrics.peakWindowKwh.baseline.toFixed(1)} kWh`} note="citywide signal · same simulated building" />
-                <Stat label="Modeled difference" value={`${peakSaving.toFixed(1)}%`} note="assumptions shown in the replay" />
-                <Stat label="Morning brief" value={`${fixtureBrief.items.length} actions`} note={`${fixtureBrief.headline.actNow} needing attention`} />
+              <div className="grid border border-line sm:grid-cols-2">
+                <Stat
+                  label="Modeled peak cooling"
+                  value={`${run.metrics.peakWindowKwh.copilot.toFixed(1)} kWh`}
+                  note="Envo arm · same simulated building"
+                  className="border-b border-line sm:border-r"
+                />
+                <Stat
+                  label="Modeled baseline"
+                  value={`${run.metrics.peakWindowKwh.baseline.toFixed(1)} kWh`}
+                  note="citywide signal · same simulated building"
+                  className="border-b border-line"
+                />
+                <Stat
+                  label="Modeled difference"
+                  value={`${peakSaving.toFixed(1)}%`}
+                  note="assumptions shown in the replay"
+                  className="border-b border-line sm:border-r sm:border-b-0"
+                />
+                <Stat
+                  label="Morning brief"
+                  value={`${fixtureBrief.items.length} actions`}
+                  note={`${fixtureBrief.headline.actNow} needing attention`}
+                  className="border-b-0"
+                />
               </div>
             </Reveal>
           </div>
@@ -274,7 +287,7 @@ export function LandingPreview() {
         <section className="footer-cta px-5 py-24 md:px-12 md:py-32">
           <div className="relative z-10 mx-auto flex min-h-[200px] max-w-[1344px] flex-col justify-between gap-16 md:min-h-[240px]">
             <h2 className="display max-w-[720px] text-4xl leading-[1.05] text-balance text-white md:text-6xl">
-              See the same day through two signals.
+              Watch the day we captured.
             </h2>
             <div>
               <Link
@@ -368,26 +381,13 @@ function OrbitField() {
         <circle cx="260" cy="320" r="3" fill="#5D5C57" />
       </svg>
       <div className="relative z-10 border border-[#1B1613] bg-[#FFF6E5] px-5 py-4">
-        <div className="flex items-center justify-between gap-8 font-mono text-xs tracking-[0.05em] text-[#54504E]">
-          <span>COMMAND SCHEMATIC</span>
-          <span className="inline-flex items-center gap-2">
-            <i className="live-dot size-1.5 rounded-full bg-[#FF8B3E]" aria-hidden="true" />
-            LIVE
-          </span>
+        <div className="font-mono text-xs tracking-[0.05em] text-[#54504E]">
+          COMMAND SCHEMATIC
         </div>
         <div className="mt-4 scale-90">
           <BuildingRig />
         </div>
       </div>
-    </div>
-  );
-}
-
-function HorizonMark() {
-  return (
-    <div className="flex flex-col items-center gap-3 text-[#1B1613]">
-      <span className="font-mono text-xs tracking-[0.05em] text-[#3F3630]">OUTDOOR SIGNAL</span>
-      <span className="display text-4xl">{cToF(run.tileTemperatureC).toFixed(1)}°</span>
     </div>
   );
 }
@@ -401,22 +401,6 @@ function BracketFrame({ children, className }: { children: React.ReactNode; clas
       <span className="pointer-events-none absolute -bottom-px -right-px size-4 border-b border-r border-[#DDD8D5]" aria-hidden="true" />
       {children}
     </div>
-  );
-}
-
-function Tick({ mark }: { mark: 'tl' | 'tr' | 'bl' | 'br' | 'mid' }) {
-  const pos = {
-    tl: 'top-0 left-0',
-    tr: 'top-0 right-0',
-    bl: 'bottom-0 left-0',
-    br: 'bottom-0 right-0',
-    mid: 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
-  }[mark];
-  return (
-    <span className={`pointer-events-none absolute hidden size-2 border-line sm:block ${pos}`} aria-hidden="true">
-      <i className="absolute top-1/2 left-0 h-px w-full -translate-y-1/2 bg-[#1B1613]" />
-      <i className="absolute top-0 left-1/2 h-full w-px -translate-x-1/2 bg-[#1B1613]" />
-    </span>
   );
 }
 
@@ -445,9 +429,13 @@ function ProofRow({ label, value }: { label: string; value: string }) {
   );
 }
 
-function Stat({ label, value, note }: { label: string; value: string; note: string }) {
+function Stat({
+  label, value, note, className,
+}: {
+  label: string; value: string; note: string; className?: string;
+}) {
   return (
-    <div className="px-5 py-6">
+    <div className={`px-5 py-6 ${className ?? ''}`}>
       <div className="font-mono text-xs tracking-[0.05em] text-fg-3">{label}</div>
       <div className="display mt-5 text-4xl">{value}</div>
       <div className="mt-2 text-sm leading-5 text-fg-3">{note}</div>
