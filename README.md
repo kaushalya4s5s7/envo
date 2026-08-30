@@ -1,15 +1,49 @@
-# Envo
+<p align="center">
+  <img src="docs/assets/logo.svg" alt="Envo" width="88" />
+</p>
 
-**The outdoor brain for buildings that already have the controls but not the signal.**
+<h1 align="center">Envo</h1>
+<p align="center"><b>The outdoor brain for buildings that already have the controls but not the signal.</b></p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Bun-workspaces-black?logo=bun&logoColor=white" alt="Bun" />
+  <img src="https://img.shields.io/badge/Next.js-15-black?logo=next.js&logoColor=white" alt="Next.js 15" />
+  <img src="https://img.shields.io/badge/TypeScript-strict-black?logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Tailwind-v4-black?logo=tailwindcss&logoColor=white" alt="Tailwind v4" />
+</p>
+
+<p align="center">
+  <a href="https://envo.up.railway.app"><b>Live demo</b></a> ·
+  <a href="idea.md">Full concept &amp; research</a> ·
+  <a href="#fortyguard-api-usage">FortyGuard usage</a> ·
+  <a href="#why-trust-the-numbers--the-boptest-sandbox">The sandbox</a>
+</p>
+
+---
 
 Envo is a per-building agent. You give it an address. It reads the next twelve hours of heat, sun,
 and air quality for that building's own city block — not the metro average — and turns that into
-HVAC setpoint, shade tint, outside air damper, and demand response commands. It emits those
-commands into a **simulated** building automation system (a digital twin), so you can watch the
-decisions and their consequences before any of this touches a real building.
+HVAC setpoint, shade tint, outside air damper, and demand response commands.
 
-**Live demo:** https://envo.up.railway.app
-**Full concept, research, and objections handled:** [`idea.md`](idea.md)
+<p align="center">
+  <a href="https://envo.up.railway.app">
+    <img src="docs/assets/demo-thumbnail.png" alt="Envo — watch the demo" width="720" />
+  </a>
+  <br />
+  <sub>
+    <a href="https://envo.up.railway.app">▶ Try the live demo</a> · 3-minute walkthrough video coming soon
+  </sub>
+</p>
+
+<!--
+  Once the demo video is recorded and uploaded, swap the block above for:
+
+  <p align="center">
+    <a href="https://www.youtube.com/watch?v=VIDEO_ID">
+      <img src="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg" alt="Watch the 3-minute demo" width="720" />
+    </a>
+  </p>
+-->
 
 ---
 
@@ -28,8 +62,9 @@ address. By the time it notices the building is hot, it is already hot.
 3. **Four pure policies decide.** Precool, shade tint, outside air damper, and air quality each
    propose commands from the forecast; an arbiter resolves conflicts between them (see
    [`docs/decisions/product/arbitration.md`](docs/decisions/product/arbitration.md)).
-4. **Commands go to a simulated BMS**, not a real one. A digital twin models zone temperature,
-   thermal mass, indoor CO₂, and cooling energy so the consequence of each decision is visible.
+4. **Commands land in a digital twin for instant preview, and are independently scored against
+   BOPTEST** — a real physics-based building emulator, not our own model. See
+   [why that matters](#why-trust-the-numbers--the-boptest-sandbox).
 5. **Every decision carries a rationale, a trigger, and an undo condition.** Nothing is a black
    box — see it live at `/app` after signing in, or replay a captured day at `/replay`.
 
@@ -44,9 +79,8 @@ the full method. Nothing here is typed by hand or modeled-only unless labeled th
 distinct 100 m tiles spanning **2.8 °F** between the hottest and coolest block, in the same minute,
 across 23 mi². A citywide weather feed collapses that into one number.
 
-**Scored against a real physics emulator, not our own model.** We ran Envo's control loop against
-[BOPTEST](docs/reference/boptest/api.md)'s independent building simulator, comparing identical
-actuators driven by a hyperlocal forecast versus a degraded citywide-only signal:
+**Scored against a real physics emulator, not our own model.** Comparing identical actuators driven
+by a hyperlocal forecast versus a degraded citywide-only signal:
 
 | | Hyperlocal signal vs. citywide signal, same actuators |
 |---|---|
@@ -67,6 +101,48 @@ air quality against energy, which nobody automates today either way.
 **Modeled, not measured.** kWh figures come from the digital twin, not a utility meter. Every
 modeled number shown to a user states that inline, on screen — see
 [`docs/decisions/product/honesty-rails.md`](docs/decisions/product/honesty-rails.md).
+
+---
+
+## Why trust the numbers — the BOPTEST sandbox
+
+There is no live connection to a real building's BMS. What we validate against instead is more
+useful for proving the control logic actually works: **BOPTEST**, an independent, physics-based
+building emulator built through IBPSA with U.S. Department of Energy and national lab
+contributions — the same class of tool real building-science research uses to score control
+algorithms, not something we wrote ourselves.
+
+**Why not just trust our own twin?** `core/src/twin` is code we wrote — fast first-order thermal
+lags, good for an instant in-product preview, but it can never disagree with us in an interesting
+way. It already flattered us once: our twin reported 26.1% energy savings on a captured day;
+BOPTEST, independently, reported **twice the energy use**. Chasing that gap down surfaced two real
+bugs — the air-quality purge was watching the wrong pollutant, and the precool logic was holding
+the zone three degrees colder than the building was designed for. That is the entire argument for
+running a sandbox instead of grading our own homework. Full writeup:
+[`sandbox-findings.md`](docs/decisions/platform/sandbox-findings.md).
+
+**How it plugs in.** Envo's `BmsAdapter` interface has two implementations sitting behind the exact
+same policies and arbiter — neither one knows which is underneath:
+
+| Adapter | Role |
+|---|---|
+| `SimulatedBms` | Instant, in-process — the live preview inside the product |
+| `BoptestAdapter` | HTTP to a running BOPTEST emulator — independent scoring |
+
+Against BOPTEST, commands go out as `POST /advance/{testid}` with `{"<point>_u": value,
+"<point>_activate": 1}` for only the actuators Envo has earned control of that interval —
+everything else is handed back to the emulator's own baseline controller with `_activate: 0`. That
+partial-control handoff is the same mechanism a real BMS integration would need, tested end to end
+against real building physics.
+
+**It grades itself, not us.** `GET /kpi/{testid}` returns energy, cost, and both thermal and
+air-quality discomfort, computed by the emulator's own physics — that is where the results table
+above comes from, not a number we produced.
+
+**The honest boundary.** BOPTEST supplies its own weather and a building archetype, not literally
+the Manhattan tower on the pitch page. FortyGuard drives every decision; BOPTEST only answers what a
+building does once you act on it. Where the two disagree, that is disclosed on screen, never
+reconciled quietly. Full API contract: [`docs/reference/boptest/api.md`](docs/reference/boptest/api.md).
 
 ---
 
@@ -138,7 +214,7 @@ core/     the agent — framework-free TypeScript, no imports from web
           weather/fortyguard/   the only place the vendor name appears
           policies/             precool · tint · airQuality — pure functions, no I/O
           twin/                 the digital twin: temperature, mass, CO₂, cooling energy
-          bms/                  simulated building automation system
+          bms/                  SimulatedBms + BoptestAdapter, behind one interface
           copilot/              the control loop and conflict arbiter
 web/      Next.js 15 — the pitch at /, the app at /app, the replay viewer at /replay
 fixtures/ captured days, committed, deterministic — what /replay always shows
@@ -150,11 +226,13 @@ working — that boundary is what lets the agent's logic be tested without a bro
 
 ## Honest limitations
 
-Volunteered up front, not buried: the actuator is **simulated**, not a real BMS connection. CO₂ and
-occupancy are modeled, not measured. Energy figures are modeled, not metered. Coverage is US-only
-at 60–100 m resolution. Thresholds are starting values, not tuned per building yet. There is no
-pressure, life-safety, or fire-mode handling — a real deployment sits behind a real BMS's own
-interlocks for that. Full list:
+Volunteered up front, not buried: there is no live connection to a real building's BMS yet — every
+command lands in a digital twin and is independently scored against BOPTEST (see
+[above](#why-trust-the-numbers--the-boptest-sandbox)), never a real building. CO₂ and occupancy are
+modeled, not measured. Energy figures are modeled, not metered. Coverage is US-only at 60–100 m
+resolution. Thresholds are starting values, not tuned per building yet. There is no pressure,
+life-safety, or fire-mode handling — a real deployment sits behind a real BMS's own interlocks for
+that. Full list:
 [`docs/decisions/product/honesty-rails.md`](docs/decisions/product/honesty-rails.md).
 
 ## Where to read more
@@ -164,5 +242,6 @@ interlocks for that. Full list:
 | [`idea.md`](idea.md) | The full concept, the research, every objection and its answer |
 | [`docs/decisions/product/what-we-can-claim.md`](docs/decisions/product/what-we-can-claim.md) | Exactly what is proven versus what is not |
 | [`docs/decisions/platform/sandbox-findings.md`](docs/decisions/platform/sandbox-findings.md) | The full BOPTEST scoring writeup, including where Envo currently loses |
+| [`docs/reference/boptest/api.md`](docs/reference/boptest/api.md) | The BOPTEST API contract this project actually calls |
 | [`docs/architecture.md`](docs/architecture.md) | Repo shape and the principles worth keeping |
 | [`docs/decisions/product/arbitration.md`](docs/decisions/product/arbitration.md) | How the four policies resolve conflicts |
