@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/cn';
 import { PixelMark } from './pixel-mark';
+import { RepoStar } from './repo-star';
 
 const LINKS = [
   { href: '#problem', id: 'problem', label: 'The signal' },
@@ -80,6 +81,7 @@ export function PreviewNav() {
             </div>
 
             <div className="flex items-center gap-3">
+              <RepoStar className="hidden md:inline-flex" />
               <Link
                 href="/login"
                 className="hidden rounded-sm bg-[#DDD8D5] px-3 py-2 text-sm font-medium text-[#0B0907] transition-all duration-300 ease-out hover:bg-fg active:scale-[0.98] md:inline-flex"
@@ -133,11 +135,17 @@ export function PreviewNav() {
             {link.label}
           </Link>
         ))}
+        <RepoStar
+          className={cn(
+            'ease-fluid mt-4 w-max transition-all duration-700',
+            open ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0',
+          )}
+        />
         <Link
           href="/login"
           style={{ transitionDelay: open ? '250ms' : '0ms' }}
           className={cn(
-            'ease-fluid mt-4 inline-flex w-max rounded-sm bg-[#DDD8D5] px-3 py-2 text-base font-medium text-[#0B0907] transition-all duration-700',
+            'ease-fluid inline-flex w-max rounded-sm bg-[#DDD8D5] px-3 py-2 text-base font-medium text-[#0B0907] transition-all duration-700',
             open ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0',
           )}
         >

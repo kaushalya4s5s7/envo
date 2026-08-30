@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/cn';
 import { PixelMark } from './pixel-mark';
+import { RepoStar } from './repo-star';
 
 /**
  * Marketing pages only. Authenticated app pages moved to app-sidebar.tsx —
@@ -49,6 +50,7 @@ export function IslandNav() {
             ))}
           </div>
 
+          <RepoStar className="max-md:hidden" />
           <Link
             href="/login"
             className="ease-fluid inline-flex items-center rounded-sm bg-fg px-3 py-2 text-sm font-medium text-ink transition-all duration-500 hover:bg-fg-2 active:scale-[0.98] max-md:hidden"
@@ -88,7 +90,7 @@ export function IslandNav() {
           open ? 'visible opacity-100' : 'invisible opacity-0',
         )}
       >
-        {[...LINKS, { href: '/login', label: 'Sign in' }].map((l, i) => (
+        {LINKS.map((l, i) => (
           <Link
             key={l.href}
             href={l.href}
@@ -101,6 +103,22 @@ export function IslandNav() {
             {l.label}
           </Link>
         ))}
+        <RepoStar
+          className={cn(
+            'ease-fluid mt-4 w-max transition-all duration-700',
+            open ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0',
+          )}
+        />
+        <Link
+          href="/login"
+          style={{ transitionDelay: open ? '280ms' : '0ms' }}
+          className={cn(
+            'ease-fluid inline-flex w-max rounded-sm bg-fg px-3 py-2 text-base font-medium text-ink transition-all duration-700',
+            open ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0',
+          )}
+        >
+          Sign in
+        </Link>
       </div>
     </>
   );
