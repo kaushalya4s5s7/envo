@@ -21,9 +21,9 @@
 
 ---
 
-Envo is a per-building agent. You give it an address. It reads the next twelve hours of heat, sun,
-and air quality for that building's own city block — not the metro average — and turns that into
-HVAC setpoint, shade tint, outside air damper, and demand response commands.
+Envo is a per-building agent. You give it an address. It reads the next twelve hours of block level
+heat and sun, combines them with the available air quality signal, and turns the result into HVAC
+setpoint, shade tint, outside air damper, and demand response commands.
 
 <p align="center">
   <a href="https://envo.up.railway.app">
@@ -49,16 +49,26 @@ HVAC setpoint, shade tint, outside air damper, and demand response commands.
 
 ## The problem
 
-A building's automation system already knows how to hold a setpoint, tilt a shade, or close a
-damper. What it does not have is foresight, or a thermal picture of its own block. It reacts to
-what a rooftop sensor feels right now, using a weather feed built for a whole city, not one
-address. By the time it notices the building is hot, it is already hot.
+A building's automation system already knows how to hold a setpoint, tilt a shade, or adjust a
+damper. What it does not have is foresight or a way to balance the conditions those controls
+affect. A citywide weather feed hides the thermal difference between neighboring blocks, so the
+system reacts after heat arrives or cools too early and wastes energy.
+
+The outside air damper creates a second tradeoff. Opening it brings in needed ventilation, but it
+can also bring ozone and particulate pollution inside. Closing it limits that pollution, but
+indoor CO₂ rises. Temperature, sun, comfort, energy, ozone, particulates, and CO₂ are connected
+through the same few physical controls.
+
+Temperature is genuinely block level. Air quality is not: ozone changes hour to hour, while PM2.5
+is a daily metro scale signal. Envo uses both signals honestly, adding a block level thermal
+forecast and a decision layer that can arbitrate the tradeoff before the problem arrives.
 
 ## The solution
 
 1. **You give it an address.** No hardware, no site visit, no access to your BMS.
-2. **It reads that block specifically.** A live [FortyGuard](#fortyguard-api-usage) heatmap finds
-   the 100 m tile the building sits in and pulls a twelve hour forecast for that exact point.
+2. **It reads the right signals.** A live [FortyGuard](#fortyguard-api-usage) heatmap finds the
+   100 m thermal tile the building sits in. A twelve hour parameter forecast adds heat, sun, ozone,
+   and particulate context for the decisions that follow.
 3. **Four pure policies decide.** Precool, shade tint, outside air damper, and air quality each
    propose commands from the forecast; an arbiter resolves conflicts between them (see
    [`docs/decisions/product/arbitration.md`](docs/decisions/product/arbitration.md)).

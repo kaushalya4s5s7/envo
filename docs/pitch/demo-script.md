@@ -12,15 +12,29 @@ under them when someone wants the mechanism, not just the headline.
 
 ## Part 1 — The problem. Landing page.
 
-> "Every building in a city gets the same weather forecast. One number, for the
-> whole metro."
+> "A building's automation system already knows how to hold a setpoint, move a
+> shade, and adjust an outside air damper. The problem is that it has to make
+> several connected decisions with one blunt citywide signal."
 >
-> "But this is a real heatmap of Manhattan, from FortyGuard. Four thousand two
+> "When heat is coming, reacting late creates discomfort or cooling waste. When
+> outdoor air turns unhealthy, closing the intake protects people from ozone and
+> particulate pollution, but indoor CO₂ rises. Leaving it open protects
+> ventilation, but brings polluted air inside."
+>
+> "Temperature, sun, comfort, energy, ozone, particulates, and CO₂ are not
+> separate problems. They meet at the same few physical controls."
+
+> "This is a real heatmap of Manhattan, from FortyGuard. Four thousand two
 > hundred and sixty five blocks. Two point eight degrees between the hottest and
-> the coolest, **at the same minute**."
->
-> "Your building automation system gets one number for all of them. So it reacts
-> to heat after it arrives, every single day."
+> the coolest, **at the same minute**. Temperature is genuinely block level."
+
+> "Air quality is different. It is metro scale, PM2.5 is a daily signal, and
+> ozone changes hour to hour. The building still has to use that signal while
+> responding to the heat on its own block."
+
+> "Your building knows the weather. It does not know its block or the next
+> tradeoff. Envo adds the block level thermal forecast and arbitrates those
+> competing decisions before the problem arrives."
 
 Scroll slowly through **How it works** while you say the last line. Do not read
 the four steps aloud.

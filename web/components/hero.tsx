@@ -41,8 +41,9 @@ export function Hero() {
 
       <Reveal delay={340}>
         <p className="mt-6 mb-5 max-w-[560px] text-center text-base text-pretty text-fg-2 md:text-sm">
-          The next twelve hours of heat and sun for this block, turned into setpoint, shade, and
-          damper commands your automation system already accepts.
+          The next twelve hours of block level heat and sun, combined with ozone and particulate
+          air quality, become coordinated setpoint, shade, and outside air decisions that balance
+          comfort, energy, and indoor CO₂.
         </p>
       </Reveal>
 
